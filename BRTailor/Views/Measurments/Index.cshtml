@@ -1,0 +1,100 @@
+﻿@model IEnumerable<BRTailor.Measurment>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Customer_ID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Length)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Shoulder)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Waist)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sleeves)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.arms)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Collar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bottom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SidePocket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FrontPocket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MeasurmentType.Measurment_Type)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Customer_ID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Length)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shoulder)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Waist)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sleeves)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.arms)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Collar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bottom)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SidePocket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FrontPocket)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MeasurmentType.Measurment_Type)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Measurment_ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Measurment_ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Measurment_ID })
+        </td>
+    </tr>
+}
+
+</table>

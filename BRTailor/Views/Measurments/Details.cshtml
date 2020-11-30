@@ -1,0 +1,115 @@
+﻿@model BRTailor.Measurment
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Measurment</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Customer_ID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Customer_ID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chest)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chest)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Shoulder)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shoulder)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Waist)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Waist)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sleeves)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sleeves)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.arms)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.arms)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Collar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Collar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bottom)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bottom)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SidePocket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SidePocket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FrontPocket)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FrontPocket)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MeasurmentType.Measurment_Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MeasurmentType.Measurment_Type)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Measurment_ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

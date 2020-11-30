@@ -1,0 +1,244 @@
+﻿@model BRTailor.Measurment
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+    <section class="box ">
+
+        <header class="panel_header">
+            <h2 class="title pull-left">Customer Details</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Name</label>
+                    <input type="text" class="form-control is-valid" id="StudentName" name="StudentName" placeholder="Enter Name" required>
+                </div>
+                <div class="col-xs-3">
+                    <label>Phone</label>
+                    <input type="text" class="form-control is-valid" id="Email" name="Email" placeholder="Enter Phone" required>
+
+                </div>
+                <div class="col-xs-3">
+                    <label>City</label>
+                    <input type="text" class="form-control is-valid" id="FatherName" name="FatherName" placeholder="Enter City" required>
+                </div>
+
+
+
+                <div class="col-xs-3">
+                    <label>Address</label>
+                    <input type="text" class="form-control is-valid" id="City" name="City" placeholder="Address"
+                           required>
+
+                </div>
+                <div class="col-xs-3" hidden>
+                    <label>image</label>
+                    <input type="text" class="form-control is-valid" id="Address" name="Address" placeholder="Address"
+                           required>
+                </div>
+            </div>
+
+
+        </div>
+        @*Measurment*@
+        <header class="panel_header">
+            <h2 class="title pull-left">Measurment Detail's</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+@if (ViewBag.Measurment_Type_ID != null)
+{
+        <div class="content-body">
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Type</label>
+                    @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
+                </div>
+                <div class="col-xs-3"  id="Lengthdiv">
+                    <label>Length</label>
+                    <input type="text" class="form-control is-valid" id="Length" name="Length" placeholder="Length" required>
+
+                </div>
+                <div class="col-xs-3" id="Chestdiv">
+                    <label>Chest</label>
+                    <input type="text" class="form-control is-valid" id="Chest" name="Chest" placeholder="Chest" required>
+
+                </div>
+                <div class="col-xs-3" id="Shoulderdiv">
+                    <label>Shoulder</label>
+                    <input type="text" class="form-control is-valid" id="Shoulder" name="Shoulder" placeholder="Shoulder" required>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3" id="Waistdiv">
+                    <label>Waist</label>
+                    <input type="text" class="form-control is-valid" id="Waist" name="Waist" placeholder="Waist" required>
+
+                </div>
+                <div class="col-xs-3" id="Sleevesdiv">
+                    <label>Sleeves</label>
+                    <input type="text" class="form-control is-valid" id="Sleeves" name="Sleeves" placeholder="Sleeves" required>
+
+                </div>
+                <div class="col-xs-3" id="armsdiv">
+                    <label>Arms</label>
+                    <input type="text" class="form-control is-valid" id="arms" name="arms" placeholder="Arms" required>
+
+                </div>
+                <div class="col-xs-3" id="Collordiv">
+                    <label>Collor</label>
+                    <input type="text" class="form-control is-valid" id="Collor" name="Collor" placeholder="Collor" required>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-3" id="Bottomdiv">
+                    <label>Bottom</label>
+                    <input type="text" class="form-control is-valid" id="Bottom" name="Bottom" placeholder="Bottom" required>
+
+                </div>
+                <div class="col-xs-3" id="SidePocketdiv">
+                    <label>Side Pockets</label>
+                    <input type="text" class="form-control is-valid" id="SidePocket" name="SidePocket" placeholder="Side Pockets" required>
+
+                </div>
+                <div class="col-xs-3" id="FrontPocketdiv">
+                    <label>Front Pocket</label>
+                    <input type="text" class="form-control is-valid" id="FrontPocket" name="FrontPocket" placeholder="Front Pocket" required>
+
+                </div>
+                <div class="col-xs-3" >
+                    <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin: 32px 10px 10px 10px;">+</button>
+                </div>
+            </div>
+
+        </div>
+}
+        <header class="panel_header">
+            <h2 class="title pull-left">Measurments Saved</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <div class="table-responsive">
+
+                        <table id="tblMeasur" class="table table-bordered">
+                            <thead>
+                                <tr class="d-table-row">
+
+                                    <th align="left" class="productth">Type</th>
+                                    <th align="left" class="productth">Length</th>
+                                    <th align="left" class="productth">Chest</th>
+                                    <th align="left" class="productth">Shoulder</th>
+                                    <th align="left" class="productth">Waist</th>
+                                    <th align="left" class="productth">Seelves</th>
+                                    <th align="left" class="productth">Arms</th>
+                                    <th align="left" class="productth">Collor</th>
+                                    <th align="left" class="productth">Bottom</th>
+                                    <th align="left" class="productth">Side Pockets</th>
+                                    <th align="left" class="productth">Front Pocket</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Submit form</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
+    
+<script src="~/Content/own.js"></script>
+ 
+
+  
+<script src="~/assets/js/jquery-1.11.2.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#Lengthdiv").hide();
+        $("#Chestdiv").hide();
+        $("#Shoulderdiv").hide();
+        $("#Waistdiv").hide();
+        $("#Sleevesdiv").hide();
+        $("#armsdiv").hide();
+        $("#Collordiv").hide();
+        $("#Bottomdiv").hide();
+        $("#SidePocketdiv").hide();
+        $("#FrontPocketdiv").hide();
+        $("#Measurment_Type_ID").change(function () {
+            $("#Lengthdiv").hide();
+            $("#Chestdiv").hide();
+            $("#Shoulderdiv").hide();
+            $("#Waistdiv").hide();
+            $("#Sleevesdiv").hide();
+            $("#armsdiv").hide();
+            $("#Collordiv").hide();
+            $("#Bottomdiv").hide();
+            $("#SidePocketdiv").hide();
+            $("#FrontPocketdiv").hide();
+            var MeasurId = parseInt($(this).val());
+            //Kurta
+            if (MeasurId === 1)
+            {
+                $("#Lengthdiv").show();
+                $("#Chestdiv").show();
+                $("#Shoulderdiv").show();
+                $("#armsdiv").show();
+                $("#Collordiv").show();
+                $("#SidePocketdiv").show();
+                $("#FrontPocketdiv").show();
+                $("#Sleevesdiv").show();
+            }
+                //Pent
+            else if (MeasurId === 2) {
+                $("#Lengthdiv").show();
+                $("#Waistdiv").show();
+                $("#SidePocketdiv").show();
+                $("#Bottomdiv").show();
+            }
+                //Coat
+            else if (MeasurId === 3) {
+                $("#Lengthdiv").show();
+                $("#Waistdiv").show();
+                $("#Shoulderdiv").show();
+                $("#Sleevesdiv").show();
+                $("#armsdiv").show();
+                $("#Chestdiv").show();
+            }
+                //WAistCoat
+            else if (MeasurId === 6) {
+                $("#Lengthdiv").show();
+                $("#Waistdiv").show();
+                $("#Shoulderdiv").show();
+                $("#Chestdiv").show();
+                
+            }
+
+           
+                    
+        });
+
+    });
+</script>
+
+

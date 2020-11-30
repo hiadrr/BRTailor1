@@ -1,0 +1,112 @@
+﻿
+@{
+    ViewBag.Title = "AddStaff";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="clearfix"></div>
+      <section class="wrapper main-wrapper"> 
+     <div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Add Staff Detail</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-12 col-sm-12 col-xs-12">
+
+                    <form id="commentForm" novalidate="novalidate" action="/Staff/AddStaff" method="post" enctype="multipart/form-data">
+
+                        <div id="pills" class="wizardpills">
+                            <ul class="form-wizard nav nav-pills">
+                                <li class="active"><a href="#pills-tab1" data-toggle="tab" aria-expanded="true"><span>Basic</span></a></li>
+                                <li class=""><a href="#pills-tab2" data-toggle="tab" aria-expanded="false"><span>Contact</span></a></li>
+                                @* For Future Use Image Staff
+                                <li class=""><a href="#pills-tab3" data-toggle="tab" aria-expanded="false"><span>Image</span></a></li>*@
+                            </ul>
+                            <div id="bar" class="progress active">
+                                <div class="progress-bar progress-bar-primary " role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 30%;"></div>
+                            </div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="pills-tab1">
+
+                                    <h4>Basic Information</h4><br>
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">Full Name</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="Full Name" class="form-control" name="Staff_Name" id="txtFullName">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">Email</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="Email" class="form-control" name="Staff_Email" id="txtEmail">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">Position</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="Position" class="form-control" name="Staff_Position" id="Position" required>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="pills-tab2">
+                                    <h4>Contact Information</h4><br>
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">Phone</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="Phone" class="form-control" name="Staff_Phone" id="phone" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">Address</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="Address" class="form-control" name="Staff_Address" id="address" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label" for="field-1">CNIC</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="CNIC" class="form-control" name="Staff_CNIC" id="cnic" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                @* For Future Use Image Staff
+                        <div class="tab-pane" id="pills-tab3">
+                        <h4>Add Image</h4><br>
+                        <div class="form-group">
+                            <label class="form-label" for="formfield10">Upload Image</label>
+                            <span class="desc">e.g. "character.jpg"</span>
+                            <div class="controls">
+                                <input type="file" accept="image/*" class="form-control" id="formfield10" name="image">
+                            </div>
+                        </div>
+                    </div>*@
+
+
+
+                                <div class="clearfix"></div>
+
+                                <ul class="pager wizard">
+                                    <li class="previous first disabled" style="display:none;"><a href="javascript:;">First</a></li>
+                                    <li class="previous disabled"><a href="javascript:;">Previous</a></li>
+                                    <li class="next last" style="display:none;"><a href="javascript:;">Last</a></li>
+                                    <li class="next"><a href="javascript:;">Next</a></li>
+                                    <li class="finish"><input type="submit" value="Submit"></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</section>

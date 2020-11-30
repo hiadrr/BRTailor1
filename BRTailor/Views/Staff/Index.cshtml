@@ -1,0 +1,71 @@
+﻿@model IEnumerable<BRTailor.Staff>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Staff Record</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+
+     <div class="content-body">
+        <table id="example-1" class="table table-striped dt-responsive display dataTable dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="example-1_info" style="width: 100%;">
+            <thead>
+                <tr role="row" class="odd">
+                    <th class="th-sm">
+                        ID
+                    </th>
+                    <th class="th-sm">
+                        Name
+                    </th>
+                    <th class="th-sm">
+                        Phone
+                    </th>
+                    <th class="th-sm">Address</th>
+                    <th class="th-sm">Email</th>
+                    <th class="th-sm">Position</th>
+                    <th class="th-sm">CNIC</th>
+                    <th class="th-sm">Action</th>
+                    <th class="th-sm">Action</th>
+                    <th class="th-sm">Action</th>
+
+                </tr>
+            </thead>
+
+            @foreach (var item in Model)
+            {
+                <tr role="row" class="even">
+                    <td>@item.Staff_ID </td>
+                    <td>@item.Staff_Name </td>
+                    <td>@item.Staff_Phone </td>
+                    <td>@item.Staff_Address </td>
+                    <td>@item.Staff_Email </td>
+                    <td>@item.Staff_Position </td>
+                    <td>@item.Staff_CNIC </td>
+                    <td>@Html.ActionLink("Edit ", "EditStaff", new { id = @item.Staff_ID })</td>
+                    <td>
+                        @Html.ActionLink(" Delete", "DeleteStaff", new { id = @item.Staff_ID },
+                    new { onclick = "return confirm('Are you sure you wish to delete this User?');" })
+                    </td>
+                    <td>@Html.ActionLink(" Detail", "StaffByID", new { id = @item.Staff_ID })</td>
+
+                </tr>
+            }
+        </table>
+   </div>
+
+    </section>
+</div>
+
+
+
+
+
