@@ -14,7 +14,12 @@ namespace BRTailor.Controllers
         public ActionResult Index()
         {
             ViewBag.Measurment_Type_ID = new SelectList(db.MeasurmentTypes, "Measurment_Type_ID", "Measurment_Type");
-            //haiderali
+      
+            return View();
+        }
+        [HttpPost]
+        public ActionResult saveCustomerWithMeasurment()
+        {
             return View();
         }
        
