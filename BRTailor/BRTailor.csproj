@@ -250,6 +250,7 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\MeasurmentTypeVM.cs" />
     <Compile Include="Models\MeasurmentViewModel.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
@@ -661,6 +662,8 @@
     <Content Include="Views\Measurments\Details.cshtml" />
     <Content Include="Views\Measurments\Edit.cshtml" />
     <Content Include="Views\Measurments\Index.cshtml" />
+    <Content Include="Views\Customer\CustomerList.cshtml" />
+    <Content Include="Views\Customer\CustomerByID.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

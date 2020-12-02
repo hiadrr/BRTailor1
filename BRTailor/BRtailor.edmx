@@ -87,11 +87,22 @@
           <Property Name="Length" Type="float" />
           <Property Name="Chest" Type="float" />
           <Property Name="Shoulder" Type="float" />
-          <Property Name="Waist" Type="float" />
-          <Property Name="Sleeves" Type="float" />
+          <Property Name="Waist" Type="int" />
+          <Property Name="Sleeves" Type="nvarchar" MaxLength="20" />
           <Property Name="arms" Type="float" />
-          <Property Name="Collar" Type="float" />
+          <Property Name="CollarSize" Type="float" />
           <Property Name="Bottom" Type="float" />
+          <Property Name="Hip" Type="float" />
+          <Property Name="Gidrii" Type="float" />
+          <Property Name="CrossBack" Type="float" />
+          <Property Name="Tera" Type="float" />
+          <Property Name="Dcollor" Type="nvarchar" MaxLength="20" />
+          <Property Name="Ghera" Type="nvarchar" MaxLength="20" />
+          <Property Name="suitDesign" Type="nvarchar" MaxLength="20" />
+          <Property Name="btnDesign" Type="nvarchar" MaxLength="20" />
+          <Property Name="Stitch" Type="nvarchar" MaxLength="20" />
+          <Property Name="CoatButton" Type="nvarchar" MaxLength="20" />
+          <Property Name="CoatFitting" Type="nvarchar" MaxLength="20" />
           <Property Name="SidePocket" Type="nvarchar" MaxLength="10" />
           <Property Name="FrontPocket" Type="nvarchar" MaxLength="10" />
         </EntityType>
@@ -295,7 +306,6 @@
           <EntitySet Name="AspNetUserLogins" EntityType="BRTailorModel.AspNetUserLogin" />
           <EntitySet Name="AspNetUsers" EntityType="BRTailorModel.AspNetUser" />
           <EntitySet Name="Customers" EntityType="BRTailorModel.Customer" />
-          <EntitySet Name="Measurments" EntityType="BRTailorModel.Measurment" />
           <EntitySet Name="MeasurmentTypes" EntityType="BRTailorModel.MeasurmentType" />
           <EntitySet Name="Orders" EntityType="BRTailorModel.Order" />
           <EntitySet Name="sysdiagrams" EntityType="BRTailorModel.sysdiagram" />
@@ -311,14 +321,6 @@
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
-          <AssociationSet Name="FK_Measurment_MeasurmentType" Association="BRTailorModel.FK_Measurment_MeasurmentType">
-            <End Role="MeasurmentType" EntitySet="MeasurmentTypes" />
-            <End Role="Measurment" EntitySet="Measurments" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Order_Measurment" Association="BRTailorModel.FK_Order_Measurment">
-            <End Role="Measurment" EntitySet="Measurments" />
-            <End Role="Order" EntitySet="Orders" />
-          </AssociationSet>
           <AssociationSet Name="AspNetUserRoles" Association="BRTailorModel.AspNetUserRoles">
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
@@ -326,6 +328,15 @@
           <EntitySet Name="Staffs" EntityType="BRTailorModel.Staff" />
           <AssociationSet Name="FK_Order_Staff" Association="BRTailorModel.FK_Order_Staff">
             <End Role="Staff" EntitySet="Staffs" />
+            <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="Measurments" EntityType="BRTailorModel.Measurment" />
+          <AssociationSet Name="FK_Measurment_MeasurmentType" Association="BRTailorModel.FK_Measurment_MeasurmentType">
+            <End Role="MeasurmentType" EntitySet="MeasurmentTypes" />
+            <End Role="Measurment" EntitySet="Measurments" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Order_Measurment" Association="BRTailorModel.FK_Order_Measurment">
+            <End Role="Measurment" EntitySet="Measurments" />
             <End Role="Order" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
@@ -400,26 +411,6 @@
           <Property Name="Customer_image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="BRTailorModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
         </EntityType>
-        <EntityType Name="Measurment">
-          <Key>
-            <PropertyRef Name="Measurment_ID" />
-          </Key>
-          <Property Name="Measurment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Measurment_Type_ID" Type="Int32" />
-          <Property Name="Customer_ID" Type="Int32" />
-          <Property Name="Length" Type="Double" />
-          <Property Name="Chest" Type="Double" />
-          <Property Name="Shoulder" Type="Double" />
-          <Property Name="Waist" Type="Double" />
-          <Property Name="Sleeves" Type="Double" />
-          <Property Name="arms" Type="Double" />
-          <Property Name="Collar" Type="Double" />
-          <Property Name="Bottom" Type="Double" />
-          <Property Name="SidePocket" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <Property Name="FrontPocket" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="MeasurmentType" Relationship="BRTailorModel.FK_Measurment_MeasurmentType" FromRole="Measurment" ToRole="MeasurmentType" />
-          <NavigationProperty Name="Orders" Relationship="BRTailorModel.FK_Order_Measurment" FromRole="Measurment" ToRole="Order" />
-        </EntityType>
         <EntityType Name="MeasurmentType">
           <Key>
             <PropertyRef Name="Measurment_Type_ID" />
@@ -437,8 +428,8 @@
           <Property Name="Staff_ID" Type="Int32" />
           <Property Name="Measurment_ID" Type="Int32" />
           <NavigationProperty Name="Customer" Relationship="BRTailorModel.FK_Order_Customer" FromRole="Order" ToRole="Customer" />
-          <NavigationProperty Name="Measurment" Relationship="BRTailorModel.FK_Order_Measurment" FromRole="Order" ToRole="Measurment" />
           <NavigationProperty Name="Staff" Relationship="BRTailorModel.FK_Order_Staff" FromRole="Order" ToRole="Staff" />
+          <NavigationProperty Name="Measurment" Relationship="BRTailorModel.FK_Order_Measurment" FromRole="Order" ToRole="Measurment" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -490,30 +481,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Measurment_MeasurmentType">
-          <End Type="BRTailorModel.MeasurmentType" Role="MeasurmentType" Multiplicity="0..1" />
-          <End Type="BRTailorModel.Measurment" Role="Measurment" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MeasurmentType">
-              <PropertyRef Name="Measurment_Type_ID" />
-            </Principal>
-            <Dependent Role="Measurment">
-              <PropertyRef Name="Measurment_Type_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Order_Measurment">
-          <End Type="BRTailorModel.Measurment" Role="Measurment" Multiplicity="0..1" />
-          <End Type="BRTailorModel.Order" Role="Order" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Measurment">
-              <PropertyRef Name="Measurment_ID" />
-            </Principal>
-            <Dependent Role="Order">
-              <PropertyRef Name="Measurment_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="AspNetUserRoles">
           <End Type="BRTailorModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="BRTailorModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
@@ -541,6 +508,61 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="Staff_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Measurment">
+          <Key>
+            <PropertyRef Name="Measurment_ID" />
+          </Key>
+          <Property Name="Measurment_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Measurment_Type_ID" Type="Int32" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Length" Type="Double" />
+          <Property Name="Chest" Type="Double" />
+          <Property Name="Shoulder" Type="Double" />
+          <Property Name="Waist" Type="Int32" />
+          <Property Name="Sleeves" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="arms" Type="Double" />
+          <Property Name="CollarSize" Type="Double" />
+          <Property Name="Bottom" Type="Double" />
+          <Property Name="Hip" Type="Double" />
+          <Property Name="Gidrii" Type="Double" />
+          <Property Name="CrossBack" Type="Double" />
+          <Property Name="Tera" Type="Double" />
+          <Property Name="Dcollor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Ghera" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="suitDesign" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="btnDesign" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="Stitch" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CoatButton" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="CoatFitting" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="SidePocket" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="FrontPocket" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="MeasurmentType" Relationship="BRTailorModel.FK_Measurment_MeasurmentType" FromRole="Measurment" ToRole="MeasurmentType" />
+          <NavigationProperty Name="Orders" Relationship="BRTailorModel.FK_Order_Measurment" FromRole="Measurment" ToRole="Order" />
+        </EntityType>
+        <Association Name="FK_Measurment_MeasurmentType">
+          <End Type="BRTailorModel.MeasurmentType" Role="MeasurmentType" Multiplicity="0..1" />
+          <End Type="BRTailorModel.Measurment" Role="Measurment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasurmentType">
+              <PropertyRef Name="Measurment_Type_ID" />
+            </Principal>
+            <Dependent Role="Measurment">
+              <PropertyRef Name="Measurment_Type_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Order_Measurment">
+          <End Type="BRTailorModel.Measurment" Role="Measurment" Multiplicity="0..1" />
+          <End Type="BRTailorModel.Order" Role="Order" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Measurment">
+              <PropertyRef Name="Measurment_ID" />
+            </Principal>
+            <Dependent Role="Order">
+              <PropertyRef Name="Measurment_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -617,25 +639,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Measurments">
-            <EntityTypeMapping TypeName="BRTailorModel.Measurment">
-              <MappingFragment StoreEntitySet="Measurment">
-                <ScalarProperty Name="FrontPocket" ColumnName="FrontPocket" />
-                <ScalarProperty Name="SidePocket" ColumnName="SidePocket" />
-                <ScalarProperty Name="Bottom" ColumnName="Bottom" />
-                <ScalarProperty Name="Collar" ColumnName="Collar" />
-                <ScalarProperty Name="arms" ColumnName="arms" />
-                <ScalarProperty Name="Sleeves" ColumnName="Sleeves" />
-                <ScalarProperty Name="Waist" ColumnName="Waist" />
-                <ScalarProperty Name="Shoulder" ColumnName="Shoulder" />
-                <ScalarProperty Name="Chest" ColumnName="Chest" />
-                <ScalarProperty Name="Length" ColumnName="Length" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="Measurment_Type_ID" ColumnName="Measurment_Type_ID" />
-                <ScalarProperty Name="Measurment_ID" ColumnName="Measurment_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="MeasurmentTypes">
             <EntityTypeMapping TypeName="BRTailorModel.MeasurmentType">
               <MappingFragment StoreEntitySet="MeasurmentType">
@@ -684,6 +687,36 @@
                 <ScalarProperty Name="Staff_Address" ColumnName="Staff_Address" />
                 <ScalarProperty Name="Staff_Name" ColumnName="Staff_Name" />
                 <ScalarProperty Name="Staff_ID" ColumnName="Staff_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Measurments">
+            <EntityTypeMapping TypeName="BRTailorModel.Measurment">
+              <MappingFragment StoreEntitySet="Measurment">
+                <ScalarProperty Name="FrontPocket" ColumnName="FrontPocket" />
+                <ScalarProperty Name="SidePocket" ColumnName="SidePocket" />
+                <ScalarProperty Name="CoatFitting" ColumnName="CoatFitting" />
+                <ScalarProperty Name="CoatButton" ColumnName="CoatButton" />
+                <ScalarProperty Name="Stitch" ColumnName="Stitch" />
+                <ScalarProperty Name="btnDesign" ColumnName="btnDesign" />
+                <ScalarProperty Name="suitDesign" ColumnName="suitDesign" />
+                <ScalarProperty Name="Ghera" ColumnName="Ghera" />
+                <ScalarProperty Name="Dcollor" ColumnName="Dcollor" />
+                <ScalarProperty Name="Tera" ColumnName="Tera" />
+                <ScalarProperty Name="CrossBack" ColumnName="CrossBack" />
+                <ScalarProperty Name="Gidrii" ColumnName="Gidrii" />
+                <ScalarProperty Name="Hip" ColumnName="Hip" />
+                <ScalarProperty Name="Bottom" ColumnName="Bottom" />
+                <ScalarProperty Name="CollarSize" ColumnName="CollarSize" />
+                <ScalarProperty Name="arms" ColumnName="arms" />
+                <ScalarProperty Name="Sleeves" ColumnName="Sleeves" />
+                <ScalarProperty Name="Waist" ColumnName="Waist" />
+                <ScalarProperty Name="Shoulder" ColumnName="Shoulder" />
+                <ScalarProperty Name="Chest" ColumnName="Chest" />
+                <ScalarProperty Name="Length" ColumnName="Length" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Measurment_Type_ID" ColumnName="Measurment_Type_ID" />
+                <ScalarProperty Name="Measurment_ID" ColumnName="Measurment_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

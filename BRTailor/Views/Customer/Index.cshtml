@@ -3,8 +3,6 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
-
 <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
     <section class="box ">
 
@@ -17,35 +15,30 @@
             </div>
         </header>
         <div class="content-body">
+          
             <div class="row">
                 <div class="col-xs-3">
                     <label>Name</label>
-                    <input type="text" class="form-control is-valid" id="StudentName" name="StudentName" placeholder="Enter Name" required>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.Name" id="CustomerName" name="CustomerName" placeholder="Enter Name" required>
                 </div>
                 <div class="col-xs-3">
                     <label>Phone</label>
-                    <input type="text" class="form-control is-valid" id="Email" name="Email" placeholder="Enter Phone" required>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.Phone" id="Phone" name="Phone" placeholder="Enter Phone" required>
 
                 </div>
                 <div class="col-xs-3">
                     <label>City</label>
-                    <input type="text" class="form-control is-valid" id="FatherName" name="FatherName" placeholder="Enter City" required>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.City" id="City" name="City" placeholder="Enter City" required>
                 </div>
-
-
-
                 <div class="col-xs-3">
                     <label>Address</label>
-                    <input type="text" class="form-control is-valid" id="City" name="City" placeholder="Address"
-                           required>
-
-                </div>
-                <div class="col-xs-3" hidden>
-                    <label>image</label>
-                    <input type="text" class="form-control is-valid" id="Address" name="Address" placeholder="Address"
+                    <input type="text" class="form-control is-valid" value="@ViewBag.Address" id="Address" name="Address" placeholder="Address"
                            required>
                 </div>
+                
             </div>
+           
+         
 
 
         </div>
@@ -58,76 +51,184 @@
                 <i class="box_close fa fa-times"></i>
             </div>
         </header>
-@if (ViewBag.Measurment_Type_ID != null)
-{
-        <div class="content-body">
+        @if (ViewBag.Measurment_Type_ID != null)
+        {
+            <div class="content-body">
 
-            <div class="row">
-                <div class="col-xs-3">
-                    <label>Type</label>
-                    @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
+                <div class="row">
+                    <div class="col-xs-3">
+                        <label>Type</label>
+                        @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
+                    </div>
+                    <div class="col-xs-3" id="Lengthdiv">
+                        <label>لمبائی/Length</label>
+                        <input type="text" class="form-control is-valid" id="Length" name="Length" placeholder="Length" required>
+
+                    </div>
+                    <div class="col-xs-3" id="Hipdiv">
+                        <label>Hip</label>
+                        <input type="text" class="form-control is-valid" id="Hip" name="Hip" placeholder="Hip Size" required>
+
+                    </div>
+                    <div class="col-xs-3" id="Gidriidiv">
+                        <label>Gidrii</label>
+                        <input type="text" class="form-control is-valid" id="Gidrii" name="Gidrii" placeholder="Gidrii Size" required>
+
+                    </div>
+                    <div class="col-xs-3" id="CrossBackdiv">
+                        <label>Cross Back</label>
+                        <input type="text" class="form-control is-valid" id="CrossBack" name="CrossBack" placeholder="Cross Back Size" required>
+
+                    </div>
+                    <div class="col-xs-3" id="Chestdiv">
+                        <label>سینہ/Chest</label>
+                        <input type="text" class="form-control is-valid" id="Chest" name="Chest" placeholder="Chest" required>
+
+                    </div>
+                    <div class="col-xs-3" id="Shoulderdiv">
+                        <label>کندھا/Shoulder</label>
+                        <input type="text" class="form-control is-valid" id="Shoulder" name="Shoulder" placeholder="Shoulder" required>
+
+                    </div>
                 </div>
-                <div class="col-xs-3"  id="Lengthdiv">
-                    <label>Length</label>
-                    <input type="text" class="form-control is-valid" id="Length" name="Length" placeholder="Length" required>
+                <div class="row">
+                    <div class="col-xs-3" id="Waistdiv">
+                        <label>کمر/Waist</label>
+                        <input type="text" class="form-control is-valid" id="Waist" name="Waist" placeholder="Waist" required>
+
+                    </div>
+                    <div class="col-xs-3" id="Sleevesdiv">
+                        <label>آستین/Seelves</label>
+
+                        <select class="form-control is-valid" id="Sleeves" name="Sleeves" required>
+                            <option value="">Select Seelves Type</option>
+                            <option value="Round">گول/Round</option>
+                            <option value="stright">سیدھے/Straight </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3" id="armsdiv">
+                        <label>بازو/Arms Size</label>
+                        <input type="text" class="form-control is-valid" id="arms" name="arms" placeholder="Arms" required>
+
+                    </div>
+                    <div class="col-xs-3" id="CollorSizediv">
+                        <label>کالر/Collor Size</label>
+                        <input type="text" class="form-control is-valid" id="CollorSize" name="CollorSize" placeholder="Collor Size" required>
+
+                    </div>
+                    <div class="col-xs-3" id="Teradiv">
+                        <label>Tera</label>
+                        <input type="text" class="form-control is-valid" id="Tera" name="Tera" placeholder="Tera Size" required>
+
+                    </div>
 
                 </div>
-                <div class="col-xs-3" id="Chestdiv">
-                    <label>Chest</label>
-                    <input type="text" class="form-control is-valid" id="Chest" name="Chest" placeholder="Chest" required>
+                <div class="row">
+                    <div class="col-xs-3" id="Dcollordiv">
+                        <label>کالر/Collor Design</label>
+
+                        <select class="form-control is-valid" id="Dcollor" name="Dcollor">
+                            <option value="">Select Ghera Type</option>
+                            <option value="Bain">Bain</option>
+                            <option value="Collor">Collor </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3" id="Bottomdiv">
+                        <label>پیندا/Bottom</label>
+                        <input type="text" class="form-control is-valid" id="Bottom" name="Bottom" placeholder="Bottom" required>
+
+                    </div>
+                    <div class="col-xs-3" id="SidePocketdiv">
+                        <label>سائیڈ جیب/Side Pockets</label>
+                       
+                        <select class="form-control is-valid" id="SidePocket" name="SidePocket">
+                            <option value="">Select Pockets</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No </option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-3" id="FrontPocketdiv">
+                        <label>سامنے جیب/Front Pocket</label>
+                       
+                        <select class="form-control is-valid" id="FrontPocket" name="FrontPocket">
+                            <option value="">Select Pockets</option>
+                            <option value="Yes">Yes</option>
+                            <option value="No">No </option>
+                        </select>
+                    </div>
 
                 </div>
-                <div class="col-xs-3" id="Shoulderdiv">
-                    <label>Shoulder</label>
-                    <input type="text" class="form-control is-valid" id="Shoulder" name="Shoulder" placeholder="Shoulder" required>
+                <div class="row">
+                    <div class="col-xs-3" id="Gheradiv">
+                        <label>Ghera</label>
 
+                        <select class="form-control is-valid" id="Ghera" name="Ghera">
+                            <option value="">Select Ghera Type</option>
+                            <option value="Round">گول/Round</option>
+                            <option value="stright">سیدھے/Straight </option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3" id="suitDesigndiv">
+                        <label>Select Suit Design</label>
+
+                        <select class="form-control is-valid" id="suitDesign" name="suitDesign">
+                            <option value="">Select Design</option>
+                            <option value="Simple">Simple</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-3" id="btnDesigndiv">
+                        <label>Select Button Design</label>
+
+                        <select class="form-control is-valid" id="btnDesign" name="btnDesign">
+                            <option value="">Select Design</option>
+                            <option value="Simple">Simple</option>
+                            <option value="Design">Design</option>
+                        </select>
+                    </div>
+
+                    <div class="col-xs-3" id="Stitchdiv">
+                        <label>Select Stitch Type</label>
+
+                        <select class="form-control is-valid" id="Stitch" name="Stitch">
+                            <option value="">Select Design</option>
+                            <option value="Single">Single سلائی</option>
+                            <option value="Double">Double سلائی</option>
+                            <option value="Tripple">Tripple سلائی</option>
+                        </select>
+                    </div>
                 </div>
+                <div class="row">
+                <div class="col-xs-3" id="CoatButtondiv">
+                    <label>Select Button</label>
+
+                    <select class="form-control is-valid" id="CoatButton" name="CoatButton">
+                        <option value="">Select Button</option>
+                        <option value="Normal">Normal </option>
+                        <option value="One Button">One Button </option>
+                      
+                    </select>
+                </div>
+                    <div class="col-xs-3" id="CoatFittingdiv">
+                        <label>Select Fitting</label>
+
+                        <select class="form-control is-valid" id="CoatFitting" name="CoatFitting">
+                            <option value="">Select Fitting</option>
+                            <option value="Normal">Normal </option>
+                            <option value="Fitted">Fitted </option>
+
+                        </select>
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin: 32px 10px 10px 10px;">+</button>
+                    </div>
             </div>
-            <div class="row">
-                <div class="col-xs-3" id="Waistdiv">
-                    <label>Waist</label>
-                    <input type="text" class="form-control is-valid" id="Waist" name="Waist" placeholder="Waist" required>
 
-                </div>
-                <div class="col-xs-3" id="Sleevesdiv">
-                    <label>Sleeves</label>
-                    <input type="text" class="form-control is-valid" id="Sleeves" name="Sleeves" placeholder="Sleeves" required>
-
-                </div>
-                <div class="col-xs-3" id="armsdiv">
-                    <label>Arms</label>
-                    <input type="text" class="form-control is-valid" id="arms" name="arms" placeholder="Arms" required>
-
-                </div>
-                <div class="col-xs-3" id="Collordiv">
-                    <label>Collor</label>
-                    <input type="text" class="form-control is-valid" id="Collor" name="Collor" placeholder="Collor" required>
-
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-xs-3" id="Bottomdiv">
-                    <label>Bottom</label>
-                    <input type="text" class="form-control is-valid" id="Bottom" name="Bottom" placeholder="Bottom" required>
-
-                </div>
-                <div class="col-xs-3" id="SidePocketdiv">
-                    <label>Side Pockets</label>
-                    <input type="text" class="form-control is-valid" id="SidePocket" name="SidePocket" placeholder="Side Pockets" required>
-
-                </div>
-                <div class="col-xs-3" id="FrontPocketdiv">
-                    <label>Front Pocket</label>
-                    <input type="text" class="form-control is-valid" id="FrontPocket" name="FrontPocket" placeholder="Front Pocket" required>
-
-                </div>
-                <div class="col-xs-3" >
-                    <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin: 32px 10px 10px 10px;">+</button>
-                </div>
+               
             </div>
 
-        </div>
-}
+        }
         <header class="panel_header">
             <h2 class="title pull-left">Measurments Saved</h2>
             <div class="actions panel_actions pull-right">
@@ -145,29 +246,42 @@
                             <thead>
                                 <tr class="d-table-row">
 
-                                    <th align="left" class="productth">Type</th>
-                                    <th align="left" class="productth">Length</th>
-                                    <th align="left" class="productth">Chest</th>
-                                    <th align="left" class="productth">Shoulder</th>
-                                    <th align="left" class="productth">Waist</th>
-                                    <th align="left" class="productth">Seelves</th>
-                                    <th align="left" class="productth">Arms</th>
-                                    <th align="left" class="productth">Collor</th>
-                                    <th align="left" class="productth">Bottom</th>
-                                    <th align="left" class="productth">Side Pockets</th>
-                                    <th align="left" class="productth">Front Pocket</th>
+                                    <th align="left" class="productth" @*id="type"*@>ٹائپ /Type</th>
+                                    <th align="left" class="productth" @*id="Lengthdiv"*@>لمبائی/Length</th>
+                                    <th align="left" class="productth" @*id="Chestdiv"*@>سینہ/Chest</th>
+                                    <th align="left" class="productth" @*id="Shoulderdiv"*@>کندھا/Shoulder</th>
+                                    <th align="left" class="productth" @*id="Waistdiv"*@>کمر/Waist</th>
+                                    <th align="left" class="productth" @*id="Sleevesdiv"*@>آستین/Seelves</th>
+                                    <th align="left" class="productth" @*id="armsdiv"*@>بازو/Arms</th>
+                                    <th align="left" class="productth" @*id="CollorSizediv"*@>کالر سائز /Collor Size</th>
+                                    <th align="left" class="productth" @*id="Dcollordiv"*@>کالر ڈیزائن/Collor Design</th>
+                                    <th align="left" class="productth" @*id="Bottomdiv"*@>پیندا/Bottom</th>
+                                    <th align="left" class="productth" @*id="SidePocketdiv"*@>سائیڈ جیب/Side Pockets</th>
+                                    <th align="left" class="productth" @*id="FrontPocketdiv"*@>سامنے جیب/Front Pocket</th>
+                                    <th align="left" class="productth" @*id="Hipdiv"*@>Hip</th>
+                                    <th align="left" class="productth" @*id="Gidriidiv"*@>Gidrii</th>
+                                    <th align="left" class="productth" @*id="Teradiv"*@>Tera</th>
+                                    <th align="left" class="productth" @*id="Gheradiv"*@>Ghera</th>
+                                    <th align="left" class="productth" @*id="suitDesigndiv"*@>سوٹ ڈیزائن/Suit Design</th>
+                                    <th align="left" class="productth" @*id="btnDesigndiv"*@>بٹن ڈیزائن/Button Design</th>
+                                    <th align="left" class="productth" @*id="Stitchdiv"*@>سلائی/Stitch</th>
+                                    <th align="left" class="productth" @*id="CoatButtondiv"*@>Coat Button</th>
+                                    <th align="left" class="productth" @*id="CoatFittingdiv"*@>Coat Fitting</th>
+                                    <th align="left" class="productth" @*id="CrossBackdiv"*@>Cross Back</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
                         </table>
-                        <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Submit form</button>
-                    </div>
+                          </div>
+                    <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Submit form</button>
+
                 </div>
             </div>
         </div>
+
     </section>
     </div>
-    
+  
 <script src="~/Content/own.js"></script>
  
 
@@ -175,70 +289,55 @@
 <script src="~/assets/js/jquery-1.11.2.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#Lengthdiv").hide();
-        $("#Chestdiv").hide();
-        $("#Shoulderdiv").hide();
-        $("#Waistdiv").hide();
-        $("#Sleevesdiv").hide();
-        $("#armsdiv").hide();
-        $("#Collordiv").hide();
-        $("#Bottomdiv").hide();
-        $("#SidePocketdiv").hide();
-        $("#FrontPocketdiv").hide();
+        $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
+
+
         $("#Measurment_Type_ID").change(function () {
-            $("#Lengthdiv").hide();
-            $("#Chestdiv").hide();
-            $("#Shoulderdiv").hide();
-            $("#Waistdiv").hide();
-            $("#Sleevesdiv").hide();
-            $("#armsdiv").hide();
-            $("#Collordiv").hide();
-            $("#Bottomdiv").hide();
-            $("#SidePocketdiv").hide();
-            $("#FrontPocketdiv").hide();
+            $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
+
             var MeasurId = parseInt($(this).val());
             //Kurta
-            if (MeasurId === 1)
+            if (MeasurId === 10)
             {
-                $("#Lengthdiv").show();
-                $("#Chestdiv").show();
-                $("#Shoulderdiv").show();
-                $("#armsdiv").show();
-                $("#Collordiv").show();
-                $("#SidePocketdiv").show();
-                $("#FrontPocketdiv").show();
-                $("#Sleevesdiv").show();
+                $("#btnDesigndiv,#Stitchdiv,#type,#Lengthdiv,#armsdiv,#Dcollordiv,#CollorSizediv,#Chestdiv,#Waistdivss,#Gheradiv,#Sleevesdiv,#Shoulderdiv,#suitDesigndiv,#btnDesigndiv,#Buttondiv,#Stitchdiv,#Teradiv").show();
+               
+            }
+                
+                //Shalwar
+            else if (MeasurId === 11) {
+                $("#type,#Lengthdiv,#Bottomdiv,#Gheradiv").show();
+            }
+                //Trouser
+            else if (MeasurId === 12) {
+                $("#type,#Lengthdiv,#Bottomdiv,#Gheradiv,#Waistdiv").show();
             }
                 //Pent
-            else if (MeasurId === 2) {
-                $("#Lengthdiv").show();
-                $("#Waistdiv").show();
-                $("#SidePocketdiv").show();
-                $("#Bottomdiv").show();
+            else if (MeasurId === 13) {
+                $("#type,#Lengthdiv,#Waistdiv,#Bottomdiv,#Hipdiv,#Gidriidiv").show();
+                
             }
                 //Coat
-            else if (MeasurId === 3) {
-                $("#Lengthdiv").show();
-                $("#Waistdiv").show();
-                $("#Shoulderdiv").show();
-                $("#Sleevesdiv").show();
-                $("#armsdiv").show();
-                $("#Chestdiv").show();
+            else if (MeasurId === 14) {
+                $("#type,#Lengthdiv,#Teradiv,#CrossBackdiv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Shoulderdiv,#armsdiv,#Waistdiv").show();
+
             }
-                //WAistCoat
-            else if (MeasurId === 6) {
-                $("#Lengthdiv").show();
-                $("#Waistdiv").show();
-                $("#Shoulderdiv").show();
-                $("#Chestdiv").show();
-                
+                //WaistCoat
+            else if (MeasurId === 15) {
+               
+                $("#type,#Lengthdiv,#Teradiv,#CrossBackdiv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Waistdiv").show();
+
             }
 
            
                     
         });
-
+        $('#tblMeasur').Table({
+            "scrollX": true
+        });
+        //$('.dataTables_length').addClass('bs-select');
     });
+
+    
 </script>
 
 

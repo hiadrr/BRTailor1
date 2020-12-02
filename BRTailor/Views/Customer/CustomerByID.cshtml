@@ -1,0 +1,81 @@
+﻿@model IEnumerable<BRTailor.Measurment>
+@{
+    ViewBag.Title = "CustomerByID";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<header class="panel_header">
+    <h2 class="title pull-left">Customer Measurments</h2>
+    <div class="actions panel_actions pull-right">
+        <i class="box_toggle fa fa-chevron-down"></i>
+        <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+        <i class="box_close fa fa-times"></i>
+    </div>
+</header>
+<div class="content-body">
+    <div class="row">
+        <div class="col-md-12 col-sm-12 col-xs-12">
+            <div class="table-responsive">
+
+                <table id="tblMeasur" class="table table-bordered">
+                    <thead>
+                        <tr class="d-table-row">
+
+                            <th align="left" class="productth" @*id="type"*@>ٹائپ /Type</th>
+                            <th align="left" class="productth" @*id="Lengthdiv"*@>لمبائی/Length</th>
+                            <th align="left" class="productth" @*id="Chestdiv"*@>سینہ/Chest</th>
+                            <th align="left" class="productth" @*id="Shoulderdiv"*@>کندھا/Shoulder</th>
+                            <th align="left" class="productth" @*id="Waistdiv"*@>کمر/Waist</th>
+                            <th align="left" class="productth" @*id="Sleevesdiv"*@>آستین/Seelves</th>
+                            <th align="left" class="productth" @*id="armsdiv"*@>بازو/Arms</th>
+                            <th align="left" class="productth" @*id="CollorSizediv"*@>کالر سائز /Collor Size</th>
+                            <th align="left" class="productth" @*id="Dcollordiv"*@>کالر ڈیزائن/Collor Design</th>
+                            <th align="left" class="productth" @*id="Bottomdiv"*@>پیندا/Bottom</th>
+                            <th align="left" class="productth" @*id="SidePocketdiv"*@>سائیڈ جیب/Side Pockets</th>
+                            <th align="left" class="productth" @*id="FrontPocketdiv"*@>سامنے جیب/Front Pocket</th>
+                            <th align="left" class="productth" @*id="Hipdiv"*@>Hip</th>
+                            <th align="left" class="productth" @*id="Gidriidiv"*@>Gidrii</th>
+                            <th align="left" class="productth" @*id="Teradiv"*@>Tera</th>
+                            <th align="left" class="productth" @*id="Gheradiv"*@>Ghera</th>
+                            <th align="left" class="productth" @*id="suitDesigndiv"*@>سوٹ ڈیزائن/Suit Design</th>
+                            <th align="left" class="productth" @*id="btnDesigndiv"*@>بٹن ڈیزائن/Button Design</th>
+                            <th align="left" class="productth" @*id="Stitchdiv"*@>سلائی/Stitch</th>
+                            <th align="left" class="productth" @*id="CoatButtondiv"*@>Coat Button</th>
+                            <th align="left" class="productth" @*id="CoatFittingdiv"*@>Coat Fitting</th>
+                            <th align="left" class="productth" @*id="CrossBackdiv"*@>Cross Back</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model)
+            {
+                        <tr role="row" class="even">
+                            <td>@item.MeasurmentType.Measurment_Type </td>
+                            <td>@item.Length </td>
+                            <td>@item.Chest </td>
+                            <td>@item.Shoulder </td>
+                            <td>@item.Waist </td>
+                            <td>@item.Sleeves </td>
+                            <td>@item.arms </td>
+                            <td>@item.CollarSize </td>
+                            <td>@item.Dcollor </td>
+                            <td>@item.Bottom </td>
+                            <td>@item.SidePocket </td>
+                            <td>@item.FrontPocket </td>
+                            <td>@item.Hip </td>
+                            <td>@item.Gidrii </td>
+                            <td>@item.Tera </td>
+                            <td>@item.Ghera </td>
+                            <td>@item.suitDesign </td>
+                            <td>@item.btnDesign </td>
+                            <td>@item.Stitch </td>
+                            <td>@item.CoatButton </td>
+                            <td>@item.CoatFitting </td>
+                            <td>@item.CrossBack </td>
+                         </tr>
+                    }
+                </table>
+            </div>
+           
+
+        </div>
+    </div>
+</div>

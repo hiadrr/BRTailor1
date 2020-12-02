@@ -31,10 +31,10 @@ namespace BRTailor
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Measurment> Measurments { get; set; }
         public virtual DbSet<MeasurmentType> MeasurmentTypes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<Measurment> Measurments { get; set; }
     }
 }

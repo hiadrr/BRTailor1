@@ -20,7 +20,7 @@ namespace BRTailor
         public Nullable<int> Measurment_ID { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Measurment Measurment { get; set; }
         public virtual Staff Staff { get; set; }
+        public virtual Measurment Measurment { get; set; }
     }
 }

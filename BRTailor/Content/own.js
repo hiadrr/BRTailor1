@@ -8,10 +8,26 @@
                    var waist = document.getElementById("Waist").value;
                    var sleeves = document.getElementById("Sleeves").value;
                    var arms = document.getElementById("arms").value;
-                   var collor = document.getElementById("Collor").value;
+                   var collorsize = document.getElementById("CollorSize").value;
                    var bottom = document.getElementById("Bottom").value;
                    var sidepockets = document.getElementById("SidePocket").value;
                    var frontpockets = document.getElementById("FrontPocket").value;
+                 //new
+                   var hip = document.getElementById("Hip").value;
+                   var gidrii = document.getElementById("Gidrii").value;
+                   var crossback = document.getElementById("CrossBack").value;
+                   var tera = document.getElementById("Tera").value;
+                   var dcollor = document.getElementById("Dcollor").value;
+                   var ghera = document.getElementById("Ghera").value;
+                   var suitdesign = document.getElementById("suitDesign").value;
+                   var btndesign = document.getElementById("btnDesign").value;
+                   var stitch = document.getElementById("Stitch").value;
+                   var coatbutton = document.getElementById("CoatButton").value;
+                   var coatfitting = document.getElementById("CoatFitting").value;
+     
+
+
+
                    Measurlist.push({
                        Measurment_Type_ID: $('#Measurment_Type_ID').val().trim(),
                        Length: $('#Length').val().trim(),
@@ -20,48 +36,92 @@
                        Waist: $('#Waist').val().trim(),
                        Sleeves: $('#Sleeves').val().trim(),
                        arms: $('#arms').val().trim(),
-                       Collor: $('#Collor').val().trim(),
+                       Collor: $('#CollorSize').val().trim(),
                        Bottom:$('#Bottom').val().trim(),
                        SidePocket: $('#SidePocket').val().trim(),
-                       FrontPocket: $('#FrontPocket').val().trim()
+                       FrontPocket: $('#FrontPocket').val().trim(),
+
+                       Hip: $('#Hip').val().trim(),
+                       Gidrii: $('#Gidrii').val().trim(),
+                       CrossBack: $('#CrossBack').val().trim(),
+                       Tera: $('#Tera').val().trim(),
+                       Dcollor: $('#Dcollor').val().trim(),
+                       suitDesign: $('#suitDesign').val().trim(),
+                       Ghera: $('#Ghera').val().trim(),
+                       btnDesign: $('#btnDesign').val().trim(),
+                       Stitch: $('#Stitch').val().trim(),
+                       CoatButton: $('#CoatButton').val().trim(),
+                       CoatFitting: $('#CoatFitting').val().trim()
+                
 
                    });
                    var rows = "<tr>"
-                   + "<td class='prtoducttd' id = 'type'>" + type + "</td>"
-                   + "<td class='prtoducttd' id = 'length'>" + length + "</td>"
-                   + "<td class='prtoducttd' id = 'chest'>" + chest + "</td>"
-                    + "<td class='prtoducttd' id = 'shoulder'>" + shoulder + "</td>"
-                   + "<td class='prtoducttd' id = 'waist'>" + waist + "</td>"
-                   + "<td class='prtoducttd' id = 'sleeves'>" + sleeves + "</td>"
-                    + "<td class='prtoducttd' id = 'arms'>" + arms + "</td>"
-                   + "<td class='prtoducttd' id = 'collor'>" + collor + "</td>"
-                   + "<td class='prtoducttd' id = 'bottom'>" + bottom + "</td>"
-                    + "<td class='prtoducttd' id = 'sidepockets'>" + sidepockets + "</td>"
-                   + "<td class='prtoducttd' id = 'frontpockets'>" + frontpockets + "</td>"
+                   + "<td class='prtoducttd' >" + type + "</td>"
+                   + "<td class='prtoducttd' >" + length + "</td>"
+                   + "<td class='prtoducttd'>" + chest + "</td>"
+                    + "<td class='prtoducttd' >" + shoulder + "</td>"
+                   + "<td class='prtoducttd'>" + waist + "</td>"
+                   + "<td class='prtoducttd' >" + sleeves + "</td>"
+                    + "<td class='prtoducttd' >" + arms + "</td>"
+                   + "<td class='prtoducttd' >" + collorsize + "</td>"
+                   + "<td class='prtoducttd' >" + dcollor + "</td>"
+                   + "<td class='prtoducttd' >" + bottom + "</td>"
+                    + "<td class='prtoducttd' >" + sidepockets + "</td>"
+                   + "<td class='prtoducttd' >" + frontpockets + "</td>"
+                   + "<td class='prtoducttd' >" + hip + "</td>"
+                   + "<td class='prtoducttd' >" + gidrii + "</td>"
+                   + "<td class='prtoducttd' >" + tera + "</td>"
+                   + "<td class='prtoducttd'>" + ghera + "</td>"
+                   + "<td class='prtoducttd' >" + suitdesign + "</td>"
+                   + "<td class='prtoducttd'>" + btndesign + "</td>"
+                   + "<td class='prtoducttd' >" + stitch + "</td>"
+                   + "<td class='prtoducttd'>" + coatbutton + "</td>"
+                  + "<td class='prtoducttd' >" + coatfitting + "</td>"
+                   + "<td class='prtoducttd'>" + crossback + "</td>"
                    
                    + "</tr>";
                    $('#tblMeasur tbody').append(rows);
 
                    //Clear fields
                    $('#Measurment_Type_ID').val('').focus();
-                   $('#Length,#Chest,#Shoulder,#Waist,#Sleeves,#arms,#Collor,#Institute,#Bottom,#SidePocket,#FrontPocket').val('');
+                   $('#Hip').val('');
+                   $('#Gidrii').val('');
+                   $('#CrossBack').val('');
+                   $('#Waist').val('');
+                   $('#FrontPocket').val('');
+                   $('#suitDesign').val('');
+                   $('#Length').val('');
+                   $('#Dcollor').val('');
+                   $('#Tera').val('');
+                   $('#Ghera').val('');
+                   $('#btnDesign').val('');
+                   $('#CoatFitting').val('');
+                   $('#Shoulder').val('');
+                   $('#arms').val('');
+                   $('#Bottom').val('');
+                   $('#Stitch').val('');
+                   $('#CoatButton').val('');
+                   $('#Chest').val('');
+                   $('#Waist').val('');
+                   $('#Sleeves').val('');
+                   $('#CollorSize').val('');
+                   $('#SidePocket').val('');
+                   $('#Waist').val('');
+                   $('#Sleeves').val('');
+             
 
                }
 
               function Save() {
-                   var data = {
-                       StudentName: $('#StudentName').val().trim(),
-                       Email: $('#Email').val().trim(),
-                       FatherName: $('#FatherName').val().trim(),
-                       Phone: $('#Phone').val().trim(),
-                       Age: $('#Age').val().trim(),
-                       City: $('#City').val().trim(),
-                       Address: $('#Address').val().trim(),
-                       DOB: $('#DOB').val().trim(),
-                       Educations: Educationlist
+                  var data = {
+                      CustomerName: $('#CustomerName').val().trim(),
+                      Phone: $('#Phone').val().trim(),
+                      City: $('#City').val().trim(),
+                      Address: $('#Address').val().trim(),
+                      measurments: Measurlist
                    }
                    $.ajax({
-                       url: '/Student/Insertdata',
+                       url: '/Customer/Insertdata',
                        type: "POST",
                        data: JSON.stringify(data),
                        dataType: "JSON",
@@ -70,12 +130,10 @@
                            //check is successfully save to database
                            if (d.status == true) {
                                //clear form
-                               Educationlist = [];
-                               $('#StudentName,#Email,#FatherName,#Phone,#Age,#City,#Address,#DOB').val('');
-                               $('#deg').remove();
-                               $('#y').remove();
-                               $('#inst').remove();
-                               $('#tblStudent tbody').remove();
+                               Measurlist = [];
+                               $('#CustomerName,#Phone,#City,#Address,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
+                              
+                               $('#tblMeasur tbody').remove();
 
                                alert('Successfully done.');
                            }

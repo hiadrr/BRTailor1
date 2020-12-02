@@ -1,0 +1,63 @@
+﻿@model IEnumerable<BRTailor.Customer>
+
+@{
+    ViewBag.Title = "CustomerList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Customer Record</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <table id="example-1" class="table table-striped dt-responsive display dataTable dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="example-1_info" style="width: 100%;">
+                <thead>
+                    <tr role="row" class="odd">
+                        <th class="th-sm">
+                            Name
+                        </th>
+                        <th class="th-sm">
+                            Phone
+                        </th>
+                        <th class="th-sm">
+                            City
+                        </th>
+                        <th class="th-sm">Address</th>
+                        
+                   
+                        <th class="th-sm">Edit</th>
+                        <th class="th-sm">Delete</th>
+                        <th class="th-sm">Measurment</th>
+
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+            {
+                    <tr role="row" class="even">
+                        <td>@item.Customer_Name </td>
+                        <td>@item.Customer_Phone </td>
+                        <td>@item.Customer_City </td>
+                        <td>@item.Customer_Address </td>
+                        
+                       
+                        <td>@Html.ActionLink("Edit ", "Index", new { id = @item.Customer_ID })</td>
+                        <td>
+                            @Html.ActionLink(" Delete", "DeleteCustomer", new { id = @item.Customer_ID },
+                    new { onclick = "return confirm('Are you sure you wish to delete this User?');" })
+                        </td>
+                        <td>@Html.ActionLink(" Customer Measurments", "CustomerByID", new { id = @item.Customer_ID })</td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+
+    </section>
+</div>
