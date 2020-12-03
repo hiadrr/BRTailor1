@@ -211,6 +211,9 @@
     <Compile Include="AspNetUserLogin.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
+    <Compile Include="Booking.cs">
+      <DependentUpon>BRtailor.tt</DependentUpon>
+    </Compile>
     <Compile Include="BRtailor.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -239,6 +242,9 @@
     <Compile Include="C__MigrationHistory.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
+    <Compile Include="Design.cs">
+      <DependentUpon>BRtailor.tt</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -253,6 +259,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeasurmentTypeVM.cs" />
     <Compile Include="Models\MeasurmentViewModel.cs" />
+    <Compile Include="Models\OrderVM.cs" />
     <Compile Include="Order.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
@@ -667,6 +674,9 @@
     <Content Include="Views\Customer\CustomerByID.cshtml" />
     <Content Include="Views\Order\Queue.cshtml" />
     <Content Include="Views\Order\assignAndBookOrder.cshtml" />
+    <Content Include="Views\Order\OrderInProcess.cshtml" />
+    <Content Include="Views\Order\OrderCompleted.cshtml" />
+    <Content Include="Views\Order\OrderReceived.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

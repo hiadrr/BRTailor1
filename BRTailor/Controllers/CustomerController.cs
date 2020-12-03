@@ -266,9 +266,9 @@ namespace BRTailor.Controllers
             }
 
             else
-            { return RedirectToAction("Queue", "Order"); }
+            { return RedirectToAction("BookingProcess", "Booking"); }
 
-            return RedirectToAction("Queue","Order");
+            return RedirectToAction("BookingProcess", "Booking");
         }
     }
 }

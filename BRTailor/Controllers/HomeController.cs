@@ -11,6 +11,7 @@ namespace BRTailor.Controllers
    [Authorize]
     public class HomeController : Controller
     {
+        private BRTailorEntities db = new BRTailorEntities();
 
         private ApplicationUserManager _userManager;
         public ApplicationUserManager UserManager
@@ -24,10 +25,26 @@ namespace BRTailor.Controllers
                 _userManager = value;
             }
         }
-        public async System.Threading.Tasks.Task<ActionResult> Index()
+        public ActionResult Index()
         {
-            var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-            string currentUserId = User.Identity.GetUserId(); 
+            var customer = db.Customers.ToList();
+            ViewBag.Customer = customer.Count();
+
+            var OrdersInProcess = db.Orders.Where(x=> x.Status == "In Process").ToList();
+            ViewBag.OrdersInProcess = OrdersInProcess.Count();
+
+            var OrdersInQueue = db.Orders.Where(x => x.Status == "Queue").ToList();
+            ViewBag.OrdersInQueue = OrdersInQueue.Count();
+
+            var OrdersCompleted = db.Orders.Where(x => x.Status == "Completed").ToList();
+            ViewBag.OrdersCompleted = OrdersCompleted.Count();
+
+            var OrdersReceived = db.Orders.Where(x => x.Status == "Received").ToList();
+            ViewBag.OrdersReceived = OrdersReceived.Count();
+
+            var staff = db.Staffs.ToList();
+            ViewBag.staff = staff.Count();
+           
 
             return View();
         }

@@ -127,10 +127,10 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a class="" href="@Url.Action("Index","Customer")" target='_blank'>Add Customer Detail</a>
+                                <a class="" href="@Url.Action("Index","Customer")" >Add Customer Detail</a>
                             </li>
                             <li>
-                                <a class="" href="@Url.Action("CustomerList","Customer")" target='_blank'>Customer's List</a>
+                                <a class="" href="@Url.Action("CustomerList","Customer")">Customer's List</a>
                             </li>
                             
                         </ul>
@@ -143,15 +143,18 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a class=""  href="@Url.Action("OrderCustomerByID","Customer")">Order Queue</a>
+                                <a class="" href="@Url.Action("OrderCustomerByID","Customer")">Order Queue</a>
                             </li>
                             <li>
-                                <a class=""  href="@Url.Action("OrderInProcess","Order")">Order In Process</a>
+                                <a class="" href="@Url.Action("OrderInProcess","Order")">Order In Process</a>
                             </li>
                             <li>
-                                <a class=""  href="@Url.Action("OrderCompleted","Order")">Order's Completed</a>
+                                <a class="" href="@Url.Action("OrderCompleted","Order")">Order's Completed</a>
                             </li>
-                            
+                            <li>
+                                <a class="" href="@Url.Action("OrderReceived","Order")">Order Received By Customer</a>
+                            </li>
+
                         </ul>
                     </li>
                     <li class="">

@@ -17,6 +17,7 @@ namespace BRTailor
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Customer()
         {
+            this.Bookings = new HashSet<Booking>();
             this.Orders = new HashSet<Order>();
         }
     
@@ -27,6 +28,8 @@ namespace BRTailor
         public string Customer_Address { get; set; }
         public string Customer_image { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Booking> Bookings { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
     }

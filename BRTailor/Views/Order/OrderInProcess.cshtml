@@ -1,0 +1,79 @@
+﻿@model IEnumerable<BRTailor.Order>
+@{
+    ViewBag.Title = "OrderInProcess";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Order In Process</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <table id="example-1" class="table table-striped dt-responsive display dataTable dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="example-1_info" style="width: 100%;">
+                <thead>
+                    <tr role="row" class="odd">
+                        <th class="th-sm">
+                            Customer Name
+                        </th>
+                        <th class="th-sm">
+                            Item
+                        </th>
+                        <th class="th-sm">
+                            Assigned To
+                        </th>
+                        <th class="th-sm">
+                            Return Date
+                        </th>
+                        <th class="th-sm">
+                            Price
+                        </th>
+                        <th class="th-sm">
+                            Status
+                        </th>
+
+
+                        <th class="th-sm">Delete</th>
+                        <th class="th-sm">Measurment</th>
+                        <th class="th-sm">Proceed Order</th>
+
+                    </tr>
+                </thead>
+
+                @foreach (var item in Model)
+            {
+                    <tr role="row" class="even">
+                        <td>@item.Customer_Name </td>
+                        <td>@item.Measurment_Type </td>
+                        <td>@item.Staff_Name </td>
+                        <td>@item.Return_Date </td>
+                        <td>@item.Price</td>
+                        <td>@item.Status </td>
+
+
+
+
+                        <td>
+                            @Html.ActionLink(" Delete", "DeleteOrderByID", new { id = @item.Order_ID },
+                    new { onclick = "return confirm('Are you sure you wish to delete this User?');" })
+                        </td>
+
+                        <td><a href="@Url.Action("CustomerByID", "Customer", new { id = @item.Customer_ID })">Measurment </a></td>
+                        <td>@Html.ActionLink("Proceed", "StatusChanged", new { id = @item.Order_ID })</td>
+
+                    </tr>
+                }
+            </table>
+        </div>
+
+    </section>
+</div>
+
+
+

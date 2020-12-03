@@ -12,21 +12,20 @@ namespace BRTailor
     using System;
     using System.Collections.Generic;
     
-    public partial class MeasurmentType
+    public partial class Design
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MeasurmentType()
+        public Design()
         {
             this.Bookings = new HashSet<Booking>();
-            this.Measurments = new HashSet<Measurment>();
         }
     
-        public int Measurment_Type_ID { get; set; }
-        public string Measurment_Type { get; set; }
+        public int Design_ID { get; set; }
+        public string Design_Code { get; set; }
+        public string Design_Image { get; set; }
+        public Nullable<int> Design_Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Booking> Bookings { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Measurment> Measurments { get; set; }
     }
 }
