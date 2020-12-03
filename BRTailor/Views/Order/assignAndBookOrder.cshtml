@@ -1,0 +1,139 @@
+﻿@model dynamic
+@{
+    ViewBag.Title = "assignAndBookOrder";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Customer Detail</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Customer Name</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_Name" id="Customer_Name" name="Customer_Name" disabled>
+
+                </div>
+                <div class="col-xs-3">
+                    <label>Customer Phone</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_Phone" id="Customer_Phone" name="Customer_Phone" disabled>
+
+                </div>
+                <div class="col-xs-3">
+                    <label>Customer Address</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_Address" id="Customer_Address" name="Customer_Address" disabled>
+
+                </div>
+                <div class="col-xs-3">
+                    <label>Customer City</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_City" id="Customer_City" name="Customer_City" disabled>
+
+                </div>
+            </div>
+            </div>
+
+    </section>
+</div>
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Item Detail</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+
+        <div class="content-body">
+
+            <div class="row">
+                <div class="col-xs-6">
+                    <label>Item ID</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Order.Measurment_ID" id="Customer_Name" name="Customer_Name" disabled>
+
+                </div>
+                <div class="col-xs-6">
+                    <label>Item</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Order.Measurment_Type" id="Customer_Name" name="Customer_Name" disabled>
+
+                </div>
+                <div class="col-xs-3" hidden>
+                    <label>Measurment Type ID</label>
+                    <input type="text" class="form-control is-valid" value="@Model.Order.Measurment_Type_ID" id="Customer_Name" name="Customer_Name" hidden>
+
+                </div>
+            </div>
+
+            </div>
+
+    </section>
+</div>
+<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+    <section class="box ">
+
+        <header class="panel_header">
+            <h2 class="title pull-left">Booking Detail</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+
+            <div class="row">
+                <div class="col-xs-3">
+                    <label>Assign Employee</label>
+           
+                    @Html.DropDownList("Staff_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Staff_ID", id = "Staff_ID" })
+              </div>
+                <div class="col-xs-3">
+                    <label>Current Date</label>
+                    <input type="text" class="form-control is-valid" value="@DateTime.Now"  id="CurrentDate" name="CurrentDate" placeholder="Current Date" disabled>
+
+                </div>
+                <div class="col-xs-3">
+                    <label>Return Date</label>
+                  
+                      
+                        <span class="desc">e.g. "Month/Date/Year"</span>
+                        <div class="controls">
+                            <input type="text" class="form-control" id="datepicker" data-mask="datetime12" name="ReturnDate" placeholder="Return Date" required>
+                        </div>
+                    
+                   
+                </div>
+                <div class="col-xs-3">
+                    <label>Price</label>
+                    <input type="text" class="form-control is-valid"  id="Price" name="Price" placeholder="Price"
+                           required>
+                </div>
+
+            </div>
+            <br>
+
+            <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Save</button>
+
+        </div>
+       
+
+
+</section>
+</div>
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script>
+  $( function() {
+    $( "#datepicker" ).datepicker();
+  });
+
+
+</script>

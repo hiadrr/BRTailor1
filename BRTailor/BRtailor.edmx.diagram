@@ -12,17 +12,17 @@
         <EntityTypeShape EntityType="BRTailorModel.AspNetUser" Width="1.5" PointX="11" PointY="9.125" />
         <EntityTypeShape EntityType="BRTailorModel.Customer" Width="1.5" PointX="5" PointY="4.75" />
         <EntityTypeShape EntityType="BRTailorModel.MeasurmentType" Width="1.5" PointX="0.75" PointY="2.125" />
-        <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="5.25" PointY="1.75" />
         <EntityTypeShape EntityType="BRTailorModel.sysdiagram" Width="1.5" PointX="10.875" PointY="8.875" />
         <AssociationConnector Association="BRTailorModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BRTailorModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="BRTailorModel.FK_Order_Customer" />
         <AssociationConnector Association="BRTailorModel.AspNetUserRoles" />
         <EntityTypeShape EntityType="BRTailorModel.Staff" Width="1.5" PointX="0.75" PointY="6" />
-        <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
         <EntityTypeShape EntityType="BRTailorModel.Measurment" Width="1.5" PointX="3.125" PointY="0.75" />
         <AssociationConnector Association="BRTailorModel.FK_Measurment_MeasurmentType" />
+        <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="7.25" PointY="2.75" />
+        <AssociationConnector Association="BRTailorModel.FK_Order_Customer" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Measurment" />
+        <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

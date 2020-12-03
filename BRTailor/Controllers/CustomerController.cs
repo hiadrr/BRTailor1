@@ -37,8 +37,6 @@ namespace BRTailor.Controllers
             return View();
 
         }
-        
-
         [HttpPost]
         public JsonResult Insertdata(MeasurmentViewModel data , int? id)
         {
@@ -184,6 +182,7 @@ namespace BRTailor.Controllers
         }
         public ActionResult CustomerList()
         {
+          
             var s = db.Customers.ToList();
             return View(s);
         }
@@ -238,6 +237,38 @@ namespace BRTailor.Controllers
             db.SaveChanges();
             return RedirectToAction("CustomerList");
         }
-        
+        public ActionResult OrderCustomerByID(int? id)
+        {
+            var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
+
+            if (order == null)
+            {
+
+
+                var c = db.Customers.Find(id);
+                var m = db.Measurments.Where(x => x.Customer_ID == id).ToList();
+
+                Order o = new Order();
+
+
+                foreach (var item in m)
+                {
+                    o.Customer_ID = id;
+                    o.Customer_Name = c.Customer_Name;
+                    o.Measurment_ID = item.Measurment_ID;
+                    o.Measurment_Type = item.MeasurmentType.Measurment_Type;
+                    o.Measurment_Type_ID = item.Measurment_Type_ID;
+                    o.Status = "Queue";
+                    db.Orders.Add(o);
+                    db.SaveChanges();
+                };
+
+            }
+
+            else
+            { return RedirectToAction("Queue", "Order"); }
+
+            return RedirectToAction("Queue","Order");
+        }
     }
 }

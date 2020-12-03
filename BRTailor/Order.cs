@@ -16,11 +16,20 @@ namespace BRTailor
     {
         public int Order_ID { get; set; }
         public Nullable<int> Customer_ID { get; set; }
-        public Nullable<int> Staff_ID { get; set; }
+        public string Customer_Name { get; set; }
         public Nullable<int> Measurment_ID { get; set; }
+        public Nullable<int> Measurment_Type_ID { get; set; }
+        public string Measurment_Type { get; set; }
+        public Nullable<int> Staff_ID { get; set; }
+        public string Staff_Position { get; set; }
+        public string Staff_Name { get; set; }
+        public Nullable<System.DateTime> Order_Date { get; set; }
+        public Nullable<System.DateTime> Return_Date { get; set; }
+        public Nullable<int> Price { get; set; }
+        public string Status { get; set; }
     
         public virtual Customer Customer { get; set; }
-        public virtual Staff Staff { get; set; }
         public virtual Measurment Measurment { get; set; }
+        public virtual Staff Staff { get; set; }
     }
 }

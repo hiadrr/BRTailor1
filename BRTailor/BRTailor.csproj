@@ -231,6 +231,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MeasurmentsController.cs" />
+    <Compile Include="Controllers\OrderController.cs" />
     <Compile Include="Controllers\StaffController.cs" />
     <Compile Include="Customer.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
@@ -664,6 +665,8 @@
     <Content Include="Views\Measurments\Index.cshtml" />
     <Content Include="Views\Customer\CustomerList.cshtml" />
     <Content Include="Views\Customer\CustomerByID.cshtml" />
+    <Content Include="Views\Order\Queue.cshtml" />
+    <Content Include="Views\Order\assignAndBookOrder.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
