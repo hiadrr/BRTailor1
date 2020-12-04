@@ -14,20 +14,20 @@
         <AssociationConnector Association="BRTailorModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BRTailorModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BRTailorModel.AspNetUserRoles" />
-        <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="5.625" PointY="1.625" />
         <EntityTypeShape EntityType="BRTailorModel.Customer" Width="1.5" PointX="3.375" PointY="0.5" />
         <EntityTypeShape EntityType="BRTailorModel.Design" Width="1.5" PointX="1.125" PointY="2.25" />
         <EntityTypeShape EntityType="BRTailorModel.Measurment" Width="1.5" PointX="10.5" PointY="0.5" />
         <EntityTypeShape EntityType="BRTailorModel.MeasurmentType" Width="1.5" PointX="3.375" PointY="4.25" />
-        <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="8.375" PointY="5" />
+        <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="8.25" PointY="1.125" />
         <EntityTypeShape EntityType="BRTailorModel.Staff" Width="1.5" PointX="5.5" PointY="5.25" />
-        <AssociationConnector Association="BRTailorModel.FK_Booking_Customer" />
-        <AssociationConnector Association="BRTailorModel.FK_Booking_Designs" />
-        <AssociationConnector Association="BRTailorModel.FK_Booking_MeasurmentType" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Customer" />
         <AssociationConnector Association="BRTailorModel.FK_Measurment_MeasurmentType" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Measurment" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
+        <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="5.625" PointY="0.75" />
+        <AssociationConnector Association="BRTailorModel.FK_Booking_Customer" />
+        <AssociationConnector Association="BRTailorModel.FK_Booking_Designs" />
+        <AssociationConnector Association="BRTailorModel.FK_Booking_MeasurmentType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

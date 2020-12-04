@@ -72,12 +72,16 @@
           </Key>
           <Property Name="Bookin_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Design_ID" Type="int" />
-          <Property Name="Design_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Design_Code" Type="nvarchar" MaxLength="50" />
           <Property Name="Customer_ID" Type="int" />
           <Property Name="Customer_Name" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_Address" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Customer_City" Type="nvarchar" MaxLength="50" />
           <Property Name="Measurment_Type_ID" Type="int" />
           <Property Name="Measurment_Type" Type="nvarchar" MaxLength="50" />
           <Property Name="Price" Type="int" />
+          <Property Name="Design_Price" Type="int" />
         </EntityType>
         <EntityType Name="Customer">
           <Key>
@@ -399,25 +403,12 @@
             <End Role="AspNetRole" EntitySet="AspNetRoles" />
             <End Role="AspNetUser" EntitySet="AspNetUsers" />
           </AssociationSet>
-          <EntitySet Name="Bookings" EntityType="BRTailorModel.Booking" />
           <EntitySet Name="Customers" EntityType="BRTailorModel.Customer" />
           <EntitySet Name="Designs" EntityType="BRTailorModel.Design" />
           <EntitySet Name="Measurments" EntityType="BRTailorModel.Measurment" />
           <EntitySet Name="MeasurmentTypes" EntityType="BRTailorModel.MeasurmentType" />
           <EntitySet Name="Orders" EntityType="BRTailorModel.Order" />
           <EntitySet Name="Staffs" EntityType="BRTailorModel.Staff" />
-          <AssociationSet Name="FK_Booking_Customer" Association="BRTailorModel.FK_Booking_Customer">
-            <End Role="Customer" EntitySet="Customers" />
-            <End Role="Booking" EntitySet="Bookings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Booking_Designs" Association="BRTailorModel.FK_Booking_Designs">
-            <End Role="Design" EntitySet="Designs" />
-            <End Role="Booking" EntitySet="Bookings" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Booking_MeasurmentType" Association="BRTailorModel.FK_Booking_MeasurmentType">
-            <End Role="MeasurmentType" EntitySet="MeasurmentTypes" />
-            <End Role="Booking" EntitySet="Bookings" />
-          </AssociationSet>
           <AssociationSet Name="FK_Order_Customer" Association="BRTailorModel.FK_Order_Customer">
             <End Role="Customer" EntitySet="Customers" />
             <End Role="Order" EntitySet="Orders" />
@@ -433,6 +424,19 @@
           <AssociationSet Name="FK_Order_Staff" Association="BRTailorModel.FK_Order_Staff">
             <End Role="Staff" EntitySet="Staffs" />
             <End Role="Order" EntitySet="Orders" />
+          </AssociationSet>
+          <EntitySet Name="Bookings" EntityType="BRTailorModel.Booking" />
+          <AssociationSet Name="FK_Booking_Customer" Association="BRTailorModel.FK_Booking_Customer">
+            <End Role="Customer" EntitySet="Customers" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_Designs" Association="BRTailorModel.FK_Booking_Designs">
+            <End Role="Design" EntitySet="Designs" />
+            <End Role="Booking" EntitySet="Bookings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Booking_MeasurmentType" Association="BRTailorModel.FK_Booking_MeasurmentType">
+            <End Role="MeasurmentType" EntitySet="MeasurmentTypes" />
+            <End Role="Booking" EntitySet="Bookings" />
           </AssociationSet>
           </EntityContainer>
         <EntityType Name="C__MigrationHistory">
@@ -536,22 +540,6 @@
           <End Type="BRTailorModel.AspNetRole" Role="AspNetRole" Multiplicity="*" />
           <End Type="BRTailorModel.AspNetUser" Role="AspNetUser" Multiplicity="*" />
         </Association>
-        <EntityType Name="Booking">
-          <Key>
-            <PropertyRef Name="Bookin_ID" />
-          </Key>
-          <Property Name="Bookin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Design_ID" Type="Int32" />
-          <Property Name="Design_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Customer_ID" Type="Int32" />
-          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Measurment_Type_ID" Type="Int32" />
-          <Property Name="Measurment_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Price" Type="Int32" />
-          <NavigationProperty Name="Customer" Relationship="BRTailorModel.FK_Booking_Customer" FromRole="Booking" ToRole="Customer" />
-          <NavigationProperty Name="Design" Relationship="BRTailorModel.FK_Booking_Designs" FromRole="Booking" ToRole="Design" />
-          <NavigationProperty Name="MeasurmentType" Relationship="BRTailorModel.FK_Booking_MeasurmentType" FromRole="Booking" ToRole="MeasurmentType" />
-        </EntityType>
         <EntityType Name="Customer">
           <Key>
             <PropertyRef Name="Customer_ID" />
@@ -562,8 +550,8 @@
           <Property Name="Customer_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Customer_Address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Customer_image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bookings" Relationship="BRTailorModel.FK_Booking_Customer" FromRole="Customer" ToRole="Booking" />
           <NavigationProperty Name="Orders" Relationship="BRTailorModel.FK_Order_Customer" FromRole="Customer" ToRole="Order" />
+          <NavigationProperty Name="Bookings" Relationship="BRTailorModel.FK_Booking_Customer" FromRole="Customer" ToRole="Booking" />
         </EntityType>
         <EntityType Name="Design">
           <Key>
@@ -612,8 +600,8 @@
           </Key>
           <Property Name="Measurment_Type_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Measurment_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Bookings" Relationship="BRTailorModel.FK_Booking_MeasurmentType" FromRole="MeasurmentType" ToRole="Booking" />
           <NavigationProperty Name="Measurments" Relationship="BRTailorModel.FK_Measurment_MeasurmentType" FromRole="MeasurmentType" ToRole="Measurment" />
+          <NavigationProperty Name="Bookings" Relationship="BRTailorModel.FK_Booking_MeasurmentType" FromRole="MeasurmentType" ToRole="Booking" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -650,42 +638,6 @@
           <Property Name="Staff_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Orders" Relationship="BRTailorModel.FK_Order_Staff" FromRole="Staff" ToRole="Order" />
         </EntityType>
-        <Association Name="FK_Booking_Customer">
-          <End Type="BRTailorModel.Customer" Role="Customer" Multiplicity="0..1" />
-          <End Type="BRTailorModel.Booking" Role="Booking" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Customer">
-              <PropertyRef Name="Customer_ID" />
-            </Principal>
-            <Dependent Role="Booking">
-              <PropertyRef Name="Customer_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Booking_Designs">
-          <End Type="BRTailorModel.Design" Role="Design" Multiplicity="0..1" />
-          <End Type="BRTailorModel.Booking" Role="Booking" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Design">
-              <PropertyRef Name="Design_ID" />
-            </Principal>
-            <Dependent Role="Booking">
-              <PropertyRef Name="Design_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Booking_MeasurmentType">
-          <End Type="BRTailorModel.MeasurmentType" Role="MeasurmentType" Multiplicity="0..1" />
-          <End Type="BRTailorModel.Booking" Role="Booking" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="MeasurmentType">
-              <PropertyRef Name="Measurment_Type_ID" />
-            </Principal>
-            <Dependent Role="Booking">
-              <PropertyRef Name="Measurment_Type_ID" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Order_Customer">
           <End Type="BRTailorModel.Customer" Role="Customer" Multiplicity="0..1" />
           <End Type="BRTailorModel.Order" Role="Order" Multiplicity="*" />
@@ -731,6 +683,62 @@
             </Principal>
             <Dependent Role="Order">
               <PropertyRef Name="Staff_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Booking">
+          <Key>
+            <PropertyRef Name="Bookin_ID" />
+          </Key>
+          <Property Name="Bookin_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Design_ID" Type="Int32" />
+          <Property Name="Design_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_ID" Type="Int32" />
+          <Property Name="Customer_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Customer_City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Measurment_Type_ID" Type="Int32" />
+          <Property Name="Measurment_Type" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Design_Price" Type="Int32" />
+          <NavigationProperty Name="Customer" Relationship="BRTailorModel.FK_Booking_Customer" FromRole="Booking" ToRole="Customer" />
+          <NavigationProperty Name="Design" Relationship="BRTailorModel.FK_Booking_Designs" FromRole="Booking" ToRole="Design" />
+          <NavigationProperty Name="MeasurmentType" Relationship="BRTailorModel.FK_Booking_MeasurmentType" FromRole="Booking" ToRole="MeasurmentType" />
+        </EntityType>
+        <Association Name="FK_Booking_Customer">
+          <End Type="BRTailorModel.Customer" Role="Customer" Multiplicity="0..1" />
+          <End Type="BRTailorModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Customer">
+              <PropertyRef Name="Customer_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Customer_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_Designs">
+          <End Type="BRTailorModel.Design" Role="Design" Multiplicity="0..1" />
+          <End Type="BRTailorModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Design">
+              <PropertyRef Name="Design_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Design_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Booking_MeasurmentType">
+          <End Type="BRTailorModel.MeasurmentType" Role="MeasurmentType" Multiplicity="0..1" />
+          <End Type="BRTailorModel.Booking" Role="Booking" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MeasurmentType">
+              <PropertyRef Name="Measurment_Type_ID" />
+            </Principal>
+            <Dependent Role="Booking">
+              <PropertyRef Name="Measurment_Type_ID" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -814,20 +822,6 @@
               <ScalarProperty Name="Id" ColumnName="RoleId" />
             </EndProperty>
           </AssociationSetMapping>
-          <EntitySetMapping Name="Bookings">
-            <EntityTypeMapping TypeName="BRTailorModel.Booking">
-              <MappingFragment StoreEntitySet="Booking">
-                <ScalarProperty Name="Price" ColumnName="Price" />
-                <ScalarProperty Name="Measurment_Type" ColumnName="Measurment_Type" />
-                <ScalarProperty Name="Measurment_Type_ID" ColumnName="Measurment_Type_ID" />
-                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
-                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
-                <ScalarProperty Name="Design_Name" ColumnName="Design_Name" />
-                <ScalarProperty Name="Design_ID" ColumnName="Design_ID" />
-                <ScalarProperty Name="Bookin_ID" ColumnName="Bookin_ID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Customers">
             <EntityTypeMapping TypeName="BRTailorModel.Customer">
               <MappingFragment StoreEntitySet="Customer">
@@ -918,6 +912,24 @@
                 <ScalarProperty Name="Staff_Address" ColumnName="Staff_Address" />
                 <ScalarProperty Name="Staff_Name" ColumnName="Staff_Name" />
                 <ScalarProperty Name="Staff_ID" ColumnName="Staff_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Bookings">
+            <EntityTypeMapping TypeName="BRTailorModel.Booking">
+              <MappingFragment StoreEntitySet="Booking">
+                <ScalarProperty Name="Design_Price" ColumnName="Design_Price" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Measurment_Type" ColumnName="Measurment_Type" />
+                <ScalarProperty Name="Measurment_Type_ID" ColumnName="Measurment_Type_ID" />
+                <ScalarProperty Name="Customer_City" ColumnName="Customer_City" />
+                <ScalarProperty Name="Customer_Phone" ColumnName="Customer_Phone" />
+                <ScalarProperty Name="Customer_Address" ColumnName="Customer_Address" />
+                <ScalarProperty Name="Customer_Name" ColumnName="Customer_Name" />
+                <ScalarProperty Name="Customer_ID" ColumnName="Customer_ID" />
+                <ScalarProperty Name="Design_Code" ColumnName="Design_Code" />
+                <ScalarProperty Name="Design_ID" ColumnName="Design_ID" />
+                <ScalarProperty Name="Bookin_ID" ColumnName="Bookin_ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

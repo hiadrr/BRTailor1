@@ -230,6 +230,7 @@
       <DependentUpon>BRtailor.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -618,6 +619,7 @@
       <DependentUpon>BRtailor.edmx</DependentUpon>
       <LastGenOutput>BRtailor.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\DesignImages\haider.png" />
     <Content Include="Content\own.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -677,6 +679,8 @@
     <Content Include="Views\Order\OrderInProcess.cshtml" />
     <Content Include="Views\Order\OrderCompleted.cshtml" />
     <Content Include="Views\Order\OrderReceived.cshtml" />
+    <Content Include="Views\Booking\BookingProcess.cshtml" />
+    <Content Include="Views\Booking\Invoice.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -189,38 +189,6 @@ namespace BRTailor.Controllers
         public ActionResult CustomerByID(int? id)
         {
 
-
-            //var data = (from t1 in db.Measurments
-            //           where (t1.Customer_ID == id)
-            //          join t2 in db.MeasurmentTypes on t1.Measurment_Type_ID equals t2.Measurment_Type_ID
-            //             select new
-            //             {
-            //                 t2.Measurment_Type,
-            //                 t1.Hip,
-            //                 t1.Length,
-            //                 t1.arms,
-            //                t1.Bottom,
-            //                 t1.btnDesign,
-            //                 t1.Chest,
-            //                t1.CoatButton,
-            //                t1.CoatFitting,
-            //                t1.CollarSize,
-            //               t1.CrossBack,
-            //                 t1.Dcollor,
-            //               t1.FrontPocket,
-            //                 t1.Ghera,
-            //                t1.Gidrii,
-            //                t1.Shoulder,
-            //                t1.SidePocket,
-            //                t1.Sleeves,
-            //               t1.Stitch,
-            //                t1.suitDesign,
-            //                t1.Tera,
-            //                t1.Waist
-
-
-            //            }).ToList();
-
             var data = db.Measurments.Where(x => x.Customer_ID == id).ToList();
             return View(data);
         }
@@ -237,38 +205,35 @@ namespace BRTailor.Controllers
             db.SaveChanges();
             return RedirectToAction("CustomerList");
         }
-        public ActionResult OrderCustomerByID(int? id)
-        {
-            var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
+        //public ActionResult OrderCustomerByID(int? id)
+        //{
+        //    var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
+        //    TempData["CustID"] = id;
 
-            if (order == null)
-            {
+        //    if (order == null)
+        //    {
+        //        var c = db.Customers.Find(id);
+        //        var m = db.Measurments.Where(x => x.Customer_ID == id).ToList();
 
+        //        Order o = new Order();
+        //        foreach (var item in m)
+        //        {
+        //            o.Customer_ID = id;
+        //            o.Customer_Name = c.Customer_Name;
+        //            o.Measurment_ID = item.Measurment_ID;
+        //            o.Measurment_Type = item.MeasurmentType.Measurment_Type;
+        //            o.Measurment_Type_ID = item.Measurment_Type_ID;
+        //            o.Status = "Queue";
+        //            db.Orders.Add(o);
+        //            db.SaveChanges();
+        //        };
 
-                var c = db.Customers.Find(id);
-                var m = db.Measurments.Where(x => x.Customer_ID == id).ToList();
+        //    }
 
-                Order o = new Order();
+        //    else
+        //    { return RedirectToAction("BookingProcess", "Booking"); }
 
-
-                foreach (var item in m)
-                {
-                    o.Customer_ID = id;
-                    o.Customer_Name = c.Customer_Name;
-                    o.Measurment_ID = item.Measurment_ID;
-                    o.Measurment_Type = item.MeasurmentType.Measurment_Type;
-                    o.Measurment_Type_ID = item.Measurment_Type_ID;
-                    o.Status = "Queue";
-                    db.Orders.Add(o);
-                    db.SaveChanges();
-                };
-
-            }
-
-            else
-            { return RedirectToAction("BookingProcess", "Booking"); }
-
-            return RedirectToAction("BookingProcess", "Booking");
-        }
+        //    return RedirectToAction("BookingProcess", "Booking");
+        //}
     }
 }
