@@ -85,6 +85,32 @@ namespace BRTailor.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        //Add DEsign
+        [HttpGet]
+        public ActionResult AddDesign()
+        {
+
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddDesign(Design design, HttpPostedFileBase Design_Image)
+        {
+
+            string pic = "";
+            if (Design_Image != null)
+            {
+                pic = System.IO.Path.GetFileName(Design_Image.FileName);
+                string path = "/Content/DesignImages/" + pic;
+                Design_Image.SaveAs(Server.MapPath(path));
+                design.Design_Image = path;
+            }
+            else   {
+                design.Design_Image = "null";
+            }
+            db.Designs.Add(design);
+            db.SaveChanges();
+            return View();
+        }
 
         protected override void Dispose(bool disposing)
         {

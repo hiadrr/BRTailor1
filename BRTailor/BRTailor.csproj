@@ -619,6 +619,7 @@
       <DependentUpon>BRtailor.edmx</DependentUpon>
       <LastGenOutput>BRtailor.cs</LastGenOutput>
     </Content>
+    <Content Include="Content\7877.jpg" />
     <Content Include="Content\DesignImages\haider.png" />
     <Content Include="Content\own.js" />
     <Content Include="favicon.ico" />
@@ -681,6 +682,7 @@
     <Content Include="Views\Order\OrderReceived.cshtml" />
     <Content Include="Views\Booking\BookingProcess.cshtml" />
     <Content Include="Views\Booking\Invoice.cshtml" />
+    <Content Include="Views\Staff\AddDesign.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

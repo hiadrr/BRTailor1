@@ -26,7 +26,6 @@
         <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
         <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="5.625" PointY="0.75" />
         <AssociationConnector Association="BRTailorModel.FK_Booking_Customer" />
-        <AssociationConnector Association="BRTailorModel.FK_Booking_Designs" />
         <AssociationConnector Association="BRTailorModel.FK_Booking_MeasurmentType" />
         </Diagram>
     </edmx:Diagrams>

@@ -78,9 +78,9 @@ namespace BRTailor.Controllers
             }
 
             else
-            { return RedirectToAction("Invoice", "Home"); }
+            { return RedirectToAction("Invoice", "Booking"); }
 
-            return RedirectToAction("Invoice", "Home");
+            return RedirectToAction("Invoice", "Booking");
        
         }
         public ActionResult Invoice()
