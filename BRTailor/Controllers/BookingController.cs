@@ -33,6 +33,7 @@ namespace BRTailor.Controllers
         }
         public ActionResult GenerateBill(Booking booking)
         {
+           
             Booking b = new Booking();
             b.Customer_Address = booking.Customer_Address;
             b.Customer_City = booking.Customer_City;
@@ -50,6 +51,7 @@ namespace BRTailor.Controllers
             b.Design_Code = design.Design_Code;
             db.Bookings.Add(b);
             db.SaveChanges();
+            TempData["id"] = b.Bookin_ID;
             //Queue
             int id = Convert.ToInt32(booking.Customer_ID);
             var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
@@ -76,14 +78,20 @@ namespace BRTailor.Controllers
             }
 
             else
-            { return RedirectToAction("Index", "Home"); }
+            { return RedirectToAction("Invoice", "Home"); }
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Invoice", "Home");
        
         }
         public ActionResult Invoice()
         {
-            return View();
+            int id = Convert.ToInt32(TempData["id"]);
+            var b = db.Bookings.FirstOrDefault(x => x.Bookin_ID == id);
+            if (b.Design_Price != null)
+            {
+                ViewBag.Total = b.Design_Price + b.Price;
+            }
+            return View(b);
         }
     }
 }

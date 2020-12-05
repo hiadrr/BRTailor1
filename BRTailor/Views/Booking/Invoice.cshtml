@@ -1,4 +1,4 @@
-﻿
+﻿@model BRTailor.Booking
 @{
     ViewBag.Title = "Invoice";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
@@ -47,31 +47,13 @@
                         <div class="col-xs-6 invoice-infoblock pull-left">
                             <h4>Billed To:</h4>
                             <address>
-                                <h3>John Smith</h3>
+                                <h3>@Model.Customer_Name</h3>
                                 <span class="text-muted">
-                                    1234 Main Street<br>Apt. 34/4B<br>
-                                    Springfield<br>ST 54321
+                                   @Model.Customer_Address<br>
+                                   @Model.Customer_City<br>@Model.Customer_Phone
                                 </span>
                             </address>
                         </div>
-
-                        <div class="col-xs-6 invoice-infoblock text-right">
-                            <h4>Payment Method:</h4>
-                            <address>
-                                <h3>Credit Card</h3>
-                                <span class="text-muted">
-                                    Visa ending **** 4242<br>
-                                    jsmith@email.com
-                                </span>
-                            </address>
-
-                            <div class="invoice-due">
-                                <h3 class="text-muted">Total Due:</h3> &nbsp; <h2 class="text-primary">$ 2140.00</h2>
-                            </div>
-
-                        </div>
-
-
                         <div class="clearfix"></div><br>
 
                     </div>
@@ -92,52 +74,24 @@
                                     <tbody>
                                         <!-- foreach ($order->lineItems as $line) or some such thing here -->
                                         <tr>
-                                            <td>BS-200</td>
-                                            <td class="text-center">$10.99</td>
+                                            <td>@Model.Measurment_Type</td>
+                                            <td class="text-center">@Model.Price</td>
                                             <td class="text-center">1</td>
-                                            <td class="text-right">$10.99</td>
+                                            <td class="text-right">@Model.Price</td>
                                         </tr>
+                                        
                                         <tr>
-                                            <td>BS-400</td>
-                                            <td class="text-center">$20.00</td>
-                                            <td class="text-center">3</td>
-                                            <td class="text-right">$60.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td>BS-1000</td>
-                                            <td class="text-center">$600.00</td>
+                                            <td>@Model.Design_Code</td>
+                                            <td class="text-center">@Model.Design_Price</td>
                                             <td class="text-center">1</td>
-                                            <td class="text-right">$600.00</td>
+                                            <td class="text-right">@Model.Design_Price</td>
                                         </tr>
-                                        <tr>
-                                            <td>BS-2000</td>
-                                            <td class="text-center">$1000.00</td>
-                                            <td class="text-center">1</td>
-                                            <td class="text-right">$1000.00</td>
-                                        </tr>
-                                        <tr>
-                                            <td class="thick-line"></td>
-                                            <td class="thick-line"></td>
-                                            <td class="thick-line text-center"><h4>Subtotal</h4></td>
-                                            <td class="thick-line text-right"><h4>$1670.99</h4></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no-line"></td>
-                                            <td class="no-line"></td>
-                                            <td class="no-line text-center"><h4>Shipping</h4></td>
-                                            <td class="no-line text-right"><h4>$15</h4></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="no-line"></td>
-                                            <td class="no-line"></td>
-                                            <td class="no-line text-center"><h4>VAT</h4></td>
-                                            <td class="no-line text-right"><h4>$150.23</h4></td>
-                                        </tr>
+                                      
                                         <tr>
                                             <td class="no-line"></td>
                                             <td class="no-line"></td>
                                             <td class="no-line text-center"><h4>Total</h4></td>
-                                            <td class="no-line text-right"><h3 style="margin:0px;" class="text-primary">$1985.99</h3></td>
+                                            <td class="no-line text-right"><h3 style="margin:0px;" class="text-primary">@ViewBag.Total</h3></td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -166,3 +120,4 @@
     </section>
 </div>
 
+sss
