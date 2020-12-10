@@ -1,7 +1,10 @@
 ﻿
+using BRTailor.Models;
+using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.Dynamic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -19,17 +22,89 @@ namespace BRTailor.Controllers
             model.Customer = db.Customers.Find(id);
             model.Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
             model.design = db.Designs.ToList();
-            ViewBag.Design_ID = new SelectList(db.MeasurmentTypes, "Design_ID", "Design_Code");
+            // ViewBag.Design_ID = new SelectList(db.MeasurmentTypes, "Design_ID", "Design_Code");
+            var Item = new SelectList(db.MeasurmentTypes.ToList(), "Measurment_Type_ID", "Measurment_Type");
             var fromDatabaseEF = new SelectList(db.Designs.ToList(), "Design_ID", "Design_Code");
             ViewData["DBMySkills"] = fromDatabaseEF;
+            ViewData["DBMyMeasurment"] = Item;
 
             return View(model);
         }
+        public JsonResult Getcode(int? Measurment_Type_ID)
+        {
+            var data = db.MeasurmentTypes.FirstOrDefault(x => x.Measurment_Type_ID == Measurment_Type_ID);
+            return Json(new
+            {
+               Measurment_Type = data.Measurment_Type
+            }, JsonRequestBehavior.AllowGet);
+           
+         }
         public JsonResult GetDesign(int? Design_ID)
         {
             var data = db.Designs.FirstOrDefault(x => x.Design_ID == Design_ID);
 
             return Json(data, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public ActionResult BookOrder(BookingCustomerModel data )
+        {
+            var booking = new Booking()
+            {
+                Customer_Address = data.Customer_Address,
+                Customer_City = data.Customer_City,
+                Customer_Name = data.Customer_Name,
+                Customer_Phone = data.Customer_Phone,
+                Discount = data.Discount,
+                Total = data.Total,
+                Customer_ID = data.Customer_ID,
+                
+                
+            };
+            db.Bookings.Add(booking);
+            db.SaveChanges();
+            int b_id = Convert.ToInt32(booking.Bookin_ID);
+            foreach (var i in data.bookingItem)
+            {
+
+                var m = new BookingItem()
+                {
+                    Booking_ID = b_id,
+                    D_Price = i.D_Price,
+                    Measurment_Type = i.Measurment_Type,
+                    Price = i.Price,
+                    SubTotal = i.Price + i.D_Price,
+                    D_Code = i.D_Code,
+                };
+                db.BookingItems.Add(m);
+                db.SaveChanges();
+            }
+            //Queue
+            int id = Convert.ToInt32(data.Customer_ID);
+            var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
+            if (order == null)
+            {
+                var c = db.Customers.Find(id);
+                var m = db.Measurments.Where(x => x.Customer_ID == id).ToList();
+
+                Order o = new Order();
+                foreach (var item in m)
+                {
+                    o.Customer_ID = id;
+                    o.Customer_Name = c.Customer_Name;
+                    o.Measurment_ID = item.Measurment_ID;
+                    o.Measurment_Type = item.MeasurmentType.Measurment_Type;
+                    o.Measurment_Type_ID = item.Measurment_Type_ID;
+                    o.Status = "Queue";
+                    db.Orders.Add(o);
+                    db.SaveChanges();
+                };
+
+            }
+
+           
+
+            return Json(Url.Action("invoicePrintList", "Booking"));
+          
         }
         public ActionResult GenerateBill(Booking booking)
         {
@@ -40,18 +115,19 @@ namespace BRTailor.Controllers
             b.Customer_ID = booking.Customer_ID;
             b.Customer_Phone = booking.Customer_Phone;
             b.Customer_Name = booking.Customer_Name;
-            b.Design_ID = booking.Design_ID;
-            b.Design_Price = booking.Design_Price;
-            b.Measurment_Type = booking.Measurment_Type;
-            b.Measurment_Type_ID = booking.Measurment_Type_ID;
-            b.Price = booking.Price;
-            b.Design_Price = booking.Design_Price;
-
-            var design = db.Designs.FirstOrDefault(x => x.Design_ID == booking.Design_ID);
-            b.Design_Code = design.Design_Code;
+            //b.Design_ID = booking.Design_ID;
+            //b.Design_Price = booking.Design_Price;
+            //b.Measurment_Type = booking.Measurment_Type;
+            //b.Measurment_Type_ID = booking.Measurment_Type_ID;
+            //b.Price = booking.Price;
+            //b.Design_Price = booking.Design_Price;
+            //b.Total = booking.Price + booking.Design_Price;
+            //var design = db.Designs.FirstOrDefault(x => x.Design_ID == booking.Design_ID);
+            //b.Design_Code = design.Design_Code;
             db.Bookings.Add(b);
             db.SaveChanges();
-            TempData["id"] = b.Bookin_ID;
+            //TempData["id"] = b.Bookin_ID;
+
             //Queue
             int id = Convert.ToInt32(booking.Customer_ID);
             var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
@@ -78,20 +154,65 @@ namespace BRTailor.Controllers
             }
 
             else
-            { return RedirectToAction("Invoice", "Booking"); }
+            { return RedirectToAction("invoicePrintList", "Booking"); }
 
-            return RedirectToAction("Invoice", "Booking");
+            return RedirectToAction("invoicePrintList", "Booking");
        
+        }
+        public ActionResult invoicePrintList()
+        {
+            var data = db.Bookings.ToList();
+
+            return View(data);
         }
         public ActionResult Invoice()
         {
             int id = Convert.ToInt32(TempData["id"]);
             var b = db.Bookings.FirstOrDefault(x => x.Bookin_ID == id);
-            if (b.Design_Price != null)
-            {
-                ViewBag.Total = b.Design_Price + b.Price;
-            }
+           
             return View(b);
         }
+        public ActionResult Print(int? Id)
+        {
+
+            Warning[] warnings;
+            string mimeType = "";
+            string[] streamids;
+            string encoding;
+            string filenameExtension;
+            byte[] bytes = null;
+            var path = Path.Combine(Server.MapPath("~/Report"), "Invoice.rdlc");
+            var viewer = new ReportViewer();
+            viewer.LocalReport.ReportPath = path;
+
+            var data = db.Bookings.FirstOrDefault(x => x.Bookin_ID == Id);
+            var data1 = db.BookingItems.Where(x => x.Booking_ID == Id);
+          
+            ReportParameter[] parms = new ReportParameter[8];
+            parms[0] = new ReportParameter("Bookin_ID", data.Bookin_ID.ToString());
+            parms[1] = new ReportParameter("Customer_Name", data.Customer_Name);
+            parms[2] = new ReportParameter("Customer_Phone", data.Customer_Phone);
+            parms[3] = new ReportParameter("Customer_City", data.Customer_City);
+            parms[4] = new ReportParameter("Customer_Address", data.Customer_Address);
+            parms[5] = new ReportParameter("Total", data.Total.ToString());
+            parms[6] = new ReportParameter("Discount", data.Discount.ToString());
+           
+           
+
+            //parms[4] = new ReportParameter("Design_Code", data.Design_Code);
+            //parms[5] = new ReportParameter("Design_Price", data.Design_Price.ToString());
+            //parms[6] = new ReportParameter("Measurment_Type", data.Measurment_Type);
+            //parms[7] = new ReportParameter("Price", data.Price.ToString());
+
+
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", parms));
+             viewer.LocalReport.SetParameters(parms);
+            bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
+
+
+
+            return File(bytes, mimeType);
+        }
+        
     }
 }

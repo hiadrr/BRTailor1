@@ -12,25 +12,17 @@ namespace BRTailor
     using System;
     using System.Collections.Generic;
     
-    public partial class Booking
+    public partial class Invoice
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Booking()
-        {
-            this.BookingItems = new HashSet<BookingItem>();
-        }
-    
-        public int Bookin_ID { get; set; }
+        public int Id { get; set; }
         public Nullable<int> Customer_ID { get; set; }
         public string Customer_Name { get; set; }
-        public string Customer_Address { get; set; }
         public string Customer_Phone { get; set; }
         public string Customer_City { get; set; }
+        public string Customer_Address { get; set; }
         public Nullable<int> Total { get; set; }
         public Nullable<int> Discount { get; set; }
-    
-        public virtual Customer Customer { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<BookingItem> BookingItems { get; set; }
+        public Nullable<int> BookingID { get; set; }
+        public Nullable<System.DateTime> Date { get; set; }
     }
 }

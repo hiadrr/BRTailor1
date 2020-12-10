@@ -19,6 +19,8 @@
                    var tera = document.getElementById("Tera").value;
                    var dcollor = document.getElementById("Dcollor").value;
                    var ghera = document.getElementById("Ghera").value;
+                   var Gheranum = document.getElementById("Ghera_num").value;
+                   var Comments = document.getElementById("Comments").value;
                    var suitdesign = document.getElementById("suitDesign").value;
                    var btndesign = document.getElementById("btnDesign").value;
                    var stitch = document.getElementById("Stitch").value;
@@ -48,6 +50,8 @@
                        Dcollor: $('#Dcollor').val().trim(),
                        suitDesign: $('#suitDesign').val().trim(),
                        Ghera: $('#Ghera').val().trim(),
+                       Ghera: $('#Ghera_num').val().trim(),
+                       Ghera: $('#Comments').val().trim(),
                        btnDesign: $('#btnDesign').val().trim(),
                        Stitch: $('#Stitch').val().trim(),
                        CoatButton: $('#CoatButton').val().trim(),
@@ -72,6 +76,7 @@
                    + "<td class='prtoducttd' >" + gidrii + "</td>"
                    + "<td class='prtoducttd' >" + tera + "</td>"
                    + "<td class='prtoducttd'>" + ghera + "</td>"
+                    + "<td class='prtoducttd'>" + Gheranum + "</td>"
                    + "<td class='prtoducttd' >" + suitdesign + "</td>"
                    + "<td class='prtoducttd'>" + btndesign + "</td>"
                    + "<td class='prtoducttd' >" + stitch + "</td>"
@@ -86,6 +91,8 @@
                    $('#Measurment_Type_ID').val('').focus();
                    $('#Hip').val('');
                    $('#Gidrii').val('');
+                   $('#Ghera_num').val('');
+                   $('#Comments').val(''); 
                    $('#CrossBack').val('');
                    $('#Waist').val('');
                    $('#FrontPocket').val('');
@@ -131,7 +138,7 @@
                            if (d.status == true) {
                                //clear form
                                Measurlist = [];
-                               $('#CustomerName,#Phone,#City,#Address,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
+                               $('#CustomerName,#Ghera_num,#Comments,#Phone,#City,#Address,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
                               
                                $('#tblMeasur tbody').remove();
 

@@ -12,18 +12,16 @@ namespace BRTailor
     using System;
     using System.Collections.Generic;
     
-    public partial class MeasurmentType
+    public partial class BookingItem
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MeasurmentType()
-        {
-            this.Measurments = new HashSet<Measurment>();
-        }
-    
-        public int Measurment_Type_ID { get; set; }
+        public int BT_ID { get; set; }
+        public Nullable<int> Booking_ID { get; set; }
+        public Nullable<int> Price { get; set; }
+        public Nullable<int> D_Price { get; set; }
+        public Nullable<int> SubTotal { get; set; }
         public string Measurment_Type { get; set; }
+        public string D_Code { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Measurment> Measurments { get; set; }
+        public virtual Booking Booking { get; set; }
     }
 }

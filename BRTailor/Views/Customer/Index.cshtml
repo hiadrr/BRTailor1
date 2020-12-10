@@ -133,6 +133,11 @@
                             <option value="Collor">Collor </option>
                         </select>
                     </div>
+                    <div class="col-xs-3" id="Ghera_numdiv">
+                        <label>Ghera</label>
+                        <input type="text" class="form-control is-valid" id="Ghera_num" name="Ghera_num" placeholder="Ghera" required>
+
+                    </div>
                     <div class="col-xs-3" id="Bottomdiv">
                         <label>پیندا/Bottom</label>
                         <input type="text" class="form-control is-valid" id="Bottom" name="Bottom" placeholder="Bottom" required>
@@ -220,6 +225,11 @@
 
                         </select>
                     </div>
+                    <div class="col-xs-3" id="Commentsdiv">
+                        <label>Additional Information</label>
+                        <textarea type="text" class="form-control is-valid" id="Comments" name="Comments" placeholder="Additional Information" ></textarea>
+
+                    </div>
                     <div class="col-xs-3">
                         <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin: 32px 10px 10px 10px;">+</button>
                     </div>
@@ -289,42 +299,42 @@
 <script src="~/assets/js/jquery-1.11.2.min.js"></script>
 <script>
     $(document).ready(function () {
-        $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
+        $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
 
 
         $("#Measurment_Type_ID").change(function () {
-            $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
+            $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
 
             var MeasurId = parseInt($(this).val());
             //Kurta
             if (MeasurId === 10)
             {
-                $("#btnDesigndiv,#Stitchdiv,#type,#Lengthdiv,#armsdiv,#Dcollordiv,#CollorSizediv,#Chestdiv,#Waistdivss,#Gheradiv,#Sleevesdiv,#Shoulderdiv,#suitDesigndiv,#btnDesigndiv,#Buttondiv,#Stitchdiv,#Teradiv").show();
+                $("#btnDesigndiv,#Stitchdiv,#type,#Lengthdiv,#armsdiv,#Dcollordiv,#Ghera_numdiv,#Commentsdiv,#CollorSizediv,#Chestdiv,#Waistdivss,#Gheradiv,#Sleevesdiv,#Shoulderdiv,#suitDesigndiv,#btnDesigndiv,#Buttondiv,#Stitchdiv,#Teradiv").show();
                
             }
                 
                 //Shalwar
             else if (MeasurId === 11) {
-                $("#type,#Lengthdiv,#Bottomdiv,#Gheradiv").show();
+                $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv").show();
             }
                 //Trouser
             else if (MeasurId === 12) {
-                $("#type,#Lengthdiv,#Bottomdiv,#Gheradiv,#Waistdiv").show();
+                $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv,#Waistdiv").show();
             }
                 //Pent
             else if (MeasurId === 13) {
-                $("#type,#Lengthdiv,#Waistdiv,#Bottomdiv,#Hipdiv,#Gidriidiv").show();
+                $("#type,#Lengthdiv,#Waistdiv,#Bottomdiv,#Hipdiv,#Gidriidiv,#Commentsdiv").show();
                 
             }
                 //Coat
             else if (MeasurId === 14) {
-                $("#type,#Lengthdiv,#Teradiv,#CrossBackdiv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Shoulderdiv,#armsdiv,#Waistdiv").show();
+                $("#type,,#Commentsdiv#Lengthdiv,#Teradiv,#CrossBackdiv,CollorSizediv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Shoulderdiv,#armsdiv,#Waistdiv").show();
 
             }
                 //WaistCoat
             else if (MeasurId === 15) {
                
-                $("#type,#Lengthdiv,#Teradiv,#CrossBackdiv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Waistdiv").show();
+                $("#type,#Lengthdiv,#Teradiv,#CrossBackdiv,CollorSizediv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Waistdiv").show();
 
             }
 

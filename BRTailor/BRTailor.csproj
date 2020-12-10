@@ -79,6 +79,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -214,6 +215,9 @@
     <Compile Include="Booking.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
+    <Compile Include="BookingItem.cs">
+      <DependentUpon>BRtailor.tt</DependentUpon>
+    </Compile>
     <Compile Include="BRtailor.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,6 +234,7 @@
       <DependentUpon>BRtailor.edmx</DependentUpon>
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -249,6 +254,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Invoice.cs">
+      <DependentUpon>BRtailor.tt</DependentUpon>
+    </Compile>
     <Compile Include="Measurment.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
@@ -256,6 +264,8 @@
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\BookingCustomerModel.cs" />
+    <Compile Include="Models\DataSetclass.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeasurmentTypeVM.cs" />
@@ -265,6 +275,11 @@
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Report\DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Staff.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
@@ -620,6 +635,7 @@
       <LastGenOutput>BRtailor.cs</LastGenOutput>
     </Content>
     <Content Include="Content\7877.jpg" />
+    <Content Include="Content\Booking.js" />
     <Content Include="Content\DesignImages\haider.png" />
     <Content Include="Content\own.js" />
     <Content Include="favicon.ico" />
@@ -627,11 +643,24 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Report\DataSet1.xsc">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\DataSet1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet1.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\DataSet1.xss">
+      <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Scripts\Invoice.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="SQL SCRIPT\script.sql" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -682,7 +711,9 @@
     <Content Include="Views\Order\OrderReceived.cshtml" />
     <Content Include="Views\Booking\BookingProcess.cshtml" />
     <Content Include="Views\Booking\Invoice.cshtml" />
-    <Content Include="Views\Staff\AddDesign.cshtml" />
+    <Content Include="Views\Admin\AddDesign.cshtml" />
+    <Content Include="Views\Booking\invoicePrintList.cshtml" />
+    <Content Include="Views\Admin\DesignIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -719,6 +750,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Report\Invoice.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
