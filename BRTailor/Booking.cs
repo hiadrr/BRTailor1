@@ -28,6 +28,8 @@ namespace BRTailor
         public string Customer_City { get; set; }
         public Nullable<int> Total { get; set; }
         public Nullable<int> Discount { get; set; }
+        public Nullable<int> Payable { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     
         public virtual Customer Customer { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

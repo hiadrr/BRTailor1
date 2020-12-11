@@ -24,7 +24,7 @@ namespace BRTailor.Report {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DataSet1 : global::System.Data.DataSet {
         
-        private InvoiceDataTable tableInvoice;
+        private BookingDataTable tableBooking;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -54,8 +54,8 @@ namespace BRTailor.Report {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Invoice"] != null)) {
-                    base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
+                if ((ds.Tables["Booking"] != null)) {
+                    base.Tables.Add(new BookingDataTable(ds.Tables["Booking"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace BRTailor.Report {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public InvoiceDataTable Invoice {
+        public BookingDataTable Booking {
             get {
-                return this.tableInvoice;
+                return this.tableBooking;
             }
         }
         
@@ -152,8 +152,8 @@ namespace BRTailor.Report {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Invoice"] != null)) {
-                    base.Tables.Add(new InvoiceDataTable(ds.Tables["Invoice"]));
+                if ((ds.Tables["Booking"] != null)) {
+                    base.Tables.Add(new BookingDataTable(ds.Tables["Booking"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace BRTailor.Report {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableInvoice = ((InvoiceDataTable)(base.Tables["Invoice"]));
+            this.tableBooking = ((BookingDataTable)(base.Tables["Booking"]));
             if ((initTable == true)) {
-                if ((this.tableInvoice != null)) {
-                    this.tableInvoice.InitVars();
+                if ((this.tableBooking != null)) {
+                    this.tableBooking.InitVars();
                 }
             }
         }
@@ -204,13 +204,13 @@ namespace BRTailor.Report {
             this.Namespace = "http://tempuri.org/DataSet1.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableInvoice = new InvoiceDataTable();
-            base.Tables.Add(this.tableInvoice);
+            this.tableBooking = new BookingDataTable();
+            base.Tables.Add(this.tableBooking);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeInvoice() {
+        private bool ShouldSerializeBooking() {
             return false;
         }
         
@@ -270,39 +270,39 @@ namespace BRTailor.Report {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void InvoiceRowChangeEventHandler(object sender, InvoiceRowChangeEvent e);
+        public delegate void BookingRowChangeEventHandler(object sender, BookingRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class InvoiceDataTable : global::System.Data.TypedTableBase<InvoiceRow> {
+        public partial class BookingDataTable : global::System.Data.TypedTableBase<BookingRow> {
             
-            private global::System.Data.DataColumn columnId;
+            private global::System.Data.DataColumn columnBookin_ID;
             
             private global::System.Data.DataColumn columnCustomer_ID;
             
             private global::System.Data.DataColumn columnCustomer_Name;
             
+            private global::System.Data.DataColumn columnCustomer_Address;
+            
             private global::System.Data.DataColumn columnCustomer_Phone;
             
             private global::System.Data.DataColumn columnCustomer_City;
-            
-            private global::System.Data.DataColumn columnCustomer_Address;
             
             private global::System.Data.DataColumn columnTotal;
             
             private global::System.Data.DataColumn columnDiscount;
             
-            private global::System.Data.DataColumn columnBookingID;
+            private global::System.Data.DataColumn columnPayable;
             
-            private global::System.Data.DataColumn columnDate;
+            private global::System.Data.DataColumn columndate;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceDataTable() {
-                this.TableName = "Invoice";
+            public BookingDataTable() {
+                this.TableName = "Booking";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -310,7 +310,7 @@ namespace BRTailor.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal InvoiceDataTable(global::System.Data.DataTable table) {
+            internal BookingDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -327,16 +327,16 @@ namespace BRTailor.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected InvoiceDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected BookingDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn IdColumn {
+            public global::System.Data.DataColumn Bookin_IDColumn {
                 get {
-                    return this.columnId;
+                    return this.columnBookin_ID;
                 }
             }
             
@@ -358,6 +358,14 @@ namespace BRTailor.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn Customer_AddressColumn {
+                get {
+                    return this.columnCustomer_Address;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn Customer_PhoneColumn {
                 get {
                     return this.columnCustomer_Phone;
@@ -369,14 +377,6 @@ namespace BRTailor.Report {
             public global::System.Data.DataColumn Customer_CityColumn {
                 get {
                     return this.columnCustomer_City;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn Customer_AddressColumn {
-                get {
-                    return this.columnCustomer_Address;
                 }
             }
             
@@ -398,17 +398,17 @@ namespace BRTailor.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn BookingIDColumn {
+            public global::System.Data.DataColumn PayableColumn {
                 get {
-                    return this.columnBookingID;
+                    return this.columnPayable;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DateColumn {
+            public global::System.Data.DataColumn dateColumn {
                 get {
-                    return this.columnDate;
+                    return this.columndate;
                 }
             }
             
@@ -423,61 +423,61 @@ namespace BRTailor.Report {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRow this[int index] {
+            public BookingRow this[int index] {
                 get {
-                    return ((InvoiceRow)(this.Rows[index]));
+                    return ((BookingRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowChanging;
+            public event BookingRowChangeEventHandler BookingRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowChanged;
+            public event BookingRowChangeEventHandler BookingRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowDeleting;
+            public event BookingRowChangeEventHandler BookingRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event InvoiceRowChangeEventHandler InvoiceRowDeleted;
+            public event BookingRowChangeEventHandler BookingRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddInvoiceRow(InvoiceRow row) {
+            public void AddBookingRow(BookingRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRow AddInvoiceRow(int Customer_ID, string Customer_Name, string Customer_Phone, string Customer_City, string Customer_Address, int Total, int Discount, int BookingID, System.DateTime Date) {
-                InvoiceRow rowInvoiceRow = ((InvoiceRow)(this.NewRow()));
+            public BookingRow AddBookingRow(int Customer_ID, string Customer_Name, string Customer_Address, string Customer_Phone, string Customer_City, int Total, int Discount, int Payable, System.DateTime date) {
+                BookingRow rowBookingRow = ((BookingRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         Customer_ID,
                         Customer_Name,
+                        Customer_Address,
                         Customer_Phone,
                         Customer_City,
-                        Customer_Address,
                         Total,
                         Discount,
-                        BookingID,
-                        Date};
-                rowInvoiceRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowInvoiceRow);
-                return rowInvoiceRow;
+                        Payable,
+                        date};
+                rowBookingRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowBookingRow);
+                return rowBookingRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRow FindById(int Id) {
-                return ((InvoiceRow)(this.Rows.Find(new object[] {
-                            Id})));
+            public BookingRow FindByBookin_ID(int Bookin_ID) {
+                return ((BookingRow)(this.Rows.Find(new object[] {
+                            Bookin_ID})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                InvoiceDataTable cln = ((InvoiceDataTable)(base.Clone()));
+                BookingDataTable cln = ((BookingDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -485,85 +485,85 @@ namespace BRTailor.Report {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new InvoiceDataTable();
+                return new BookingDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnId = base.Columns["Id"];
+                this.columnBookin_ID = base.Columns["Bookin_ID"];
                 this.columnCustomer_ID = base.Columns["Customer_ID"];
                 this.columnCustomer_Name = base.Columns["Customer_Name"];
+                this.columnCustomer_Address = base.Columns["Customer_Address"];
                 this.columnCustomer_Phone = base.Columns["Customer_Phone"];
                 this.columnCustomer_City = base.Columns["Customer_City"];
-                this.columnCustomer_Address = base.Columns["Customer_Address"];
                 this.columnTotal = base.Columns["Total"];
                 this.columnDiscount = base.Columns["Discount"];
-                this.columnBookingID = base.Columns["BookingID"];
-                this.columnDate = base.Columns["Date"];
+                this.columnPayable = base.Columns["Payable"];
+                this.columndate = base.Columns["date"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnId = new global::System.Data.DataColumn("Id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnId);
+                this.columnBookin_ID = new global::System.Data.DataColumn("Bookin_ID", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBookin_ID);
                 this.columnCustomer_ID = new global::System.Data.DataColumn("Customer_ID", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_ID);
                 this.columnCustomer_Name = new global::System.Data.DataColumn("Customer_Name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_Name);
+                this.columnCustomer_Address = new global::System.Data.DataColumn("Customer_Address", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCustomer_Address);
                 this.columnCustomer_Phone = new global::System.Data.DataColumn("Customer_Phone", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_Phone);
                 this.columnCustomer_City = new global::System.Data.DataColumn("Customer_City", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCustomer_City);
-                this.columnCustomer_Address = new global::System.Data.DataColumn("Customer_Address", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCustomer_Address);
                 this.columnTotal = new global::System.Data.DataColumn("Total", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTotal);
                 this.columnDiscount = new global::System.Data.DataColumn("Discount", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnDiscount);
-                this.columnBookingID = new global::System.Data.DataColumn("BookingID", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBookingID);
-                this.columnDate = new global::System.Data.DataColumn("Date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDate);
+                this.columnPayable = new global::System.Data.DataColumn("Payable", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnPayable);
+                this.columndate = new global::System.Data.DataColumn("date", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndate);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnId}, true));
-                this.columnId.AutoIncrement = true;
-                this.columnId.AutoIncrementSeed = -1;
-                this.columnId.AutoIncrementStep = -1;
-                this.columnId.AllowDBNull = false;
-                this.columnId.ReadOnly = true;
-                this.columnId.Unique = true;
+                                this.columnBookin_ID}, true));
+                this.columnBookin_ID.AutoIncrement = true;
+                this.columnBookin_ID.AutoIncrementSeed = -1;
+                this.columnBookin_ID.AutoIncrementStep = -1;
+                this.columnBookin_ID.AllowDBNull = false;
+                this.columnBookin_ID.ReadOnly = true;
+                this.columnBookin_ID.Unique = true;
                 this.columnCustomer_Name.MaxLength = 50;
+                this.columnCustomer_Address.MaxLength = 50;
                 this.columnCustomer_Phone.MaxLength = 50;
                 this.columnCustomer_City.MaxLength = 50;
-                this.columnCustomer_Address.MaxLength = 50;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRow NewInvoiceRow() {
-                return ((InvoiceRow)(this.NewRow()));
+            public BookingRow NewBookingRow() {
+                return ((BookingRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new InvoiceRow(builder);
+                return new BookingRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(InvoiceRow);
+                return typeof(BookingRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.InvoiceRowChanged != null)) {
-                    this.InvoiceRowChanged(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
+                if ((this.BookingRowChanged != null)) {
+                    this.BookingRowChanged(this, new BookingRowChangeEvent(((BookingRow)(e.Row)), e.Action));
                 }
             }
             
@@ -571,8 +571,8 @@ namespace BRTailor.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.InvoiceRowChanging != null)) {
-                    this.InvoiceRowChanging(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
+                if ((this.BookingRowChanging != null)) {
+                    this.BookingRowChanging(this, new BookingRowChangeEvent(((BookingRow)(e.Row)), e.Action));
                 }
             }
             
@@ -580,8 +580,8 @@ namespace BRTailor.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.InvoiceRowDeleted != null)) {
-                    this.InvoiceRowDeleted(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
+                if ((this.BookingRowDeleted != null)) {
+                    this.BookingRowDeleted(this, new BookingRowChangeEvent(((BookingRow)(e.Row)), e.Action));
                 }
             }
             
@@ -589,14 +589,14 @@ namespace BRTailor.Report {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.InvoiceRowDeleting != null)) {
-                    this.InvoiceRowDeleting(this, new InvoiceRowChangeEvent(((InvoiceRow)(e.Row)), e.Action));
+                if ((this.BookingRowDeleting != null)) {
+                    this.BookingRowDeleting(this, new BookingRowChangeEvent(((BookingRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveInvoiceRow(InvoiceRow row) {
+            public void RemoveBookingRow(BookingRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -623,7 +623,7 @@ namespace BRTailor.Report {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "InvoiceDataTable";
+                attribute2.FixedValue = "BookingDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -667,25 +667,25 @@ namespace BRTailor.Report {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class InvoiceRow : global::System.Data.DataRow {
+        public partial class BookingRow : global::System.Data.DataRow {
             
-            private InvoiceDataTable tableInvoice;
+            private BookingDataTable tableBooking;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal InvoiceRow(global::System.Data.DataRowBuilder rb) : 
+            internal BookingRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableInvoice = ((InvoiceDataTable)(this.Table));
+                this.tableBooking = ((BookingDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int Id {
+            public int Bookin_ID {
                 get {
-                    return ((int)(this[this.tableInvoice.IdColumn]));
+                    return ((int)(this[this.tableBooking.Bookin_IDColumn]));
                 }
                 set {
-                    this[this.tableInvoice.IdColumn] = value;
+                    this[this.tableBooking.Bookin_IDColumn] = value;
                 }
             }
             
@@ -694,14 +694,14 @@ namespace BRTailor.Report {
             public int Customer_ID {
                 get {
                     try {
-                        return ((int)(this[this.tableInvoice.Customer_IDColumn]));
+                        return ((int)(this[this.tableBooking.Customer_IDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_ID\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_ID\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Customer_IDColumn] = value;
+                    this[this.tableBooking.Customer_IDColumn] = value;
                 }
             }
             
@@ -710,46 +710,14 @@ namespace BRTailor.Report {
             public string Customer_Name {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.Customer_NameColumn]));
+                        return ((string)(this[this.tableBooking.Customer_NameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Name\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Name\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Customer_NameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Customer_Phone {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Customer_PhoneColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Phone\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Customer_PhoneColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string Customer_City {
-                get {
-                    try {
-                        return ((string)(this[this.tableInvoice.Customer_CityColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_City\' in table \'Invoice\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableInvoice.Customer_CityColumn] = value;
+                    this[this.tableBooking.Customer_NameColumn] = value;
                 }
             }
             
@@ -758,14 +726,46 @@ namespace BRTailor.Report {
             public string Customer_Address {
                 get {
                     try {
-                        return ((string)(this[this.tableInvoice.Customer_AddressColumn]));
+                        return ((string)(this[this.tableBooking.Customer_AddressColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Address\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Address\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.Customer_AddressColumn] = value;
+                    this[this.tableBooking.Customer_AddressColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Customer_Phone {
+                get {
+                    try {
+                        return ((string)(this[this.tableBooking.Customer_PhoneColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_Phone\' in table \'Booking\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBooking.Customer_PhoneColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Customer_City {
+                get {
+                    try {
+                        return ((string)(this[this.tableBooking.Customer_CityColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Customer_City\' in table \'Booking\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableBooking.Customer_CityColumn] = value;
                 }
             }
             
@@ -774,14 +774,14 @@ namespace BRTailor.Report {
             public int Total {
                 get {
                     try {
-                        return ((int)(this[this.tableInvoice.TotalColumn]));
+                        return ((int)(this[this.tableBooking.TotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.TotalColumn] = value;
+                    this[this.tableBooking.TotalColumn] = value;
                 }
             }
             
@@ -790,155 +790,155 @@ namespace BRTailor.Report {
             public int Discount {
                 get {
                     try {
-                        return ((int)(this[this.tableInvoice.DiscountColumn]));
+                        return ((int)(this[this.tableBooking.DiscountColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Discount\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DiscountColumn] = value;
+                    this[this.tableBooking.DiscountColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int BookingID {
+            public int Payable {
                 get {
                     try {
-                        return ((int)(this[this.tableInvoice.BookingIDColumn]));
+                        return ((int)(this[this.tableBooking.PayableColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'BookingID\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Payable\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.BookingIDColumn] = value;
+                    this[this.tableBooking.PayableColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime Date {
+            public System.DateTime date {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableInvoice.DateColumn]));
+                        return ((global::System.DateTime)(this[this.tableBooking.dateColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'Date\' in table \'Invoice\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'date\' in table \'Booking\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableInvoice.DateColumn] = value;
+                    this[this.tableBooking.dateColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomer_IDNull() {
-                return this.IsNull(this.tableInvoice.Customer_IDColumn);
+                return this.IsNull(this.tableBooking.Customer_IDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomer_IDNull() {
-                this[this.tableInvoice.Customer_IDColumn] = global::System.Convert.DBNull;
+                this[this.tableBooking.Customer_IDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomer_NameNull() {
-                return this.IsNull(this.tableInvoice.Customer_NameColumn);
+                return this.IsNull(this.tableBooking.Customer_NameColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomer_NameNull() {
-                this[this.tableInvoice.Customer_NameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCustomer_PhoneNull() {
-                return this.IsNull(this.tableInvoice.Customer_PhoneColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCustomer_PhoneNull() {
-                this[this.tableInvoice.Customer_PhoneColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsCustomer_CityNull() {
-                return this.IsNull(this.tableInvoice.Customer_CityColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetCustomer_CityNull() {
-                this[this.tableInvoice.Customer_CityColumn] = global::System.Convert.DBNull;
+                this[this.tableBooking.Customer_NameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCustomer_AddressNull() {
-                return this.IsNull(this.tableInvoice.Customer_AddressColumn);
+                return this.IsNull(this.tableBooking.Customer_AddressColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCustomer_AddressNull() {
-                this[this.tableInvoice.Customer_AddressColumn] = global::System.Convert.DBNull;
+                this[this.tableBooking.Customer_AddressColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomer_PhoneNull() {
+                return this.IsNull(this.tableBooking.Customer_PhoneColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomer_PhoneNull() {
+                this[this.tableBooking.Customer_PhoneColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsCustomer_CityNull() {
+                return this.IsNull(this.tableBooking.Customer_CityColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetCustomer_CityNull() {
+                this[this.tableBooking.Customer_CityColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsTotalNull() {
-                return this.IsNull(this.tableInvoice.TotalColumn);
+                return this.IsNull(this.tableBooking.TotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetTotalNull() {
-                this[this.tableInvoice.TotalColumn] = global::System.Convert.DBNull;
+                this[this.tableBooking.TotalColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsDiscountNull() {
-                return this.IsNull(this.tableInvoice.DiscountColumn);
+                return this.IsNull(this.tableBooking.DiscountColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetDiscountNull() {
-                this[this.tableInvoice.DiscountColumn] = global::System.Convert.DBNull;
+                this[this.tableBooking.DiscountColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsBookingIDNull() {
-                return this.IsNull(this.tableInvoice.BookingIDColumn);
+            public bool IsPayableNull() {
+                return this.IsNull(this.tableBooking.PayableColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetBookingIDNull() {
-                this[this.tableInvoice.BookingIDColumn] = global::System.Convert.DBNull;
+            public void SetPayableNull() {
+                this[this.tableBooking.PayableColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDateNull() {
-                return this.IsNull(this.tableInvoice.DateColumn);
+            public bool IsdateNull() {
+                return this.IsNull(this.tableBooking.dateColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDateNull() {
-                this[this.tableInvoice.DateColumn] = global::System.Convert.DBNull;
+            public void SetdateNull() {
+                this[this.tableBooking.dateColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -946,22 +946,22 @@ namespace BRTailor.Report {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class InvoiceRowChangeEvent : global::System.EventArgs {
+        public class BookingRowChangeEvent : global::System.EventArgs {
             
-            private InvoiceRow eventRow;
+            private BookingRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRowChangeEvent(InvoiceRow row, global::System.Data.DataRowAction action) {
+            public BookingRowChangeEvent(BookingRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public InvoiceRow Row {
+            public BookingRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -989,7 +989,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class InvoiceTableAdapter : global::System.ComponentModel.Component {
+    public partial class BookingTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -1003,7 +1003,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public InvoiceTableAdapter() {
+        public BookingTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -1100,50 +1100,50 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Invoice";
-            tableMapping.ColumnMappings.Add("Id", "Id");
+            tableMapping.DataSetTable = "Booking";
+            tableMapping.ColumnMappings.Add("Bookin_ID", "Bookin_ID");
             tableMapping.ColumnMappings.Add("Customer_ID", "Customer_ID");
             tableMapping.ColumnMappings.Add("Customer_Name", "Customer_Name");
+            tableMapping.ColumnMappings.Add("Customer_Address", "Customer_Address");
             tableMapping.ColumnMappings.Add("Customer_Phone", "Customer_Phone");
             tableMapping.ColumnMappings.Add("Customer_City", "Customer_City");
-            tableMapping.ColumnMappings.Add("Customer_Address", "Customer_Address");
             tableMapping.ColumnMappings.Add("Total", "Total");
             tableMapping.ColumnMappings.Add("Discount", "Discount");
-            tableMapping.ColumnMappings.Add("BookingID", "BookingID");
-            tableMapping.ColumnMappings.Add("Date", "Date");
+            tableMapping.ColumnMappings.Add("Payable", "Payable");
+            tableMapping.ColumnMappings.Add("date", "date");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Invoice] WHERE (([Id] = @Original_Id))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[Booking] WHERE (([Bookin_ID] = @Original_Bookin_ID))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Bookin_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Bookin_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Invoice] ([Customer_ID], [Customer_Name], [Customer_Phone], [Customer_City], [Customer_Address], [Total], [Discount], [BookingID], [Date]) VALUES (@Customer_ID, @Customer_Name, @Customer_Phone, @Customer_City, @Customer_Address, @Total, @Discount, @BookingID, @Date)";
+            this._adapter.InsertCommand.CommandText = @"INSERT INTO [dbo].[Booking] ([Customer_ID], [Customer_Name], [Customer_Address], [Customer_Phone], [Customer_City], [Total], [Discount], [Payable], [date]) VALUES (@Customer_ID, @Customer_Name, @Customer_Address, @Customer_Phone, @Customer_City, @Total, @Discount, @Payable, @date)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Payable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Payable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Invoice] SET [Customer_ID] = @Customer_ID, [Customer_Name] = @Customer_Name, [Customer_Phone] = @Customer_Phone, [Customer_City] = @Customer_City, [Customer_Address] = @Customer_Address, [Total] = @Total, [Discount] = @Discount, [BookingID] = @BookingID, [Date] = @Date WHERE (([Id] = @Original_Id))";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Booking] SET [Customer_ID] = @Customer_ID, [Customer_Name] = @Customer_Name, [Customer_Address] = @Customer_Address, [Customer_Phone] = @Customer_Phone, [Customer_City] = @Customer_City, [Total] = @Total, [Discount] = @Discount, [Payable] = @Payable, [date] = @date WHERE (([Bookin_ID] = @Original_Bookin_ID))";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Name", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Name", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Phone", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Phone", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_City", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_City", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Customer_Address", global::System.Data.SqlDbType.NVarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Customer_Address", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Total", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Total", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Discount", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Discount", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@BookingID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "BookingID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Id", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Id", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Payable", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Payable", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@date", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "date", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_Bookin_ID", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "Bookin_ID", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1159,8 +1159,8 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT Id, Customer_ID, Customer_Name, Customer_Phone, Customer_City, Customer_Ad" +
-                "dress, Total, Discount, BookingID, Date FROM dbo.Invoice";
+            this._commandCollection[0].CommandText = "SELECT Bookin_ID, Customer_ID, Customer_Name, Customer_Address, Customer_Phone, C" +
+                "ustomer_City, Total, Discount, Payable, date FROM dbo.Booking";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -1168,7 +1168,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSet1.InvoiceDataTable dataTable) {
+        public virtual int Fill(DataSet1.BookingDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -1181,9 +1181,9 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSet1.InvoiceDataTable GetData() {
+        public virtual DataSet1.BookingDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSet1.InvoiceDataTable dataTable = new DataSet1.InvoiceDataTable();
+            DataSet1.BookingDataTable dataTable = new DataSet1.BookingDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -1191,7 +1191,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSet1.InvoiceDataTable dataTable) {
+        public virtual int Update(DataSet1.BookingDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
@@ -1199,7 +1199,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         public virtual int Update(DataSet1 dataSet) {
-            return this.Adapter.Update(dataSet, "Invoice");
+            return this.Adapter.Update(dataSet, "Booking");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1221,8 +1221,8 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_Id) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Id));
+        public virtual int Delete(int Original_Bookin_ID) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_Bookin_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1243,7 +1243,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> Customer_ID, string Customer_Name, string Customer_Phone, string Customer_City, string Customer_Address, global::System.Nullable<int> Total, global::System.Nullable<int> Discount, global::System.Nullable<int> BookingID, global::System.Nullable<global::System.DateTime> Date) {
+        public virtual int Insert(global::System.Nullable<int> Customer_ID, string Customer_Name, string Customer_Address, string Customer_Phone, string Customer_City, global::System.Nullable<int> Total, global::System.Nullable<int> Discount, global::System.Nullable<int> Payable, global::System.Nullable<global::System.DateTime> date) {
             if ((Customer_ID.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(Customer_ID.Value));
             }
@@ -1256,23 +1256,23 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((string)(Customer_Name));
             }
-            if ((Customer_Phone == null)) {
+            if ((Customer_Address == null)) {
                 this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Customer_Phone));
+                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(Customer_Address));
             }
-            if ((Customer_City == null)) {
+            if ((Customer_Phone == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Customer_City));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(Customer_Phone));
             }
-            if ((Customer_Address == null)) {
+            if ((Customer_City == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Customer_Address));
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(Customer_City));
             }
             if ((Total.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = ((int)(Total.Value));
@@ -1286,14 +1286,14 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((BookingID.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(BookingID.Value));
+            if ((Payable.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((int)(Payable.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Date.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(Date.Value));
+            if ((date.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(date.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
@@ -1318,7 +1318,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> Customer_ID, string Customer_Name, string Customer_Phone, string Customer_City, string Customer_Address, global::System.Nullable<int> Total, global::System.Nullable<int> Discount, global::System.Nullable<int> BookingID, global::System.Nullable<global::System.DateTime> Date, int Original_Id) {
+        public virtual int Update(global::System.Nullable<int> Customer_ID, string Customer_Name, string Customer_Address, string Customer_Phone, string Customer_City, global::System.Nullable<int> Total, global::System.Nullable<int> Discount, global::System.Nullable<int> Payable, global::System.Nullable<global::System.DateTime> date, int Original_Bookin_ID) {
             if ((Customer_ID.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(Customer_ID.Value));
             }
@@ -1331,23 +1331,23 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[1].Value = ((string)(Customer_Name));
             }
-            if ((Customer_Phone == null)) {
+            if ((Customer_Address == null)) {
                 this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Customer_Phone));
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(Customer_Address));
             }
-            if ((Customer_City == null)) {
+            if ((Customer_Phone == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Customer_City));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(Customer_Phone));
             }
-            if ((Customer_Address == null)) {
+            if ((Customer_City == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Customer_Address));
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(Customer_City));
             }
             if ((Total.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(Total.Value));
@@ -1361,19 +1361,19 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((BookingID.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(BookingID.Value));
+            if ((Payable.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((int)(Payable.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Date.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(Date.Value));
+            if ((date.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(date.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Id));
+            this.Adapter.UpdateCommand.Parameters[9].Value = ((int)(Original_Bookin_ID));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1403,7 +1403,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private InvoiceTableAdapter _invoiceTableAdapter;
+        private BookingTableAdapter _bookingTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -1425,12 +1425,12 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public InvoiceTableAdapter InvoiceTableAdapter {
+        public BookingTableAdapter BookingTableAdapter {
             get {
-                return this._invoiceTableAdapter;
+                return this._bookingTableAdapter;
             }
             set {
-                this._invoiceTableAdapter = value;
+                this._bookingTableAdapter = value;
             }
         }
         
@@ -1453,9 +1453,9 @@ namespace BRTailor.Report.DataSet1TableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._invoiceTableAdapter != null) 
-                            && (this._invoiceTableAdapter.Connection != null))) {
-                    return this._invoiceTableAdapter.Connection;
+                if (((this._bookingTableAdapter != null) 
+                            && (this._bookingTableAdapter.Connection != null))) {
+                    return this._bookingTableAdapter.Connection;
                 }
                 return null;
             }
@@ -1470,7 +1470,7 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._invoiceTableAdapter != null)) {
+                if ((this._bookingTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -1484,12 +1484,12 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateUpdatedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._invoiceTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.Invoice.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._bookingTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.Booking.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._invoiceTableAdapter.Update(updatedRows));
+                    result = (result + this._bookingTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -1503,11 +1503,11 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateInsertedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._invoiceTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.Invoice.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._bookingTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.Booking.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._invoiceTableAdapter.Update(addedRows));
+                    result = (result + this._bookingTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -1521,11 +1521,11 @@ namespace BRTailor.Report.DataSet1TableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private int UpdateDeletedRows(DataSet1 dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._invoiceTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.Invoice.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._bookingTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.Booking.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._invoiceTableAdapter.Update(deletedRows));
+                    result = (result + this._bookingTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -1568,8 +1568,8 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._invoiceTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._invoiceTableAdapter.Connection) == false))) {
+            if (((this._bookingTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._bookingTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -1605,13 +1605,13 @@ namespace BRTailor.Report.DataSet1TableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._invoiceTableAdapter != null)) {
-                    revertConnections.Add(this._invoiceTableAdapter, this._invoiceTableAdapter.Connection);
-                    this._invoiceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._invoiceTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._invoiceTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._invoiceTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._invoiceTableAdapter.Adapter);
+                if ((this._bookingTableAdapter != null)) {
+                    revertConnections.Add(this._bookingTableAdapter, this._bookingTableAdapter.Connection);
+                    this._bookingTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._bookingTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._bookingTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._bookingTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._bookingTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -1672,9 +1672,9 @@ namespace BRTailor.Report.DataSet1TableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._invoiceTableAdapter != null)) {
-                    this._invoiceTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._invoiceTableAdapter]));
-                    this._invoiceTableAdapter.Transaction = null;
+                if ((this._bookingTableAdapter != null)) {
+                    this._bookingTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._bookingTableAdapter]));
+                    this._bookingTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

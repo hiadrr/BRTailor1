@@ -22,6 +22,7 @@ namespace BRTailor
     
         public int Measurment_Type_ID { get; set; }
         public string Measurment_Type { get; set; }
+        public Nullable<int> Price { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Measurment> Measurments { get; set; }

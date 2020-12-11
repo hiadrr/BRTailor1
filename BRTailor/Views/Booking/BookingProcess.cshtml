@@ -62,8 +62,7 @@
                     </div>
                     <div class="col-xs-2">
                         <label> Item Price</label>
-                        @*<input type="text" class="form-control is-valid" value="@item.MeasurmentType.Measurment_Type" id="Measurment_Type" name="Measurment_Type" readonly>*@
-                        <input type="text" class="form-control is-valid" id="Price" name="Price">
+                         <input type="text" class="form-control is-valid" id="Price" name="Price" readonly>
 
                     </div>
                     <div class="col-xs-2">
@@ -152,8 +151,12 @@
                             </div>
                             <div class="col-xs-4">
                                 <label>Discount</label>
-                                <input type="text" class="form-control is-valid" value="" id="Discount" name="Discount" >
+                                <input type="text" class="form-control is-valid" onkeyup="CalculateDiscountPerce()" value="" id="Discount" name="Discount">
                             </div>
+                            <div class="col-xs-4">
+                            <label>Payable</label>
+                            <input type="text" class="form-control is-valid" value="" id="Payable" name="Payable" readonly>
+                        </div>
                             <div class="col-xs-4">
                                 <br>
                                 <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Save</button>
@@ -184,6 +187,7 @@
                 success: function (data) {
                    
                     $('#Measurment_Type').val(data.Measurment_Type);
+                    $('#Price').val(data.Price);
                 },  
                 error: function() {  
                     alert("Error occured!!")  

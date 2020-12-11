@@ -1,4 +1,7 @@
 ﻿var Measurlist = [];
+var TotalAmount = 0;
+var Payable = 0;
+
 function add() {
 
     var typeid = document.getElementById("Measurment_Type_ID").value;
@@ -8,6 +11,7 @@ function add() {
     var dprice = document.getElementById("D_Price").value;
     var dcode = document.getElementById("DesignCodeName").value
     var itemname = document.getElementById("Measurment_Type").value;
+    
 
 
     Measurlist.push({
@@ -27,6 +31,19 @@ function add() {
      + "<td class='prtoducttd' >" + dprice + "</td>"
     + "</tr>";
     $('#tblMeasur tbody').append(rows);
+    
+    if (dprice === "")
+    {
+        dprice = "0";
+    }
+    if (price === "") {
+        price = "0";
+    }
+
+        TotalAmount = TotalAmount + parseInt(price) + parseInt(dprice);
+        $("#Total").val(TotalAmount);
+        $("#Payable").val(TotalAmount);
+    
 
     //Clear fields
     $('#Measurment_Type_ID').val('').focus();
@@ -39,6 +56,14 @@ function add() {
 
 }
 
+function CalculateDiscountPerce() {
+    var d = $("#Discount").val();
+    if (d === "") {
+         d = "0";
+    }
+    Payable = TotalAmount - d;
+    $("#Payable").val(Payable);
+}
 function Save() {
     var data = {
         Customer_ID: $('#Customer_ID').val().trim(),
@@ -48,6 +73,8 @@ function Save() {
         Customer_Address: $('#Customer_Address').val().trim(),
         Total: $('#Total').val().trim(),
         Discount: $('#Discount').val().trim(),
+        Payable: $('#Payable').val().trim(),
+  
         bookingItem: Measurlist
     }
     $.ajax({

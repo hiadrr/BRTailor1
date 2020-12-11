@@ -17,13 +17,13 @@ namespace BRTailor.Controllers
         {
             return View();
         }
-
+        //Add DEsign
         public ActionResult DesignIndex()
         {
             var data = db.Designs.ToList();
             return View(data);
         }
-        //Add DEsign
+       
         [HttpGet]
         public ActionResult AddDesign()
         {
@@ -47,6 +47,23 @@ namespace BRTailor.Controllers
                 design.Design_Image = "null";
             }
             db.Designs.Add(design);
+            db.SaveChanges();
+            return View();
+        }
+        public ActionResult CategoryIndex()
+        {
+            var data = db.MeasurmentTypes.ToList();
+            return View(data);
+        }
+        [HttpGet]
+        public ActionResult AddCategory()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult AddCategory(MeasurmentType type)
+        {
+            db.MeasurmentTypes.Add(type);
             db.SaveChanges();
             return View();
         }

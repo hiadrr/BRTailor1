@@ -16,19 +16,18 @@
         <AssociationConnector Association="BRTailorModel.AspNetUserRoles" />
         <EntityTypeShape EntityType="BRTailorModel.Customer" Width="1.5" PointX="3.375" PointY="0.5" />
         <EntityTypeShape EntityType="BRTailorModel.Design" Width="1.5" PointX="1.125" PointY="2.25" />
-        <EntityTypeShape EntityType="BRTailorModel.MeasurmentType" Width="1.5" PointX="3.375" PointY="4.25" />
         <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="8.25" PointY="1.125" />
         <EntityTypeShape EntityType="BRTailorModel.Staff" Width="1.5" PointX="5.5" PointY="5.25" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Customer" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
         <EntityTypeShape EntityType="BRTailorModel.Measurment" Width="1.5" PointX="5.625" PointY="9" />
-        <AssociationConnector Association="BRTailorModel.FK_Measurment_MeasurmentType" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Measurment" />
-        <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="5.625" PointY="1.25" />
-        <AssociationConnector Association="BRTailorModel.FK_Booking_Customer" />
         <EntityTypeShape EntityType="BRTailorModel.BookingItem" Width="1.5" PointX="7.875" PointY="6.5" />
+        <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="5.625" PointY="0.875" />
+        <AssociationConnector Association="BRTailorModel.FK_Booking_Customer" />
         <AssociationConnector Association="BRTailorModel.FK_BookingItem_Booking" />
-        <EntityTypeShape EntityType="BRTailorModel.Invoice" Width="1.5" PointX="12.875" PointY="1.875" />
+        <EntityTypeShape EntityType="BRTailorModel.MeasurmentType" Width="1.5" PointX="3.375" PointY="11.25" />
+        <AssociationConnector Association="BRTailorModel.FK_Measurment_MeasurmentType" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

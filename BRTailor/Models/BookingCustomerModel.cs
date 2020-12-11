@@ -13,8 +13,11 @@ namespace BRTailor.Models
         public string Customer_City { get; set; }
         public string Customer_Address { get; set; }
         public Nullable<int> Total { get; set; }
+        public Nullable<int> Payable { get; set; }
         public Nullable<int> Discount { get; set; }
       
+
+
 
         public List<BookingItem> bookingItem { get; set; }
       
