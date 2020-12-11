@@ -173,6 +173,8 @@
                           
                         </ul>
                     </li>
+                    @if (User.IsInRole("Admin"))
+                    {
                     <li class="">
                         <a href="javascript:;">
                             <i class="fa fa-user"></i>
@@ -189,11 +191,16 @@
                             <li>
                                 <a class="" href="@Url.Action("invoicePrintList", "Booking")">Invoice Print List</a>
                             </li>
-
+                            <li>
+                                <a class="" href="@Url.Action("Register", "Account")">User Creation</a>
+                            </li>
+                            <li>
+                                <a class="" href="@Url.Action("MontjlySales", "Admin")">Monthly Sales Record</a>
+                            </li>
                         </ul>
                     </li>
-                  
 
+                    }
                 </ul>
 
             </div>

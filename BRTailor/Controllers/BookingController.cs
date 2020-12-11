@@ -210,13 +210,13 @@ namespace BRTailor.Controllers
             parms[5] = new ReportParameter("Total", data.Total.ToString());
             parms[6] = new ReportParameter("Discount", data.Discount.ToString());
             parms[7] = new ReportParameter("Payable", data.Payable.ToString());
-          
 
 
 
+            viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", data.BookingItems));
 
 
-            viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", parms));
+           
              viewer.LocalReport.SetParameters(parms);
             bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
 

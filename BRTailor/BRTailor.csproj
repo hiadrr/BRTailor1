@@ -634,6 +634,7 @@
     <Content Include="Content\7877.jpg" />
     <Content Include="Content\Booking.js" />
     <Content Include="Content\DesignImages\haider.png" />
+    <Content Include="Content\logo.png" />
     <Content Include="Content\own.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />

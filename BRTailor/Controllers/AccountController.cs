@@ -15,6 +15,7 @@ namespace BRTailor.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext appdb = new ApplicationDbContext();
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
 
@@ -137,16 +138,19 @@ namespace BRTailor.Controllers
 
         //
         // GET: /Account/Register
-        [AllowAnonymous]
+        [Authorize(Roles = "Admin")]
         public ActionResult Register()
         {
+
+            ViewBag.Name = new SelectList(appdb.Roles.Where(u => !u.Name.Contains("Admin"))
+                                 .ToList(), "Name", "Name");
             return View();
         }
 
         //
         // POST: /Account/Register
         [HttpPost]
-        [AllowAnonymous]
+        
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
@@ -156,7 +160,12 @@ namespace BRTailor.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+                    UserManager.AddToRole(user.Id, model.UserRole);
+                    ViewBag.userid = user.Id;
+                    //this will login after register
+                    var id = user.Id;
+
+                   // await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
@@ -166,7 +175,15 @@ namespace BRTailor.Controllers
 
                     return RedirectToAction("Index", "Home");
                 }
-                AddErrors(result);
+                else
+                {
+                    var allRoles = (new ApplicationDbContext()).Roles.OrderBy(r => r.Name).ToList().Select(rr =>
+
+                        new SelectListItem { Value = rr.Name.ToString(), Text = rr.Name }).ToList();
+
+                    ViewBag.Roles = allRoles;
+                    AddErrors(result);
+                }
             }
 
             // If we got this far, something failed, redisplay form
