@@ -277,6 +277,21 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Report\DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\OrderDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>OrderDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\StaffDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StaffDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Staff.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
@@ -635,6 +650,7 @@
     <Content Include="Content\Booking.js" />
     <Content Include="Content\DesignImages\haider.png" />
     <Content Include="Content\logo.png" />
+    <Content Include="Content\MonthlyReport.js" />
     <Content Include="Content\own.js" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
@@ -651,6 +667,39 @@
     </None>
     <Content Include="Report\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </Content>
+    <Content Include="Report\DataSet2.xsc">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\DataSet2.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\DataSet2.xss">
+      <DependentUpon>DataSet2.xsd</DependentUpon>
+    </Content>
+    <Content Include="Report\StaffDataSet.xsc">
+      <DependentUpon>StaffDataSet.xsd</DependentUpon>
+    </Content>
+    <Content Include="Report\OrderDataSet.xsc">
+      <DependentUpon>OrderDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\OrderDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>OrderDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\OrderDataSet.xss">
+      <DependentUpon>OrderDataSet.xsd</DependentUpon>
+    </Content>
+    <None Include="Report\StaffDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StaffDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="Report\StaffDataSet.xss">
+      <DependentUpon>StaffDataSet.xsd</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\Invoice.js" />
@@ -714,6 +763,7 @@
     <Content Include="Views\Admin\DesignIndex.cshtml" />
     <Content Include="Views\Admin\AddCategory.cshtml" />
     <Content Include="Views\Admin\CategoryIndex.cshtml" />
+    <Content Include="Views\Admin\MonthlySales.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -753,6 +803,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Report\Invoice.rdlc" />
+    <EmbeddedResource Include="Report\MonthlywithCategory.rdlc" />
+    <EmbeddedResource Include="Report\SalesReport.rdlc" />
+    <EmbeddedResource Include="Report\StaffAccount.rdlc" />
+    <EmbeddedResource Include="Report\StaffByItem.rdlc" />
+    <EmbeddedResource Include="Report\StaffMonthly.rdlc" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

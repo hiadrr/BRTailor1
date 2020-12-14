@@ -28,6 +28,9 @@ namespace BRTailor
         public string Staff_CNIC { get; set; }
         public string Staff_image { get; set; }
         public string Staff_Email { get; set; }
+        public Nullable<int> OrdersCompleted { get; set; }
+        public Nullable<int> OrdersInProcess { get; set; }
+        public Nullable<int> TotalAmount { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }

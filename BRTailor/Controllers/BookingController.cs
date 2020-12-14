@@ -50,8 +50,11 @@ namespace BRTailor.Controllers
         public ActionResult BookOrder(BookingCustomerModel data )
         {
 
-            
 
+            if (data.Discount == null )
+            {
+                data.Discount = 0;
+            }
 
 
             var booking = new Booking()
@@ -63,21 +66,28 @@ namespace BRTailor.Controllers
                 Discount = data.Discount,
                 Total = data.Total,
                 Payable = data.Payable,
-                
+
                 Customer_ID = data.Customer_ID,
                 date = DateTime.Now,
-                
-                
-                
+               
+
+
+
             };
             db.Bookings.Add(booking);
             db.SaveChanges();
             int b_id = Convert.ToInt32(booking.Bookin_ID);
+            int payable = Convert.ToInt32(booking.Payable);
             foreach (var i in data.bookingItem)
             {
-                
+                if (i.D_Price == null)
+                {
+                    i.D_Price = 0;
+                }
+            
                 var m = new BookingItem()
                 {
+                    date = DateTime.Now,
                     Booking_ID = b_id,
                     D_Price = i.D_Price,
                     Measurment_Type = i.Measurment_Type,
@@ -199,7 +209,12 @@ namespace BRTailor.Controllers
             viewer.LocalReport.ReportPath = path;
 
             var data = db.Bookings.FirstOrDefault(x => x.Bookin_ID == Id);
-          
+
+            if (data.Discount == null)
+            {
+                data.Discount = 0;
+            }
+           
           
             ReportParameter[] parms = new ReportParameter[8];
             parms[0] = new ReportParameter("Bookin_ID", data.Bookin_ID.ToString());

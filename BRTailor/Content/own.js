@@ -62,27 +62,33 @@
                    var rows = "<tr>"
                    + "<td class='prtoducttd' >" + type + "</td>"
                    + "<td class='prtoducttd' >" + length + "</td>"
+                     + "<td class='prtoducttd' >" + arms + "</td>"
+                     + "<td class='prtoducttd' >" + tera + "</td>"
+                      + "<td class='prtoducttd' >" + collorsize + "</td>"
                    + "<td class='prtoducttd'>" + chest + "</td>"
-                    + "<td class='prtoducttd' >" + shoulder + "</td>"
-                   + "<td class='prtoducttd'>" + waist + "</td>"
-                   + "<td class='prtoducttd' >" + sleeves + "</td>"
-                    + "<td class='prtoducttd' >" + arms + "</td>"
-                   + "<td class='prtoducttd' >" + collorsize + "</td>"
-                   + "<td class='prtoducttd' >" + dcollor + "</td>"
+                    + "<td class='prtoducttd'>" + waist + "</td>"
+                     + "<td class='prtoducttd'>" + ghera + "</td>"
+                       + "<td class='prtoducttd' >" + sleeves + "</td>"
+                  + "<td class='prtoducttd' >" + shoulder + "</td>"
+                     + "<td class='prtoducttd' >" + hip + "</td>"
+                   + "<td class='prtoducttd' >" + gidrii + "</td>"
                    + "<td class='prtoducttd' >" + bottom + "</td>"
+                 
+                  + "<td class='prtoducttd'>" + Gheranum + "</td>"
+                   + "<td class='prtoducttd' >" + dcollor + "</td>"
                     + "<td class='prtoducttd' >" + sidepockets + "</td>"
                    + "<td class='prtoducttd' >" + frontpockets + "</td>"
-                   + "<td class='prtoducttd' >" + hip + "</td>"
-                   + "<td class='prtoducttd' >" + gidrii + "</td>"
-                   + "<td class='prtoducttd' >" + tera + "</td>"
-                   + "<td class='prtoducttd'>" + ghera + "</td>"
-                    + "<td class='prtoducttd'>" + Gheranum + "</td>"
-                   + "<td class='prtoducttd' >" + suitdesign + "</td>"
+                  + "<td class='prtoducttd' >" + suitdesign + "</td>"
                    + "<td class='prtoducttd'>" + btndesign + "</td>"
-                   + "<td class='prtoducttd' >" + stitch + "</td>"
-                   + "<td class='prtoducttd'>" + coatbutton + "</td>"
+                     + "<td class='prtoducttd' >" + stitch + "</td>"
+                    + "<td class='prtoducttd'>" + coatbutton + "</td>"
                   + "<td class='prtoducttd' >" + coatfitting + "</td>"
-                   + "<td class='prtoducttd'>" + crossback + "</td>"
+                    + "<td class='prtoducttd'>" + crossback + "</td>"
+                    
+                   
+                 
+                 
+                 
                    
                    + "</tr>";
                    $('#tblMeasur tbody').append(rows);

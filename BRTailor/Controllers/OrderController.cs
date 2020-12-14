@@ -46,7 +46,6 @@ namespace BRTailor.Controllers
             var data = db.Orders.Find(id);
             int staff = Convert.ToInt32(order.Staff_ID);
             var staffdata = db.Staffs.Find(staff);
-
             data.Staff_ID = order.Staff_ID;
             data.Staff_Name = staffdata.Staff_Name;
             data.Staff_Position = staffdata.Staff_Position;
@@ -56,6 +55,21 @@ namespace BRTailor.Controllers
             data.Price = order.Price;
             db.Entry(data).State = EntityState.Modified;
             db.SaveChanges();
+
+
+            var orderstaff = db.Orders.Where(x => x.Staff_ID == staff && x.Status == "In Process");
+            var orderstaff1 = db.Orders.Where(x => x.Staff_ID == staff && x.Status == "Completed");
+            int inprocess = orderstaff.Count();
+            int inprocess1 = orderstaff1.Count();
+            //Staff Account 
+            staffdata.TotalAmount += order.Price;
+            staffdata.OrdersInProcess = inprocess;
+            staffdata.OrdersCompleted = inprocess1;
+
+            db.Entry(staffdata).State = EntityState.Modified;
+            db.SaveChanges();
+
+
 
             return RedirectToAction("OrderInProcess");
         }

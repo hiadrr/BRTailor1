@@ -21,6 +21,7 @@ namespace BRTailor
         public Nullable<int> SubTotal { get; set; }
         public string Measurment_Type { get; set; }
         public string D_Code { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     
         public virtual Booking Booking { get; set; }
     }

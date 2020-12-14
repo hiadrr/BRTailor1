@@ -1,0 +1,134 @@
+﻿
+@{
+    ViewBag.Title = "MonthlySales";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Filter</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+
+                
+</header>
+          
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-4 margin-bottom-15">
+                    <span class="caption-subject font-green-sharp bold uppercase">From Date</span>
+                    <div class="input-group margin-top-10">
+                        <span class="input-group-addon">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <input type="text" id="FromDate" name="" value="@DateTime.Today.ToString("MM/dd/yyyy")" placeholder="From Date" class="form-control DateRange">
+                    </div>
+                </div>
+
+                <div class="col-md-4 margin-bottom-15">
+                    <span class="caption-subject font-green-sharp bold uppercase">To Date</span>
+                    <div class="input-group margin-top-10">
+                        <span class="input-group-addon">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        <input type="text" id="ToDate" name="" placeholder="To Date" value="@DateTime.Today.ToString("MM/dd/yyyy")" class="form-control DateRange">
+                    </div>
+                </div>
+                <div class="col-md-4 margin-bottom-15">
+                    <span class="caption-subject font-green-sharp bold uppercase">Select Item</span>
+                    <div class="input-group margin-top-10">
+                        <span class="input-group-addon">
+                            <i class="fa fa-edit"></i>
+                        </span>
+                        @Html.DropDownList("Measurment_Type_ID", (IEnumerable<SelectListItem>)ViewData["DBMyMeasurment"], "-Select Item- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
+                    </div>
+                </div>
+                <div class="col-xs-2" hidden>
+                    <label>name item</label>
+                    <input type="text" class="form-control is-valid" id="Measurment_Type" name="Measurment_Type" readonly>
+
+                </div>
+                </div>  
+            <br>
+          
+        </div>
+    </section>
+</div>
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Reports</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+
+
+        </header>
+
+        <div class="content-body">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Discription</th>
+                        <th>Action</th>
+
+                    </tr>
+                </thead>
+                <tr>
+                    <td>Sales Summary</td>
+                    <td><button type="button" onclick="PrintReportSummary()" class="btn default">Print</button></td>
+                </tr>
+                <tr>
+                    <td>Sales Summary by Items</td>
+                    <td><button type="button" onclick="PrintReportSummarybyitem()" class="btn default">Print</button></td>
+                </tr>
+                <tr>
+                    <td>Staff Sales Summary</td>
+                    <td><button type="button" onclick="PrintStaffSummary()" class="btn default">Print</button></td>
+                </tr>
+         <tr>
+                    <td>Staff Sales Summary by Items</td>
+                    <td><button type="button" onclick="PrintStaffSummarybyitem()" class="btn default">Print</button></td>
+                </tr>
+                <tr>
+                    <td>Staff Account Report</td>
+                    <td><button type="button" onclick="PrintStaffAccount()" class="btn default">Print</button></td>
+                </tr>
+
+
+            </table>
+        </div>
+    </section>
+</div>
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script src="~/Content/MonthlyReport.js"></script>
+<script>
+    $(document).ready(function () {
+       
+        $('#Measurment_Type_ID').change(function()
+        {
+            var itemId = parseInt($(this).val());
+            $.ajax({
+                url: "/Booking/Getcode",
+                type: "GET",
+                datatype: "json",
+                data: { Measurment_Type_ID: itemId },
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+
+                    $('#Measurment_Type').val(data.Measurment_Type);
+
+                },
+                error: function() {
+                    alert("Error occured!!")
+                }
+            });
+        });
+    });
+    </script>
