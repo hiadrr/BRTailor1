@@ -138,7 +138,7 @@ namespace BRTailor.Controllers
 
         //
         // GET: /Account/Register
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Super Admin")]
         public ActionResult Register()
         {
 

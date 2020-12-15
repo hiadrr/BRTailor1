@@ -9,10 +9,10 @@ using System.Web.Mvc;
 using System.Data.Entity;
 namespace BRTailor.Controllers
 {
-    [Authorize]
+    [Authorize(Roles = "Super Admin , Admin")]
     public class StaffController : Controller
     {
-       
+    
         private BRTailorEntities db = new BRTailorEntities();
         // GET: Staff
         public ActionResult AddStaff()

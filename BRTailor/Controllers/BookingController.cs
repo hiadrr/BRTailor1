@@ -22,8 +22,10 @@ namespace BRTailor.Controllers
             model.Customer = db.Customers.Find(id);
             model.Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
             model.design = db.Designs.ToList();
-            // ViewBag.Design_ID = new SelectList(db.MeasurmentTypes, "Design_ID", "Design_Code");
-            var Item = new SelectList(db.MeasurmentTypes.ToList(), "Measurment_Type_ID", "Measurment_Type");
+           var  Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
+            
+          
+            var Item = new SelectList(Measurment, "Measurment_Type_ID", "Measurment_Type");
             var fromDatabaseEF = new SelectList(db.Designs.ToList(), "Design_ID", "Design_Code");
             ViewData["DBMySkills"] = fromDatabaseEF;
             ViewData["DBMyMeasurment"] = Item;
@@ -104,16 +106,15 @@ namespace BRTailor.Controllers
             //Queue
             int id = Convert.ToInt32(data.Customer_ID);
             var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);
-            if (order == null)
-            {
-                var c = db.Customers.Find(id);
-                var m = db.Measurments.Where(x => x.Customer_ID == id).ToList();
+          
+                var c1 = db.Customers.Find(id);
+                var m1 = db.Measurments.Where(x => x.Customer_ID == id).ToList();
 
                 Order o = new Order();
-                foreach (var item in m)
+                foreach (var item in m1)
                 {
                     o.Customer_ID = id;
-                    o.Customer_Name = c.Customer_Name;
+                    o.Customer_Name = c1.Customer_Name;
                     o.Measurment_ID = item.Measurment_ID;
                     o.Measurment_Type = item.MeasurmentType.Measurment_Type;
                     o.Measurment_Type_ID = item.Measurment_Type_ID;
@@ -122,7 +123,7 @@ namespace BRTailor.Controllers
                     db.SaveChanges();
                 };
 
-            }
+            
 
            
 

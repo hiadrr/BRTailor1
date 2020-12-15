@@ -15,7 +15,7 @@
             </div>
         </header>
         <div class="content-body">
-          
+
             <div class="row">
                 <div class="col-md-3">
                     <label>Name</label>
@@ -35,10 +35,10 @@
                     <input type="text" class="form-control is-valid" value="@ViewBag.Address" id="Address" name="Address" placeholder="Address"
                            required>
                 </div>
-                
+
             </div>
-           
-         
+
+
 
 
         </div>
@@ -60,6 +60,11 @@
                         <label>Type</label>
                         @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
                     </div>
+                    <div class="col-md-3" >
+                        <label>Measurment type</label>
+                        <input type="text" class="form-control is-valid" id="Measurment_Type" name="Measurment_Type" placeholder="Length" readonly>
+
+                    </div>
                     <div class="col-md-3" id="Lengthdiv">
                         <label>لمبائی/Length</label>
                         <input type="text" class="form-control is-valid" id="Length" name="Length" placeholder="Length" required>
@@ -75,8 +80,8 @@
                         <input type="text" class="form-control is-valid" id="Tera" name="Tera" placeholder="Tera Size" required>
 
                     </div>
-                    
-                 
+
+
                 </div>
                 <div class="row">
                     <div class="col-md-3" id="CollorSizediv">
@@ -99,7 +104,7 @@
                         <input type="text" class="form-control is-valid" id="Ghera_num" name="Ghera_num" placeholder="Ghera" required>
 
                     </div>
-                    </div>
+                </div>
                 <div class="row">
                     <div class="col-md-3" id="Hipdiv">
                         <label>Hip</label>
@@ -131,7 +136,7 @@
 
                     </div>
                 </div>
-                <div class="row" >
+                <div class="row">
                     <div class="col-md-3" id="Sleevesdiv">
                         <label>کف/Seelves</label>
 
@@ -150,11 +155,11 @@
                             <option value="Collor">کالر </option>
                         </select>
                     </div>
-                   
-                   
+
+
                     <div class="col-md-3" id="SidePocketdiv">
                         <label>سائیڈ جیب/Side Pockets</label>
-                       
+
                         <select class="form-control is-valid" id="SidePocket" name="SidePocket">
                             <option value="">Select Pockets</option>
                             <option value="Yes">Yes</option>
@@ -164,7 +169,7 @@
 
                     <div class="col-md-3" id="FrontPocketdiv">
                         <label>سامنے جیب/Front Pocket</label>
-                       
+
                         <select class="form-control is-valid" id="FrontPocket" name="FrontPocket">
                             <option value="">Select Pockets</option>
                             <option value="Yes">Yes</option>
@@ -174,7 +179,7 @@
 
                 </div>
                 <div class="row">
-                  
+
                     <div class="col-md-3" id="Gheradiv">
                         <label>گیرا/Ghera</label>
 
@@ -215,16 +220,16 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-md-3" id="CoatButtondiv">
-                    <label>Select Button</label>
+                    <div class="col-md-3" id="CoatButtondiv">
+                        <label>Select Button</label>
 
-                    <select class="form-control is-valid" id="CoatButton" name="CoatButton">
-                        <option value="">Select Button</option>
-                        <option value="Normal">Normal </option>
-                        <option value="One Button">One Button </option>
-                      
-                    </select>
-                </div>
+                        <select class="form-control is-valid" id="CoatButton" name="CoatButton">
+                            <option value="">Select Button</option>
+                            <option value="Normal">Normal </option>
+                            <option value="One Button">One Button </option>
+
+                        </select>
+                    </div>
                     <div class="col-md-3" id="CoatFittingdiv">
                         <label>Select Fitting</label>
 
@@ -235,18 +240,18 @@
 
                         </select>
                     </div>
-                  
+
                     <div class="col-md-3" id="Commentsdiv">
                         <label>Additional Information</label>
-                        <textarea type="text" class="form-control is-valid" id="Comments" name="Comments" placeholder="Additional Information" ></textarea>
+                        <textarea type="text" class="form-control is-valid" id="Comments" name="Comments" placeholder="Additional Information"></textarea>
 
                     </div>
                     <div class="col-md-3">
                         <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin: 32px 10px 10px 10px;">+</button>
                     </div>
-            </div>
+                </div>
 
-               
+
             </div>
 
         }
@@ -282,7 +287,7 @@
                                     <th align="left" class="productth" @*id="Gidriidiv"*@>Gidrii</th>
                                     <th align="left" class="productth" @*id="Bottomdiv"*@>پیندا/Bottom</th>
                                     <th align="left" class="productth" @*id="Bottomdiv"*@>گیرا/Ghera </th>
-                                   <th align="left" class="productth" @*id="Dcollordiv"*@>گلا ڈیزائن/Collor Design</th>
+                                    <th align="left" class="productth" @*id="Dcollordiv"*@>گلا ڈیزائن/Collor Design</th>
                                     <th align="left" class="productth" @*id="SidePocketdiv"*@>سائیڈ جیب/Side Pockets</th>
                                     <th align="left" class="productth" @*id="FrontPocketdiv"*@>سامنے جیب/Front Pocket</th>
                                     <th align="left" class="productth" @*id="suitDesigndiv"*@>سوٹ ڈیزائن/Suit Design</th>
@@ -295,7 +300,7 @@
                             </thead>
                             <tbody></tbody>
                         </table>
-                          </div>
+                    </div>
                     <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Submit form</button>
 
                 </div>
@@ -311,23 +316,29 @@
   
 <script src="~/assets/js/jquery-1.11.2.min.js"></script>
 <script>
+   
+
     $(document).ready(function () {
         $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
 
 
         $("#Measurment_Type_ID").change(function () {
+
             $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
 
             var MeasurId = parseInt($(this).val());
+           
             //Kurta
             if (MeasurId === 10)
             {
+                
                 $("#btnDesigndiv,#Stitchdiv,#type,#Waistdiv,#Lengthdiv,#armsdiv,#Dcollordiv,#Ghera_numdiv,#Commentsdiv,#CollorSizediv,#Chestdiv,#Waistdivss,#Gheradiv,#Sleevesdiv,#Shoulderdiv,#suitDesigndiv,#btnDesigndiv,#Buttondiv,#Stitchdiv,#Teradiv").show();
                
             }
                 
                 //Shalwar
             else if (MeasurId === 11) {
+               
                 $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv").show();
             }
                 //Trouser
@@ -350,7 +361,21 @@
                 $("#type,#Lengthdiv,#Teradiv,#CrossBackdiv,CollorSizediv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Waistdiv").show();
 
             }
+            $.ajax({
+                url: "/Booking/Getcode",
+                type: "GET",
+                datatype: "json",
+                data: { Measurment_Type_ID: MeasurId },
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                  
+                    $('#Measurment_Type').val(data.Measurment_Type);
 
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+            });
            
                     
         });

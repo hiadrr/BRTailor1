@@ -58,10 +58,16 @@ namespace BRTailor.Controllers
 
 
             var orderstaff = db.Orders.Where(x => x.Staff_ID == staff && x.Status == "In Process");
-            var orderstaff1 = db.Orders.Where(x => x.Staff_ID == staff && x.Status == "Completed");
+            var orderstaff1 = db.Orders.Where(x => x.Staff_ID == staff && x.Status == "Completed" && x.Status == "Received");
+           
+
             int inprocess = orderstaff.Count();
             int inprocess1 = orderstaff1.Count();
             //Staff Account 
+            if (staffdata.TotalAmount == null)
+            {
+                staffdata.TotalAmount = 0;
+            }
             staffdata.TotalAmount += order.Price;
             staffdata.OrdersInProcess = inprocess;
             staffdata.OrdersCompleted = inprocess1;

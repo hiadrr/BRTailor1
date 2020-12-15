@@ -22,6 +22,7 @@ namespace BRTailor
     
         public int Measurment_ID { get; set; }
         public Nullable<int> Measurment_Type_ID { get; set; }
+        public string Measurment_Type { get; set; }
         public Nullable<int> Customer_ID { get; set; }
         public Nullable<double> Length { get; set; }
         public Nullable<double> Hip { get; set; }
@@ -47,8 +48,8 @@ namespace BRTailor
         public Nullable<int> Gheera_num { get; set; }
         public string Comments { get; set; }
     
+        public virtual MeasurmentType MeasurmentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Order> Orders { get; set; }
-        public virtual MeasurmentType MeasurmentType { get; set; }
     }
 }

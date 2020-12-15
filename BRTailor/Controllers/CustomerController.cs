@@ -67,7 +67,7 @@ namespace BRTailor.Controllers
 
                     var m = new Measurment()
                     {
-
+                        Measurment_Type = i.Measurment_Type,
                         arms = i.arms,
                         Bottom = i.Bottom,
                         Chest = i.Chest,

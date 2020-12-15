@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace BRTailor.Controllers
 {
+    [Authorize(Roles = "Super Admin")]
     public class AdminController : Controller
     {
         private BRTailorEntities db = new BRTailorEntities();

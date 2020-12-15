@@ -127,12 +127,12 @@
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a class="" href="@Url.Action("Index","Customer")" >Add Customer Detail</a>
+                                <a class="" href="@Url.Action("Index","Customer")">Add Customer Detail</a>
                             </li>
                             <li>
                                 <a class="" href="@Url.Action("CustomerList","Customer")">Customer's List</a>
                             </li>
-                            
+
                         </ul>
                     </li>
                     <li class="">
@@ -157,6 +157,8 @@
 
                         </ul>
                     </li>
+                     @if (User.IsInRole("Super Admin") || User.IsInRole("Admin"))
+                     {
                     <li class="">
                         <a href="javascript:;">
                             <i class="fa fa-user"></i>
@@ -170,41 +172,57 @@
                             <li>
                                 <a class="" href="@Url.Action("Index", "Staff")">Staff List</a>
                             </li>
-                          
+
                         </ul>
                     </li>
-                    @if (User.IsInRole("Admin"))
-                    {
+                     }
                     <li class="">
                         <a href="javascript:;">
                             <i class="fa fa-user"></i>
-                            <span class="title">Admin</span>
+                            <span class="title">Invoice</span>
                             <span class="arrow "></span>
                         </a>
                         <ul class="sub-menu">
                             <li>
-                                <a class="" href="@Url.Action("DesignIndex", "Admin")">Design List</a>
-                            </li>
-                            <li>
-                                <a class="" href="@Url.Action("CategoryIndex", "Admin")">Category List</a>
-                            </li>
-                            <li>
                                 <a class="" href="@Url.Action("invoicePrintList", "Booking")">Invoice Print List</a>
                             </li>
-                            <li>
-                                <a class="" href="@Url.Action("Register", "Account")">User Creation</a>
-                            </li>
-                            <li>
-                                <a class="" href="@Url.Action("MonthlySales", "Admin")">Record Sales/Staff/Orders</a>
-                            </li>
-                           
+
                         </ul>
                     </li>
+                    @if (User.IsInRole("Super Admin"))
+                    {
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                <span class="title">Admin</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a class="" href="@Url.Action("DesignIndex", "Admin")">Design List</a>
+                                </li>
+                                <li>
+                                    <a class="" href="@Url.Action("CategoryIndex", "Admin")">Category List</a>
+                                </li>
+                                <li>
+                                    <a class="" href="@Url.Action("invoicePrintList", "Booking")">Invoice Print List</a>
+                                </li>
+                                <li>
+                                    <a class="" href="@Url.Action("Register", "Account")">User Creation</a>
+                                </li>
+                                <li>
+                                    <a class="" href="@Url.Action("MonthlySales", "Admin")">Record Sales/Staff/Orders</a>
+                                </li>
+
+                            </ul>
+                        </li>
 
                     }
                 </ul>
 
-            </div>
+
+
+</div>
             <!-- MAIN MENU - END -->
 
 

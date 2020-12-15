@@ -32,6 +32,7 @@
 
                    Measurlist.push({
                        Measurment_Type_ID: $('#Measurment_Type_ID').val().trim(),
+                       Measurment_Type: $('#Measurment_Type').val().trim(),
                        Length: $('#Length').val().trim(),
                        Chest:  $('#Chest').val().trim(),
                        Shoulder:$('#Shoulder').val().trim(),
@@ -96,6 +97,7 @@
                    //Clear fields
                    $('#Measurment_Type_ID').val('').focus();
                    $('#Hip').val('');
+                   $('#Measurment_Type').val('');
                    $('#Gidrii').val('');
                    $('#Ghera_num').val('');
                    $('#Comments').val(''); 
