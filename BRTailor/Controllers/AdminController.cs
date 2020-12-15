@@ -165,7 +165,7 @@ namespace BRTailor.Controllers
             viewer.LocalReport.DataSources.Add(new ReportDataSource("StaffDataSet", data));
             bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
             return File(bytes, mimeType);
-            return View();
+            
         }
 
     }

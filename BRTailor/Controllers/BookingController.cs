@@ -188,12 +188,12 @@ namespace BRTailor.Controllers
 
             return View(data);
         }
-        public ActionResult Invoice()
+        public ActionResult Invoice(int? id )
         {
-            int id = Convert.ToInt32(TempData["id"]);
-            var b = db.Bookings.FirstOrDefault(x => x.Bookin_ID == id);
-           
-            return View(b);
+            dynamic model = new ExpandoObject();
+            model.b = db.Bookings.FirstOrDefault(x => x.Bookin_ID == id);
+            model.item = db.BookingItems.Where(x => x.Booking_ID == id);
+            return View(model);
         }
         public ActionResult Print(int? Id)
         {

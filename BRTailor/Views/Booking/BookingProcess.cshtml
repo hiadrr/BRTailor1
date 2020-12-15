@@ -185,7 +185,7 @@
                 data: { Measurment_Type_ID: itemId },
                 contentType: 'application/json; charset=utf-8',
                 success: function (data) {
-                   
+                    $('#Price').val(data.Price);
                     $('#Measurment_Type').val(data.Measurment_Type);
                    
                 },  

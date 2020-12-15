@@ -3,7 +3,7 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+<div class="col-lg-12 col-md-12 col-md-12 col-sm-12">
     <section class="box ">
 
         <header class="panel_header">
@@ -17,20 +17,20 @@
         <div class="content-body">
           
             <div class="row">
-                <div class="col-xs-3">
+                <div class="col-md-3">
                     <label>Name</label>
                     <input type="text" class="form-control is-valid" value="@ViewBag.Name" id="CustomerName" name="CustomerName" placeholder="Enter Name" required>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-md-3">
                     <label>Phone</label>
                     <input type="text" class="form-control is-valid" value="@ViewBag.Phone" id="Phone" name="Phone" placeholder="Enter Phone" required>
 
                 </div>
-                <div class="col-xs-3">
+                <div class="col-md-3">
                     <label>City</label>
                     <input type="text" class="form-control is-valid" value="@ViewBag.City" id="City" name="City" placeholder="Enter City" required>
                 </div>
-                <div class="col-xs-3">
+                <div class="col-md-3">
                     <label>Address</label>
                     <input type="text" class="form-control is-valid" value="@ViewBag.Address" id="Address" name="Address" placeholder="Address"
                            required>
@@ -56,21 +56,21 @@
             <div class="content-body">
 
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-md-3">
                         <label>Type</label>
                         @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
                     </div>
-                    <div class="col-xs-3" id="Lengthdiv">
+                    <div class="col-md-3" id="Lengthdiv">
                         <label>لمبائی/Length</label>
                         <input type="text" class="form-control is-valid" id="Length" name="Length" placeholder="Length" required>
 
                     </div>
-                    <div class="col-xs-3" id="armsdiv">
+                    <div class="col-md-3" id="armsdiv">
                         <label>بازو/Arms Size</label>
                         <input type="text" class="form-control is-valid" id="arms" name="arms" placeholder="Arms" required>
 
                     </div>
-                    <div class="col-xs-3" id="Teradiv">
+                    <div class="col-md-3" id="Teradiv">
                         <label>تیرا/Tera</label>
                         <input type="text" class="form-control is-valid" id="Tera" name="Tera" placeholder="Tera Size" required>
 
@@ -79,45 +79,45 @@
                  
                 </div>
                 <div class="row">
-                    <div class="col-xs-3" id="CollorSizediv">
+                    <div class="col-md-3" id="CollorSizediv">
                         <label>گلا/Collor Size</label>
                         <input type="text" class="form-control is-valid" id="CollorSize" name="CollorSize" placeholder="Collor Size" required>
 
                     </div>
-                    <div class="col-xs-3" id="Chestdiv">
+                    <div class="col-md-3" id="Chestdiv">
                         <label>چھاتی/Chest</label>
                         <input type="text" class="form-control is-valid" id="Chest" name="Chest" placeholder="Chest" required>
 
                     </div>
-                    <div class="col-xs-3" id="Waistdiv">
+                    <div class="col-md-3" id="Waistdiv">
                         <label>کمر/Waist</label>
                         <input type="text" class="form-control is-valid" id="Waist" name="Waist" placeholder="Waist" required>
 
                     </div>
-                    <div class="col-xs-3" id="Ghera_numdiv">
+                    <div class="col-md-3" id="Ghera_numdiv">
                         <label>گیرا/Ghera</label>
                         <input type="text" class="form-control is-valid" id="Ghera_num" name="Ghera_num" placeholder="Ghera" required>
 
                     </div>
                     </div>
                 <div class="row">
-                    <div class="col-xs-3" id="Hipdiv">
+                    <div class="col-md-3" id="Hipdiv">
                         <label>Hip</label>
                         <input type="text" class="form-control is-valid" id="Hip" name="Hip" placeholder="Hip Size" required>
 
                     </div>
-                    <div class="col-xs-3" id="Gidriidiv">
+                    <div class="col-md-3" id="Gidriidiv">
                         <label>Gidrii</label>
                         <input type="text" class="form-control is-valid" id="Gidrii" name="Gidrii" placeholder="Gidrii Size" required>
 
                     </div>
-                    <div class="col-xs-3" id="CrossBackdiv">
+                    <div class="col-md-3" id="CrossBackdiv">
                         <label>Cross Back</label>
                         <input type="text" class="form-control is-valid" id="CrossBack" name="CrossBack" placeholder="Cross Back Size" required>
 
                     </div>
 
-                    <div class="col-xs-3" id="Shoulderdiv">
+                    <div class="col-md-3" id="Shoulderdiv">
                         <label>کندھا/Shoulder</label>
                         <input type="text" class="form-control is-valid" id="Shoulder" name="Shoulder" placeholder="Shoulder" required>
 
@@ -125,14 +125,14 @@
 
                 </div>
                 <div class="row">
-                    <div class="col-xs-3" id="Bottomdiv">
+                    <div class="col-md-3" id="Bottomdiv">
                         <label>پونچـ/Bottom</label>
                         <input type="text" class="form-control is-valid" id="Bottom" name="Bottom" placeholder="Bottom" required>
 
                     </div>
                 </div>
                 <div class="row" >
-                    <div class="col-xs-3" id="Sleevesdiv">
+                    <div class="col-md-3" id="Sleevesdiv">
                         <label>کف/Seelves</label>
 
                         <select class="form-control is-valid" id="Sleeves" name="Sleeves" required>
@@ -141,7 +141,7 @@
                             <option value="stright">سیدھے/Straight </option>
                         </select>
                     </div>
-                    <div class="col-xs-3" id="Dcollordiv">
+                    <div class="col-md-3" id="Dcollordiv">
                         <label>کالر/Collor Design</label>
 
                         <select class="form-control is-valid" id="Dcollor" name="Dcollor">
@@ -152,7 +152,7 @@
                     </div>
                    
                    
-                    <div class="col-xs-3" id="SidePocketdiv">
+                    <div class="col-md-3" id="SidePocketdiv">
                         <label>سائیڈ جیب/Side Pockets</label>
                        
                         <select class="form-control is-valid" id="SidePocket" name="SidePocket">
@@ -162,7 +162,7 @@
                         </select>
                     </div>
 
-                    <div class="col-xs-3" id="FrontPocketdiv">
+                    <div class="col-md-3" id="FrontPocketdiv">
                         <label>سامنے جیب/Front Pocket</label>
                        
                         <select class="form-control is-valid" id="FrontPocket" name="FrontPocket">
@@ -175,7 +175,7 @@
                 </div>
                 <div class="row">
                   
-                    <div class="col-xs-3" id="Gheradiv">
+                    <div class="col-md-3" id="Gheradiv">
                         <label>گیرا/Ghera</label>
 
                         <select class="form-control is-valid" id="Ghera" name="Ghera">
@@ -184,7 +184,7 @@
                             <option value="stright">سیدھے/Straight </option>
                         </select>
                     </div>
-                    <div class="col-xs-3" id="suitDesigndiv">
+                    <div class="col-md-3" id="suitDesigndiv">
                         <label>Select Suit Design</label>
 
                         <select class="form-control is-valid" id="suitDesign" name="suitDesign">
@@ -193,7 +193,7 @@
                             <option value="Design">Design</option>
                         </select>
                     </div>
-                    <div class="col-xs-3" id="btnDesigndiv">
+                    <div class="col-md-3" id="btnDesigndiv">
                         <label>Select Button Design</label>
 
                         <select class="form-control is-valid" id="btnDesign" name="btnDesign">
@@ -203,7 +203,7 @@
                         </select>
                     </div>
 
-                    <div class="col-xs-3" id="Stitchdiv">
+                    <div class="col-md-3" id="Stitchdiv">
                         <label>Select Stitch Type</label>
 
                         <select class="form-control is-valid" id="Stitch" name="Stitch">
@@ -215,7 +215,7 @@
                     </div>
                 </div>
                 <div class="row">
-                <div class="col-xs-3" id="CoatButtondiv">
+                <div class="col-md-3" id="CoatButtondiv">
                     <label>Select Button</label>
 
                     <select class="form-control is-valid" id="CoatButton" name="CoatButton">
@@ -225,7 +225,7 @@
                       
                     </select>
                 </div>
-                    <div class="col-xs-3" id="CoatFittingdiv">
+                    <div class="col-md-3" id="CoatFittingdiv">
                         <label>Select Fitting</label>
 
                         <select class="form-control is-valid" id="CoatFitting" name="CoatFitting">
@@ -236,12 +236,12 @@
                         </select>
                     </div>
                   
-                    <div class="col-xs-3" id="Commentsdiv">
+                    <div class="col-md-3" id="Commentsdiv">
                         <label>Additional Information</label>
                         <textarea type="text" class="form-control is-valid" id="Comments" name="Comments" placeholder="Additional Information" ></textarea>
 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-md-3">
                         <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin: 32px 10px 10px 10px;">+</button>
                     </div>
             </div>
@@ -260,7 +260,7 @@
         </header>
         <div class="content-body">
             <div class="row">
-                <div class="col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-12 col-sm-12 col-md-12">
                     <div class="table-responsive">
 
                         <table id="tblMeasur" class="table table-bordered">

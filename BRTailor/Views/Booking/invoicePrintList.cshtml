@@ -43,6 +43,7 @@
                         </th>
 
                         <th class="th-sm">Print</th>
+                        <th class="th-sm">Default Slip</th>
                     </tr>
                     </thead>
                     @foreach (var item in Model)
@@ -78,6 +79,12 @@
 
                                 @Html.ActionLink("Print", "Print", new { id = item.Bookin_ID })
                                 
+
+                            </td>
+                            <td>
+
+                                @Html.ActionLink("Default", "Invoice", new { id = item.Bookin_ID })
+
 
                             </td>
                         </tr>

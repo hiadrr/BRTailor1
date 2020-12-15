@@ -37,6 +37,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.00347in</Top>
         <Height>0.59375in</Height>
         <Width>2.89235in</Width>
         <Style>
@@ -69,7 +70,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>1.04389in</Top>
+        <Top>1.04736in</Top>
         <Left>0.09029in</Left>
         <Height>0.25in</Height>
         <Width>1.21527in</Width>
@@ -101,7 +102,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Customer_Name</rd:DefaultName>
-        <Top>1.04389in</Top>
+        <Top>1.04736in</Top>
         <Left>1.31945in</Left>
         <Height>0.25in</Height>
         <Width>1.28819in</Width>
@@ -135,7 +136,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox4</rd:DefaultName>
-        <Top>1.32167in</Top>
+        <Top>1.32514in</Top>
         <Left>0.10417in</Left>
         <Height>0.25in</Height>
         <Width>1.20139in</Width>
@@ -167,7 +168,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox5</rd:DefaultName>
-        <Top>1.30778in</Top>
+        <Top>1.31125in</Top>
         <Left>1.31945in</Left>
         <Height>0.25in</Height>
         <Width>1.28819in</Width>
@@ -201,7 +202,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
-        <Top>1.58556in</Top>
+        <Top>1.58903in</Top>
         <Left>0.75348in</Left>
         <Height>0.23611in</Height>
         <Width>0.55208in</Width>
@@ -235,7 +236,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>1.83556in</Top>
+        <Top>1.83903in</Top>
         <Left>0.44445in</Left>
         <Height>0.25in</Height>
         <Width>0.86111in</Width>
@@ -267,7 +268,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Customer_Address</rd:DefaultName>
-        <Top>1.83555in</Top>
+        <Top>1.83902in</Top>
         <Left>1.31945in</Left>
         <Height>0.25in</Height>
         <Width>1.28819in</Width>
@@ -299,7 +300,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Customer_City</rd:DefaultName>
-        <Top>1.58555in</Top>
+        <Top>1.58902in</Top>
         <Left>1.31945in</Left>
         <Height>0.23611in</Height>
         <Width>1.28819in</Width>
@@ -331,7 +332,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Bookin_ID</rd:DefaultName>
-        <Top>0.64931in</Top>
+        <Top>0.65278in</Top>
         <Left>0.89584in</Left>
         <Height>0.25in</Height>
         <Width>0.95833in</Width>
@@ -347,7 +348,7 @@
         </Style>
       </Textbox>
       <Line Name="Line2">
-        <Top>2.24875in</Top>
+        <Top>2.25222in</Top>
         <Height>0in</Height>
         <Width>2.89235in</Width>
         <ZIndex>10</ZIndex>
@@ -374,7 +375,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox17</rd:DefaultName>
-        <Top>2.80431in</Top>
+        <Top>2.80778in</Top>
         <Left>0.48265in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
@@ -406,7 +407,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox18</rd:DefaultName>
-        <Top>3.08209in</Top>
+        <Top>3.08556in</Top>
         <Left>0.48265in</Left>
         <Height>0.25in</Height>
         <Width>1in</Width>
@@ -422,8 +423,8 @@
         </Style>
       </Textbox>
       <Line Name="Line3">
-        <Top>3.45361in</Top>
-        <Left>1.54168in</Left>
+        <Top>3.33556in</Top>
+        <Left>1.54514in</Left>
         <Height>0in</Height>
         <Width>1.06597in</Width>
         <ZIndex>13</ZIndex>
@@ -450,7 +451,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Discount</rd:DefaultName>
-        <Top>3.08209in</Top>
+        <Top>3.08556in</Top>
         <Left>1.49653in</Left>
         <Height>0.25in</Height>
         <Width>1.11111in</Width>
@@ -482,7 +483,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Total</rd:DefaultName>
-        <Top>2.80431in</Top>
+        <Top>2.80778in</Top>
         <Left>1.49654in</Left>
         <Height>0.25in</Height>
         <Width>1.1111in</Width>
@@ -516,7 +517,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox3</rd:DefaultName>
-        <Top>0.64931in</Top>
+        <Top>0.65278in</Top>
         <Height>0.25in</Height>
         <Width>0.84028in</Width>
         <ZIndex>16</ZIndex>
@@ -531,7 +532,7 @@
         </Style>
       </Textbox>
       <Line Name="Line1">
-        <Top>0.95486in</Top>
+        <Top>0.95833in</Top>
         <Height>0in</Height>
         <Width>2.89235in</Width>
         <ZIndex>17</ZIndex>
@@ -542,7 +543,7 @@
         </Style>
       </Line>
       <Line Name="Line4">
-        <Top>0.59375in</Top>
+        <Top>0.59722in</Top>
         <Height>0in</Height>
         <Width>2.89235in</Width>
         <ZIndex>18</ZIndex>
@@ -552,21 +553,6 @@
           </Border>
         </Style>
       </Line>
-      <Image Name="Image1">
-        <Source>Embedded</Source>
-        <Value>logo</Value>
-        <Sizing>Fit</Sizing>
-        <Top>3.92236in</Top>
-        <Left>0.0243in</Left>
-        <Height>1.13889in</Height>
-        <Width>2.86805in</Width>
-        <ZIndex>19</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
       <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
@@ -807,10 +793,10 @@
         </TablixRowHierarchy>
         <KeepTogether>true</KeepTogether>
         <DataSetName>DataSet1</DataSetName>
-        <Top>2.24875in</Top>
+        <Top>2.25222in</Top>
         <Height>0.5in</Height>
         <Width>2.89235in</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -834,11 +820,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox21</rd:DefaultName>
-        <Top>3.4675in</Top>
-        <Left>0.48266in</Left>
+        <Top>3.40501in</Top>
+        <Left>0.48265in</Left>
         <Height>0.25in</Height>
-        <Width>1.02779in</Width>
-        <ZIndex>21</ZIndex>
+        <Width>1.01389in</Width>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -866,11 +852,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Payable</rd:DefaultName>
-        <Top>3.4675in</Top>
-        <Left>1.53822in</Left>
+        <Top>3.40501in</Top>
+        <Left>1.53821in</Left>
         <Height>0.25in</Height>
         <Width>1.06942in</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -881,15 +867,43 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Image Name="Image1">
+        <Source>Embedded</Source>
+        <Value>logo</Value>
+        <Sizing>FitProportional</Sizing>
+        <Height>0.56944in</Height>
+        <Width>0.70833in</Width>
+        <ZIndex>22</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
+      <Image Name="Image2">
+        <Source>Embedded</Source>
+        <Value>logo</Value>
+        <Sizing>Fit</Sizing>
+        <Top>4.72569in</Top>
+        <Left>0in</Left>
+        <Height>0.86806in</Height>
+        <Width>2.89235in</Width>
+        <ZIndex>23</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Image>
     </ReportItems>
-    <Height>5.0925in</Height>
+    <Height>6in</Height>
     <Style>
       <BackgroundColor>White</BackgroundColor>
     </Style>
   </Body>
   <Width>2.89235in</Width>
   <Page>
-    <PageHeight>6in</PageHeight>
+    <PageHeight>7in</PageHeight>
     <PageWidth>2.9in</PageWidth>
     <Style>
       <Border>
