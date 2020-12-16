@@ -44,6 +44,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -660,7 +661,6 @@
     <Content Include="Report\DataSet1.xsc">
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
     <None Include="Report\DataSet1.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
