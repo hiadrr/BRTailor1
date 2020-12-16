@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html >
 <head>
 
@@ -92,14 +93,15 @@
                         </a>
                     </div>
 
-                    <div class="profile-details col-md-8 col-sm-8 col-xs-8">
+                    <div class="profile-details col-md-8 col-sm-8 col-xs-8" style="margin-top: 10px;">
 
-                        <h3>
-                            <a href="ui-profile.html">Admin</a>
+                        <h5>
+                            @using Microsoft.AspNet.Identity
+                            <a href="ui-profile.html">@User.Identity.GetUserName()</a>
 
                             <!-- Available statuses: online, idle, busy, away and offline -->
                             <span class="profile-status online"></span>
-                        </h3>
+                        </h5>
 
                         <p class="profile-title">BR Tailor</p>
 
