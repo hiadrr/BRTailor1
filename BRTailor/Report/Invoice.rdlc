@@ -905,8 +905,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox8</rd:DefaultName>
-        <Top>4.39112in</Top>
-        <Left>0.01265in</Left>
+        <Top>3.6689in</Top>
         <Height>0.25in</Height>
         <Width>2.98512in</Width>
         <ZIndex>23</ZIndex>
@@ -936,8 +935,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
-        <Top>4.64112in</Top>
-        <Left>0.01265in</Left>
+        <Top>3.9189in</Top>
         <Height>0.25in</Height>
         <Width>2.98512in</Width>
         <ZIndex>24</ZIndex>
@@ -1031,8 +1029,7 @@ responsible for any kind of changing.</Value>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox11</rd:DefaultName>
-        <Top>4.90501in</Top>
-        <Left>0.01265in</Left>
+        <Top>4.18279in</Top>
         <Height>1.74306in</Height>
         <Width>2.98512in</Width>
         <ZIndex>25</ZIndex>
@@ -1047,14 +1044,14 @@ responsible for any kind of changing.</Value>
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>7.6632in</Height>
+    <Height>7.2in</Height>
     <Style>
-      <BackgroundColor>White</BackgroundColor>
+      <BackgroundColor>#fcfcfc</BackgroundColor>
     </Style>
   </Body>
   <Width>3in</Width>
   <Page>
-    <PageHeight>7.9in</PageHeight>
+    <PageHeight>7.2in</PageHeight>
     <PageWidth>3in</PageWidth>
     <InteractiveHeight>8in</InteractiveHeight>
     <InteractiveWidth>2.9in</InteractiveWidth>

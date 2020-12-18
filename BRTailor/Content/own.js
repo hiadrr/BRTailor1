@@ -51,8 +51,8 @@
                        Dcollor: $('#Dcollor').val().trim(),
                        suitDesign: $('#suitDesign').val().trim(),
                        Ghera: $('#Ghera').val().trim(),
-                       Ghera: $('#Ghera_num').val().trim(),
-                       Ghera: $('#Comments').val().trim(),
+                       Ghera_num: $('#Ghera_num').val().trim(),
+                       Comments: $('#Comments').val().trim(),
                        btnDesign: $('#btnDesign').val().trim(),
                        Stitch: $('#Stitch').val().trim(),
                        CoatButton: $('#CoatButton').val().trim(),
@@ -74,7 +74,6 @@
                      + "<td class='prtoducttd' >" + hip + "</td>"
                    + "<td class='prtoducttd' >" + gidrii + "</td>"
                    + "<td class='prtoducttd' >" + bottom + "</td>"
-                 
                   + "<td class='prtoducttd'>" + Gheranum + "</td>"
                    + "<td class='prtoducttd' >" + dcollor + "</td>"
                     + "<td class='prtoducttd' >" + sidepockets + "</td>"
@@ -129,12 +128,13 @@
 
               function Save() {
                   var data = {
+                      CustomerID: $('#CustomerID').val().trim(),
                       CustomerName: $('#CustomerName').val().trim(),
                       Phone: $('#Phone').val().trim(),
                       City: $('#City').val().trim(),
                       Address: $('#Address').val().trim(),
                       measurments: Measurlist
-                   }
+                              }
                    $.ajax({
                        url: '/Customer/Insertdata',
                        type: "POST",
@@ -146,7 +146,7 @@
                            if (d.status == true) {
                                //clear form
                                Measurlist = [];
-                               $('#CustomerName,#Ghera_num,#Comments,#Phone,#City,#Address,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
+                               $('#CustomerID,#CustomerName,#Ghera_num,#Comments,#Phone,#City,#Address,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
                               
                                $('#tblMeasur tbody').remove();
 
@@ -164,5 +164,45 @@
                    });
 
                }
-     
-              
+           
+              function Customer() {
+                  var Search = document.getElementById("searchc").value;
+
+                  if (Search != "") {
+                      $.ajax({
+                          url: '/Customer/SearchCustomer',
+                          type: "POST",
+                          data: { Search: Search },
+
+                      }).then(function (res) {
+                          $("#modelBody").html(res);
+                          if ($("#checkModelNull").val() == '0') {
+                              $("#btnFIlldata").hide();
+                          }
+                          else {
+                              $("#btnFIlldata").show();
+                          }
+                          $("#SearchPatient").modal();
+
+                      }).fail(function (res) {
+                          console.log(res);
+                      });
+
+
+                  }
+                     
+
+                  
+              }
+              function FillData() {
+                  $("#CustomerID").val($("#SCustomer_ID").val());
+                  $("#CustomerName").val($("#SCustomer").val());
+                  $("#Phone").val($("#SPhone").val());
+                  $("#City").val($("#SCity").val());
+                  $("#Address").val($("#SAddress").val());
+
+
+
+
+                  $("#SearchPatient").modal('hide');
+              }

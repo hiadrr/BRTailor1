@@ -38,13 +38,13 @@ namespace BRTailor.Controllers
 
         }
         [HttpPost]
-        public JsonResult Insertdata(MeasurmentViewModel data , int? id)
+        public JsonResult Insertdata(MeasurmentViewModel data, int? id)
         {
-            if (id == null)
+            int id1  = Convert.ToInt32(data.CustomerID);
+            if (id1 == 0)
             {
                 bool status = false;
-                if (ModelState.IsValid)
-                {
+               
                     var customer = new Customer()
                     {
                         Customer_Address = data.Address,
@@ -57,11 +57,7 @@ namespace BRTailor.Controllers
                     db.SaveChanges();
                     data.CustomerID = customer.Customer_ID;
                     status = true;
-                }
-                else
-                {
-                    status = false;
-                }
+               
                 foreach (var i in data.measurments)
                 {
 
@@ -109,17 +105,17 @@ namespace BRTailor.Controllers
                 bool status = false;
                 if (ModelState.IsValid)
                 {
-                    var customer = db.Customers.Find(id);
+                    var customer = db.Customers.Find(id1);
 
                     customer.Customer_Address = data.Address;
                     customer.Customer_City = data.City;
                     customer.Customer_image = data.Customer_image;
                     customer.Customer_Name = data.CustomerName;
                     customer.Customer_Phone = data.Phone;
-                    customer.Customer_ID = Convert.ToInt32(id);
+                    customer.Customer_ID = Convert.ToInt32(id1);
                     db.Entry(customer).State = EntityState.Modified;
                     data.CustomerID = customer.Customer_ID;
-                    var s = (from t1 in db.Measurments where (t1.Customer_ID == id) select t1.Measurment_ID).ToList();
+                    var s = (from t1 in db.Measurments where (t1.Customer_ID == id1) select t1.Measurment_ID).ToList();
                     foreach (var item in s)
                     {
                         Measurment me = db.Measurments.Find(item);
@@ -141,6 +137,7 @@ namespace BRTailor.Controllers
                     var m = new Measurment()
                     {
 
+                        Measurment_Type = i.Measurment_Type,
                         arms = i.arms,
                         Bottom = i.Bottom,
                         Chest = i.Chest,
@@ -165,11 +162,7 @@ namespace BRTailor.Controllers
                         suitDesign = i.suitDesign,
                         Tera = i.Tera,
                         Stitch = i.Stitch
-
-
-
-
-                    };
+                     };
                     db.Measurments.Add(m);
                     db.SaveChanges();
 
@@ -204,6 +197,17 @@ namespace BRTailor.Controllers
             db.Customers.Remove(cus);
             db.SaveChanges();
             return RedirectToAction("CustomerList");
+        }
+    
+        public ActionResult SearchCustomer(string Search)
+        {
+            var data = db.Customers.FirstOrDefault(x => x.Customer_Phone == Search);
+            if (data != null)
+            {
+                TempData["SearchCheck"] = true;
+                return PartialView(data);
+            }
+            return View();
         }
        
     }
