@@ -801,7 +801,7 @@
         <Top>2.25222in</Top>
         <Left>0.00223in</Left>
         <Height>0.5in</Height>
-        <Width>2.99777in</Width>
+        <Width>2.99778in</Width>
         <ZIndex>19</ZIndex>
         <Style>
           <Border>
@@ -1043,13 +1043,43 @@ responsible for any kind of changing.</Value>
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox10">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!date.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox10</rd:DefaultName>
+        <Top>0.63889in</Top>
+        <Left>1.73833in</Left>
+        <Height>0.25in</Height>
+        <Width>1.24679in</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
     <Height>7.2in</Height>
     <Style>
       <BackgroundColor>#fcfcfc</BackgroundColor>
     </Style>
   </Body>
-  <Width>3in</Width>
+  <Width>3.00001in</Width>
   <Page>
     <PageHeight>7.2in</PageHeight>
     <PageWidth>3in</PageWidth>
@@ -1147,6 +1177,10 @@ responsible for any kind of changing.</Value>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
     <ReportParameter Name="Payable">
+      <DataType>String</DataType>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="date">
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>

@@ -23,7 +23,28 @@ namespace BRTailor.Controllers
             var del = db.Orders.Find(id);
             db.Orders.Remove(del);
             db.SaveChanges();
-            return View();
+            return View("Queue");
+        }
+        public ActionResult DeleteOrderinprocess(int? id)
+        {
+            var del = db.Orders.Find(id);
+            db.Orders.Remove(del);
+            db.SaveChanges();
+            return View("OrderInProcess");
+        }
+        public ActionResult DeleteOrderReceived(int? id)
+        {
+            var del = db.Orders.Find(id);
+            db.Orders.Remove(del);
+            db.SaveChanges();
+            return View("OrderReceived");
+        }
+        public ActionResult DeleteOrderCompleted(int? id)
+        {
+            var del = db.Orders.Find(id);
+            db.Orders.Remove(del);
+            db.SaveChanges();
+            return View("OrderCompleted");
         }
         [HttpGet]
         public ActionResult assignAndBookOrder(int? id)

@@ -1,9 +1,8 @@
-﻿@model IEnumerable<BRTailor.Measurment>
+﻿@model BRTailor.Measurment
 @{
     ViewBag.Title = "CustomerByID";
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
-
 <header class="panel_header">
     <h2 class="title pull-left">Customer Measurments</h2>
     <div class="actions panel_actions pull-right">
@@ -12,70 +11,57 @@
         <i class="box_close fa fa-times"></i>
     </div>
 </header>
+<input type="text" value="@TempData["CustomerID"]" name="id" id="id" hidden>
 <div class="content-body">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
-            <div class="table-responsive">
-
-                <table id="tblMeasur" class="table table-bordered">
-                    <thead>
-                        <tr class="d-table-row">
-
-                            <th align="left" class="productth" @*id="type"*@>ٹائپ /Type</th>
-                            <th align="left" class="productth" @*id="Lengthdiv"*@>لمبائی/Length</th>
-                            <th align="left" class="productth" @*id="Chestdiv"*@>سینہ/Chest</th>
-                            <th align="left" class="productth" @*id="Shoulderdiv"*@>کندھا/Shoulder</th>
-                            <th align="left" class="productth" @*id="Waistdiv"*@>کمر/Waist</th>
-                            <th align="left" class="productth" @*id="Sleevesdiv"*@>آستین/Seelves</th>
-                            <th align="left" class="productth" @*id="armsdiv"*@>بازو/Arms</th>
-                            <th align="left" class="productth" @*id="CollorSizediv"*@>کالر سائز /Collor Size</th>
-                            <th align="left" class="productth" @*id="Dcollordiv"*@>کالر ڈیزائن/Collor Design</th>
-                            <th align="left" class="productth" @*id="Bottomdiv"*@>پیندا/Bottom</th>
-                            <th align="left" class="productth" @*id="SidePocketdiv"*@>سائیڈ جیب/Side Pockets</th>
-                            <th align="left" class="productth" @*id="FrontPocketdiv"*@>سامنے جیب/Front Pocket</th>
-                            <th align="left" class="productth" @*id="Hipdiv"*@>Hip</th>
-                            <th align="left" class="productth" @*id="Gidriidiv"*@>Gidrii</th>
-                            <th align="left" class="productth" @*id="Teradiv"*@>Tera</th>
-                            <th align="left" class="productth" @*id="Gheradiv"*@>Ghera</th>
-                            <th align="left" class="productth" @*id="suitDesigndiv"*@>سوٹ ڈیزائن/Suit Design</th>
-                            <th align="left" class="productth" @*id="btnDesigndiv"*@>بٹن ڈیزائن/Button Design</th>
-                            <th align="left" class="productth" @*id="Stitchdiv"*@>سلائی/Stitch</th>
-                            <th align="left" class="productth" @*id="CoatButtondiv"*@>Coat Button</th>
-                            <th align="left" class="productth" @*id="CoatFittingdiv"*@>Coat Fitting</th>
-                            <th align="left" class="productth" @*id="CrossBackdiv"*@>Cross Back</th>
-                        </tr>
-                    </thead>
-                    @foreach (var item in Model)
-            {
-                        <tr role="row" class="even">
-                            <td>@item.MeasurmentType.Measurment_Type </td>
-                            <td>@item.Length </td>
-                            <td>@item.Chest </td>
-                            <td>@item.Shoulder </td>
-                            <td>@item.Waist </td>
-                            <td>@item.Sleeves </td>
-                            <td>@item.arms </td>
-                            <td>@item.CollarSize </td>
-                            <td>@item.Dcollor </td>
-                            <td>@item.Bottom </td>
-                            <td>@item.SidePocket </td>
-                            <td>@item.FrontPocket </td>
-                            <td>@item.Hip </td>
-                            <td>@item.Gidrii </td>
-                            <td>@item.Tera </td>
-                            <td>@item.Ghera </td>
-                            <td>@item.suitDesign </td>
-                            <td>@item.btnDesign </td>
-                            <td>@item.Stitch </td>
-                            <td>@item.CoatButton </td>
-                            <td>@item.CoatFitting </td>
-                            <td>@item.CrossBack </td>
-                         </tr>
-                    }
-                </table>
+            <h4>Tabs</h4>
+            @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
+            <div>
+                @Html.Partial("_CustomerByID")
             </div>
-           
+
 
         </div>
+
     </div>
 </div>
+
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
+<script>
+
+    $(document).ready(function () {
+        $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist ").hide();
+
+        $("#Measurment_Type_ID").change(function () {
+
+            var MeasurId = parseInt($(this).val());
+            var user = document.getElementById("id").value;
+
+            $.ajax({
+                url: "/Customer/CustomerByID",
+                type: "GET",
+                datatype: "json",
+                data: { measurment_type: MeasurId, user: user },
+                success: function (data) {
+                    if (MeasurId == 10) {
+                        $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelve,#Stitchdiv,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#Comments,#Shoulder ").show();
+                    }
+                    if (MeasurId == 11) {
+                        $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show();
+                    }
+                    if (MeasurId == 12)
+                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show(); }
+                    if (MeasurId == 13)
+                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show(); }
+                    if (MeasurId == 14)
+                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show(); }
+                    if (MeasurId == 15)
+                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show();}
+
+                }
+            });
+
+        });
+    });
+</script>

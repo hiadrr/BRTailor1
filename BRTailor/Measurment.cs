@@ -45,8 +45,10 @@ namespace BRTailor
         public string Stitch { get; set; }
         public string CoatButton { get; set; }
         public string CoatFitting { get; set; }
-        public Nullable<int> Gheera_num { get; set; }
+        public Nullable<int> Ghera_num { get; set; }
         public string Comments { get; set; }
+        public Nullable<double> Kaaf { get; set; }
+        public string shalwarPocket { get; set; }
     
         public virtual MeasurmentType MeasurmentType { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

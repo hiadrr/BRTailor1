@@ -5,7 +5,34 @@
 }
 <div class="col-lg-12 col-md-12 col-md-12 col-sm-12">
     <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Search</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
 
+            
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Search Customer</label>
+                    <input type="text" class="form-control is-valid" onblur="Customer()" id="searchc" name="searchc" placeholder="Enter Phone Number">
+                </div>
+                <div class="col-md-3">
+                    <label>ID</label>
+                    <input type="text" class="form-control is-valid" onblur="Customerid()" id="cid" name="cid" placeholder="Enter ID" >
+                </div>
+               
+
+            </div>
+
+
+
+
+        </div>
         <header class="panel_header">
             <h2 class="title pull-left">Customer Details</h2>
             <div class="actions panel_actions pull-right">
@@ -21,10 +48,7 @@
                 <input type="text" class="form-control is-valid"  id="CustomerID" name="CustomerID" placeholder="Enter Name" readonly>
             </div>
             <div class="row">
-                <div class="col-md-3">
-                    <label>Search Customer</label>
-                    <input type="text" class="form-control is-valid" onblur="Customer()" id="searchc" name="searchc" placeholder="Enter Phone Number">
-                </div>
+              
                 <div class="col-md-3">
                     <label>Name</label>
                     <input type="text" class="form-control is-valid" value="@ViewBag.Name" id="CustomerName" name="CustomerName" placeholder="Enter Name" required>
@@ -143,6 +167,11 @@
                         <input type="text" class="form-control is-valid" id="Bottom" name="Bottom" placeholder="Bottom" required>
 
                     </div>
+                    <div class="col-md-3" id="Kaafdiv">
+                        <label>کف/Kaaf</label>
+                        <input type="text" class="form-control is-valid" id="Kaaf" name="Kaaf" placeholder="Kaaf" required>
+
+                    </div>
                 </div>
                 <div class="row">
                     <div class="col-md-3" id="Sleevesdiv">
@@ -170,8 +199,8 @@
 
                         <select class="form-control is-valid" id="SidePocket" name="SidePocket">
                             <option value="">Select Pockets</option>
-                            <option value="Yes">Yes</option>
-                            <option value="No">No </option>
+                            <option value="1">1</option>
+                            <option value="2">2 </option>
                         </select>
                     </div>
 
@@ -280,6 +309,8 @@
                             <thead>
                                 <tr class="d-table-row">
 
+
+
                                     <th align="left" class="productth" @*id="type"*@>ٹائپ /Type</th>
                                     <th align="left" class="productth" @*id="Lengthdiv"*@>لمبائی/Length</th>
                                     <th align="left" class="productth" @*id="armsdiv"*@>بازو/Arms</th>
@@ -288,7 +319,7 @@
                                     <th align="left" class="productth" @*id="Chestdiv"*@>چھاتی/Chest</th>
                                     <th align="left" class="productth" @*id="Waistdiv"*@>کمر/Waist</th>
                                     <th align="left" class="productth" @*id="Gheradiv"*@>گیرا/Ghera</th>
-
+                                    <th align="left" class="productth" @*id="Sleevesdiv"*@>کف/Kaaf</th>
                                     <th align="left" class="productth" @*id="Sleevesdiv"*@>کف/Seelves</th>
                                     <th align="left" class="productth" @*id="Shoulderdiv"*@>کندھا/Shoulder</th>
                                     <th align="left" class="productth" @*id="Hipdiv"*@>Hip</th>
@@ -304,6 +335,7 @@
                                     <th align="left" class="productth" @*id="CoatButtondiv"*@>Coat Button</th>
                                     <th align="left" class="productth" @*id="CoatFittingdiv"*@>Coat Fitting</th>
                                     <th align="left" class="productth" @*id="CrossBackdiv"*@>Cross Back</th>
+                                    <th align="left" class="productth" @*id="CrossBackdiv"*@>Comments</th>
                                 </tr>
                             </thead>
                             <tbody></tbody>
@@ -343,12 +375,12 @@
    
 
     $(document).ready(function () {
-        $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
+        $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Kaafdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
 
 
         $("#Measurment_Type_ID").change(function () {
 
-            $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
+            $("#Hipdiv,#Gidriidiv,#CrossBackdiv,#Kaafdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#Ghera_numdiv,#Commentsdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type").hide();
 
             var MeasurId = parseInt($(this).val());
            
@@ -356,27 +388,27 @@
             if (MeasurId === 10)
             {
                 
-                $("#btnDesigndiv,#Stitchdiv,#type,#Waistdiv,#Lengthdiv,#armsdiv,#Dcollordiv,#Ghera_numdiv,#Commentsdiv,#CollorSizediv,#Chestdiv,#Waistdivss,#Gheradiv,#Sleevesdiv,#Shoulderdiv,#suitDesigndiv,#btnDesigndiv,#Buttondiv,#Stitchdiv,#Teradiv").show();
+                $("#btnDesigndiv,#Kaafdiv,#Stitchdiv,#type,#Waistdiv,#Lengthdiv,#armsdiv,#Dcollordiv,#Ghera_numdiv,#Commentsdiv,#CollorSizediv,#Chestdiv,#Waistdivss,#Gheradiv,#Sleevesdiv,#Shoulderdiv,#suitDesigndiv,#btnDesigndiv,#Buttondiv,#Stitchdiv,#Teradiv,#SidePocketdiv,#FrontPocketdiv").show();
                
             }
                 
                 //Shalwar
             else if (MeasurId === 11) {
                
-                $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv").show();
+                $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv,#FrontPocketdiv").show();
             }
                 //Trouser
             else if (MeasurId === 12) {
-                $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv,#Waistdiv").show();
+                $("#type,#Lengthdiv,#Bottomdiv,#Ghera_numdiv,#Commentsdiv,#Waistdiv,#SidePocketdiv").show();
             }
                 //Pent
             else if (MeasurId === 13) {
-                $("#type,#Lengthdiv,#Waistdiv,#Bottomdiv,#Hipdiv,#Gidriidiv,#Commentsdiv").show();
+                $("#type,#Lengthdiv,#Waistdiv,#Bottomdiv,#Hipdiv,#Gidriidiv,#Commentsdiv,#SidePocketdiv").show();
                 
             }
                 //Coat
             else if (MeasurId === 14) {
-                $("#type,,#Commentsdiv#Lengthdiv,#Teradiv,#CrossBackdiv,CollorSizediv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Shoulderdiv,#armsdiv,#Waistdiv").show();
+                $("#type,,#Commentsdiv#Lengthdiv,#Kaafdiv,#Teradiv,#CrossBackdiv,CollorSizediv,#Dcollordiv,#Hipdiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Chestdiv,#Shoulderdiv,#armsdiv,#Waistdiv,#FrontPocketdiv").show();
 
             }
                 //WaistCoat
@@ -403,13 +435,39 @@
            
                     
         });
-        //$('#tblMeasur').Table({
-        //    "scrollX": true
-        //});
+      
         
     });
    
-    
+    function Customerid() {
+        var Search = document.getElementById("cid").value;
+
+        if (Search != "") {
+            $.ajax({
+                url: '/Customer/SearchCustomer',
+                type: "POST",
+                data: { Searchid: Search },
+
+            }).then(function (res) {
+                $("#modelBody").html(res);
+                if ($("#checkModelNull").val() == '0') {
+                    $("#btnFIlldata").hide();
+                }
+                else {
+                    $("#btnFIlldata").show();
+                }
+                $("#SearchPatient").modal();
+
+            }).fail(function (res) {
+                console.log(res);
+            });
+
+
+        }
+
+
+
+    }
 </script>
 
 

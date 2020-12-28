@@ -51,15 +51,11 @@ namespace BRTailor.Controllers
         [HttpPost]
         public ActionResult BookOrder(BookingCustomerModel data )
         {
-
-
             if (data.Discount == null )
             {
                 data.Discount = 0;
             }
-
-
-            var booking = new Booking()
+        var booking = new Booking()
             {
                 Customer_Address = data.Customer_Address,
                 Customer_City = data.Customer_City,
@@ -78,6 +74,7 @@ namespace BRTailor.Controllers
             };
             db.Bookings.Add(booking);
             db.SaveChanges();
+            int bid = booking.Bookin_ID;
             int b_id = Convert.ToInt32(booking.Bookin_ID);
             int payable = Convert.ToInt32(booking.Payable);
             foreach (var i in data.bookingItem)
@@ -86,7 +83,7 @@ namespace BRTailor.Controllers
                 {
                     i.D_Price = 0;
                 }
-            
+
                 var m = new BookingItem()
                 {
                     date = DateTime.Now,
@@ -96,6 +93,7 @@ namespace BRTailor.Controllers
                     Price = i.Price,
                     SubTotal = i.Price + i.D_Price,
                     D_Code = i.D_Code,
+                    Quantity = i.Quantity,
                 };
                 db.BookingItems.Add(m);
                 db.SaveChanges();
@@ -123,7 +121,11 @@ namespace BRTailor.Controllers
                     db.SaveChanges();
                 };
 
-            
+            if (data.Print != null)
+            {
+                TempData["Id"] = b_id;
+                return Json(Url.Action("Print", "Booking"));
+            }
 
            
 
@@ -198,7 +200,11 @@ namespace BRTailor.Controllers
         }
         public ActionResult Print(int? Id)
         {
-
+            if (Id == null)
+            {
+                ViewBag.id = Convert.ToInt32( TempData["Id"]);
+                Id = ViewBag.id;
+            }
             Warning[] warnings;
             string mimeType = "";
             string[] streamids;
@@ -210,7 +216,7 @@ namespace BRTailor.Controllers
             viewer.LocalReport.ReportPath = path;
 
             var data = db.Bookings.FirstOrDefault(x => x.Bookin_ID == Id);
-
+            TempData["Id"] = data.Bookin_ID;
             if (data.Discount == null)
             {
                 data.Discount = 0;
@@ -226,7 +232,7 @@ namespace BRTailor.Controllers
             parms[5] = new ReportParameter("Total", data.Total.ToString());
             parms[6] = new ReportParameter("Discount", data.Discount.ToString());
             parms[7] = new ReportParameter("Payable", data.Payable.ToString());
-
+            parms[8] = new ReportParameter("date", data.date.ToString());
 
 
             viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", data.BookingItems));

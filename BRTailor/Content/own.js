@@ -13,6 +13,7 @@
                    var sidepockets = document.getElementById("SidePocket").value;
                    var frontpockets = document.getElementById("FrontPocket").value;
                  //new
+                   var kaaf = document.getElementById("Kaaf").value;
                    var hip = document.getElementById("Hip").value;
                    var gidrii = document.getElementById("Gidrii").value;
                    var crossback = document.getElementById("CrossBack").value;
@@ -27,9 +28,6 @@
                    var coatbutton = document.getElementById("CoatButton").value;
                    var coatfitting = document.getElementById("CoatFitting").value;
      
-
-
-
                    Measurlist.push({
                        Measurment_Type_ID: $('#Measurment_Type_ID').val().trim(),
                        Measurment_Type: $('#Measurment_Type').val().trim(),
@@ -39,11 +37,11 @@
                        Waist: $('#Waist').val().trim(),
                        Sleeves: $('#Sleeves').val().trim(),
                        arms: $('#arms').val().trim(),
-                       Collor: $('#CollorSize').val().trim(),
+                       CollorSize: $('#CollorSize').val().trim(),
                        Bottom:$('#Bottom').val().trim(),
                        SidePocket: $('#SidePocket').val().trim(),
                        FrontPocket: $('#FrontPocket').val().trim(),
-
+                       Kaaf: $('#Kaaf').val().trim(),
                        Hip: $('#Hip').val().trim(),
                        Gidrii: $('#Gidrii').val().trim(),
                        CrossBack: $('#CrossBack').val().trim(),
@@ -63,34 +61,35 @@
                    var rows = "<tr>"
                    + "<td class='prtoducttd' >" + type + "</td>"
                    + "<td class='prtoducttd' >" + length + "</td>"
-                     + "<td class='prtoducttd' >" + arms + "</td>"
-                     + "<td class='prtoducttd' >" + tera + "</td>"
-                      + "<td class='prtoducttd' >" + collorsize + "</td>"
+                   + "<td class='prtoducttd' >" + arms + "</td>"
+                   + "<td class='prtoducttd' >" + tera + "</td>"
+                   + "<td class='prtoducttd' >" + collorsize + "</td>"
                    + "<td class='prtoducttd'>" + chest + "</td>"
-                    + "<td class='prtoducttd'>" + waist + "</td>"
-                     + "<td class='prtoducttd'>" + ghera + "</td>"
-                       + "<td class='prtoducttd' >" + sleeves + "</td>"
-                  + "<td class='prtoducttd' >" + shoulder + "</td>"
-                     + "<td class='prtoducttd' >" + hip + "</td>"
+                   + "<td class='prtoducttd'>" + waist + "</td>"
+                   + "<td class='prtoducttd'>" + ghera + "</td>"
+                   + "<td class='prtoducttd'>" + kaaf + "</td>"
+                   + "<td class='prtoducttd' >" + sleeves + "</td>"
+                   +"<td class='prtoducttd' >" + shoulder + "</td>"
+                   +"<td class='prtoducttd' >" + hip + "</td>"
                    + "<td class='prtoducttd' >" + gidrii + "</td>"
                    + "<td class='prtoducttd' >" + bottom + "</td>"
-                  + "<td class='prtoducttd'>" + Gheranum + "</td>"
+                   + "<td class='prtoducttd'>" + Gheranum + "</td>"
                    + "<td class='prtoducttd' >" + dcollor + "</td>"
-                    + "<td class='prtoducttd' >" + sidepockets + "</td>"
+                   + "<td class='prtoducttd' >" + sidepockets + "</td>"
                    + "<td class='prtoducttd' >" + frontpockets + "</td>"
-                  + "<td class='prtoducttd' >" + suitdesign + "</td>"
+                   + "<td class='prtoducttd' >" + suitdesign + "</td>"
                    + "<td class='prtoducttd'>" + btndesign + "</td>"
-                     + "<td class='prtoducttd' >" + stitch + "</td>"
-                    + "<td class='prtoducttd'>" + coatbutton + "</td>"
-                  + "<td class='prtoducttd' >" + coatfitting + "</td>"
-                    + "<td class='prtoducttd'>" + crossback + "</td>"
-                    
+                   + "<td class='prtoducttd' >" + stitch + "</td>"
+                   + "<td class='prtoducttd'>" + coatbutton + "</td>"
+                   + "<td class='prtoducttd' >" + coatfitting + "</td>"
+                   + "<td class='prtoducttd'>" + crossback + "</td>"
+                   + "<td class='prtoducttd'>" + Comments + "</td>"
                    
                  
                  
                  
                    
-                   + "</tr>";
+                   + "</tr>";   
                    $('#tblMeasur tbody').append(rows);
 
                    //Clear fields
@@ -98,6 +97,7 @@
                    $('#Hip').val('');
                    $('#Measurment_Type').val('');
                    $('#Gidrii').val('');
+                   $('#Kaaf').val('');
                    $('#Ghera_num').val('');
                    $('#Comments').val(''); 
                    $('#CrossBack').val('');
@@ -146,7 +146,7 @@
                            if (d.status == true) {
                                //clear form
                                Measurlist = [];
-                               $('#CustomerID,#CustomerName,#Ghera_num,#Comments,#Phone,#City,#Address,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
+                               $('#CustomerID,#CustomerName,#Ghera_num,#Comments,#Phone,#City,#Address,#Kaafdiv,#Hipdiv,#Gidriidiv,#CrossBackdiv,#Waistdiv,#Teradiv,#Dcollordiv,#Gheradiv,#suitDesigndiv,#btnDesigndiv,#Stitchdiv,#CoatButtondiv,#CoatFittingdiv,#Lengthdiv,#Lengthdiv,#Chestdiv,#Shoulderdiv,#Waistdiv,#Sleevesdiv,#armsdiv,#CollorSizediv,#Bottomdiv,#SidePocketdiv,#FrontPocketdiv,#type').val('');
                               
                                $('#tblMeasur tbody').remove();
 
@@ -194,6 +194,7 @@
 
                   
               }
+              
               function FillData() {
                   $("#CustomerID").val($("#SCustomer_ID").val());
                   $("#CustomerName").val($("#SCustomer").val());

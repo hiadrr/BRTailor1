@@ -5,30 +5,29 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="609edc0ffd7045a3a30964a9d982af17" Name="Diagram1" ZoomLevel="78">
-        <EntityTypeShape EntityType="BRTailorModel.C__MigrationHistory" Width="1.5" PointX="22.625" PointY="10.375" />
-        <EntityTypeShape EntityType="BRTailorModel.AspNetRole" Width="1.5" PointX="22.5" PointY="10.5" />
-        <EntityTypeShape EntityType="BRTailorModel.AspNetUserClaim" Width="1.5" PointX="21.875" PointY="10.75" />
-        <EntityTypeShape EntityType="BRTailorModel.AspNetUserLogin" Width="1.5" PointX="22.625" PointY="10.875" />
-        <EntityTypeShape EntityType="BRTailorModel.AspNetUser" Width="1.5" PointX="22.25" PointY="11" />
-        <EntityTypeShape EntityType="BRTailorModel.sysdiagram" Width="1.5" PointX="22.125" PointY="10.75" />
+        <EntityTypeShape EntityType="BRTailorModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BRTailorModel.AspNetRole" Width="1.5" PointX="5.75" PointY="2.5" />
+        <EntityTypeShape EntityType="BRTailorModel.AspNetUserClaim" Width="1.5" PointX="10.25" PointY="3.625" />
+        <EntityTypeShape EntityType="BRTailorModel.AspNetUserLogin" Width="1.5" PointX="10.25" PointY="1" />
+        <EntityTypeShape EntityType="BRTailorModel.AspNetUser" Width="1.5" PointX="8" PointY="1.375" />
+        <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="3" PointY="8.5" />
+        <EntityTypeShape EntityType="BRTailorModel.BookingItem" Width="1.5" PointX="5.25" PointY="8.75" />
+        <EntityTypeShape EntityType="BRTailorModel.Customer" Width="1.5" PointX="0.75" PointY="4.125" />
+        <EntityTypeShape EntityType="BRTailorModel.Design" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="BRTailorModel.Measurment" Width="1.5" PointX="0.75" PointY="13.125" />
+        <EntityTypeShape EntityType="BRTailorModel.MeasurmentType" Width="1.5" PointX="1.5" PointY="21.75" />
+        <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="3" PointY="3.375" />
+        <EntityTypeShape EntityType="BRTailorModel.Staff" Width="1.5" PointX="0.75" PointY="24.875" />
         <AssociationConnector Association="BRTailorModel.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" />
         <AssociationConnector Association="BRTailorModel.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" />
-        <AssociationConnector Association="BRTailorModel.AspNetUserRoles" />
-        <EntityTypeShape EntityType="BRTailorModel.Customer" Width="1.5" PointX="3.375" PointY="0.5" />
-        <EntityTypeShape EntityType="BRTailorModel.Design" Width="1.5" PointX="1.125" PointY="2.25" />
-        <EntityTypeShape EntityType="BRTailorModel.Order" Width="1.5" PointX="8.25" PointY="1.125" />
-        <AssociationConnector Association="BRTailorModel.FK_Order_Customer" />
-        <EntityTypeShape EntityType="BRTailorModel.MeasurmentType" Width="1.5" PointX="3.375" PointY="11.25" />
-        <EntityTypeShape EntityType="BRTailorModel.Booking" Width="1.5" PointX="5.625" PointY="0.875" />
         <AssociationConnector Association="BRTailorModel.FK_Booking_Customer" />
-        <EntityTypeShape EntityType="BRTailorModel.BookingItem" Width="1.5" PointX="7.875" PointY="6.25" />
         <AssociationConnector Association="BRTailorModel.FK_BookingItem_Booking" />
-        <EntityTypeShape EntityType="BRTailorModel.Staff" Width="1.5" PointX="0.75" PointY="6" />
-        <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
-        <EntityTypeShape EntityType="BRTailorModel.Measurment" Width="2.25" PointX="5.625" PointY="8.875" />
+        <AssociationConnector Association="BRTailorModel.FK_Order_Customer" />
         <AssociationConnector Association="BRTailorModel.FK_Measurment_MeasurmentType" />
         <AssociationConnector Association="BRTailorModel.FK_Order_Measurment" />
-        </Diagram>
+        <AssociationConnector Association="BRTailorModel.FK_Order_Staff" />
+        <AssociationConnector Association="BRTailorModel.AspNetUserRoles" />
+      </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

@@ -80,6 +80,12 @@ namespace BRTailor.Controllers
 
         public ActionResult DeleteStaff(int id)
         {
+            var o = (from t1 in db.Orders where (t1.Staff_ID == id) select t1.Order_ID).ToList();
+            foreach (var item in o)
+            {
+                var e = db.Orders.Find(item);
+                db.Orders.Remove(e);
+            }
             Staff staff = db.Staffs.Find(id);
             db.Staffs.Remove(staff);
             db.SaveChanges();
