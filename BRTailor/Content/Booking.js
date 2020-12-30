@@ -3,8 +3,10 @@ var TotalAmount = 0;
 var Payable = 0;
 
 function add() {
-
+    sPrice
     var typeid = document.getElementById("Measurment_Type_ID").value;
+    var sprice = document.getElementById("sPrice").value;
+    var sName = document.getElementById("sName").value;
     var price = document.getElementById("Price").value;
     var quantity = document.getElementById("textQuantity").value;
     var designid = document.getElementById("Design_ID").value;
@@ -18,6 +20,8 @@ function add() {
     Measurlist.push({
         Measurment_Type_ID: $('#Measurment_Type_ID').val().trim(),
         Price: $('#Price').val().trim(),
+        sPrice: $('#sPrice').val().trim(),
+        sName: $('#sName').val().trim(),
         Quantity: $('#textQuantity').val().trim(),
         Design_ID: $('#Design_ID').val().trim(),
         Design_IDnew: $('#Design_IDnew').val().trim(),
@@ -32,6 +36,8 @@ function add() {
    
     + "<td class='prtoducttd'>" + dcode + "</td>"
      + "<td class='prtoducttd' >" + dprice + "</td>"
+     + "<td class='prtoducttd'>" + sName + "</td>"
+     + "<td class='prtoducttd'>" + sprice + "</td>"
        + "<td class='prtoducttd'>" + quantity + "</td>"
     + "</tr>";
     $('#tblMeasur tbody').append(rows);
@@ -40,10 +46,13 @@ function add() {
     {
         dprice = "0";
     }
+    if (sprice === "") {
+        sprice = "0";
+    }
     if (price === "") {
         price = "0";
     }
-    var eachprice = (parseInt(price) + parseInt(dprice)) * parseInt(quantity);
+    var eachprice = (parseInt(price) + parseInt(dprice) +  parseInt(sprice)) * parseInt(quantity);
     TotalAmount = TotalAmount + parseInt(eachprice);
         $("#Total").val(TotalAmount);
         $("#Payable").val(TotalAmount);
@@ -120,12 +129,20 @@ function SavePrint() {
         dataType: "JSON",
         contentType: "application/json",
         success: function (data) {
-            window.location.href = data;
+            window.open(window.location.href = data, '_blank');
+            
+
         },
         error: function (data) {
             window.location.href = data;
             $('#submit').val('Save');
         }
     });
+
+}
+function Print(url) {
+    var win = window.open(url, '_blank');
+    win.focus();
+
 
 }

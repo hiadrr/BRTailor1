@@ -31,12 +31,13 @@ namespace BRTailor
         public virtual DbSet<AspNetUserLogin> AspNetUserLogins { get; set; }
         public virtual DbSet<AspNetUser> AspNetUsers { get; set; }
         public virtual DbSet<Booking> Bookings { get; set; }
-        public virtual DbSet<BookingItem> BookingItems { get; set; }
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Design> Designs { get; set; }
         public virtual DbSet<Measurment> Measurments { get; set; }
         public virtual DbSet<MeasurmentType> MeasurmentTypes { get; set; }
         public virtual DbSet<Order> Orders { get; set; }
         public virtual DbSet<Staff> Staffs { get; set; }
+        public virtual DbSet<Service> Services { get; set; }
+        public virtual DbSet<BookingItem> BookingItems { get; set; }
     }
 }

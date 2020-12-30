@@ -1,5 +1,5 @@
-﻿        var Measurlist = [];
-             function add() {
+﻿              var Measurlist = [];
+              function add() {
                    //Add items
                    var type = document.getElementById("Measurment_Type_ID").value;
                    var length = document.getElementById("Length").value;
@@ -12,7 +12,8 @@
                    var bottom = document.getElementById("Bottom").value;
                    var sidepockets = document.getElementById("SidePocket").value;
                    var frontpockets = document.getElementById("FrontPocket").value;
-                 //new
+                  //new
+                   var shalwarPocket = document.getElementById("shalwarPocket").value;
                    var kaaf = document.getElementById("Kaaf").value;
                    var hip = document.getElementById("Hip").value;
                    var gidrii = document.getElementById("Gidrii").value;
@@ -38,7 +39,8 @@
                        Sleeves: $('#Sleeves').val().trim(),
                        arms: $('#arms').val().trim(),
                        CollorSize: $('#CollorSize').val().trim(),
-                       Bottom:$('#Bottom').val().trim(),
+                       Bottom: $('#Bottom').val().trim(),
+                       shalwarPocket: $('#shalwarPocket').val().trim(),
                        SidePocket: $('#SidePocket').val().trim(),
                        FrontPocket: $('#FrontPocket').val().trim(),
                        Kaaf: $('#Kaaf').val().trim(),
@@ -75,6 +77,7 @@
                    + "<td class='prtoducttd' >" + bottom + "</td>"
                    + "<td class='prtoducttd'>" + Gheranum + "</td>"
                    + "<td class='prtoducttd' >" + dcollor + "</td>"
+                    + "<td class='prtoducttd' >" + shalwarPocket + "</td>"
                    + "<td class='prtoducttd' >" + sidepockets + "</td>"
                    + "<td class='prtoducttd' >" + frontpockets + "</td>"
                    + "<td class='prtoducttd' >" + suitdesign + "</td>"
@@ -122,10 +125,11 @@
                    $('#SidePocket').val('');
                    $('#Waist').val('');
                    $('#Sleeves').val('');
-             
+                   $('#shalwarPocket').val('');
+                   
 
                }
-
+              
               function Save() {
                   var data = {
                       CustomerID: $('#CustomerID').val().trim(),
@@ -164,7 +168,7 @@
                    });
 
                }
-           
+              
               function Customer() {
                   var Search = document.getElementById("searchc").value;
 

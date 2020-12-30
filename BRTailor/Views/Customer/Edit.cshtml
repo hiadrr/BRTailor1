@@ -1,0 +1,125 @@
+﻿@model IEnumerable<BRTailor.Measurment>
+@{
+    ViewBag.Title = "EditCustomer";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Customer Details</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label>ID</label>
+                    <input type="text" class="form-control is-valid" id="CustomerID" value="@ViewBag.ID" name="CustomerID" placeholder="Enter Name" readonly>
+                </div>
+                <div class="col-md-3">
+                    <label>Name</label>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.Name" id="CustomerName" name="CustomerName" placeholder="Enter Name" required>
+                </div>
+                <div class="col-md-3">
+                    <label>Phone</label>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.Phone" id="Phone" name="Phone" placeholder="Enter Phone" required>
+
+                </div>
+                <div class="col-md-3">
+                    <label>City</label>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.City" id="City" name="City" placeholder="Enter City" required>
+                </div>
+                <div class="col-md-3">
+                    <label>Address</label>
+                    <input type="text" class="form-control is-valid" value="@ViewBag.Address" id="Address" name="Address" placeholder="Address"
+                           required>
+                </div>
+                <div class="col-md-3">
+                    <label></label>
+                    <button class="btn btn-primary" onclick="SaveCustomer()" type="submit" style="margin-top: 13%;">Submit form</button>
+                </div>
+            </div>
+        </div>
+        </section>
+</div>
+    <div class="col-lg-12">
+        <section class="box ">
+            <header class="panel_header">
+                <h2 class="title pull-left">Customer Measurment</h2>
+                <div class="actions panel_actions pull-right">
+                    <i class="box_toggle fa fa-chevron-down"></i>
+                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                    <i class="box_close fa fa-times"></i>
+                </div>
+            </header>
+
+            <div class="content-body">
+                <table id="example-1" class="table table-striped dt-responsive display dataTable dtr-inline" cellspacing="0" width="100%" role="grid" aria-describedby="example-1_info" style="width: 100%;">
+                    <thead>
+                        <tr role="row" class="odd">
+                            <th class="th-sm">
+                                Type Name
+                            </th>
+                            <th class="th-sm">
+                                Type ID
+                            </th>
+                            <th class="th-sm">
+                                Measurment ID
+                            </th>
+                            <th class="th-sm">
+                                Customer ID
+                            </th>
+
+
+                            <th class="th-sm">Edit</th>
+
+
+                        </tr>
+                    </thead>
+
+                    @foreach (var item in Model)
+            {
+                        <tr role="row" class="even">
+                            <td>@item.Measurment_Type </td>
+                            <td>@item.Measurment_Type_ID </td>
+                            <td>@item.Measurment_ID </td>
+                            <td>@item.Customer_ID </td>
+
+
+                        <td>@Html.ActionLink("Edit ", "EditMeasurment", new { id = @item.Measurment_ID })</td>
+
+                    </tr>
+                    }
+                </table>
+            </div>
+
+        </section>
+    </div>
+
+<script>
+    function SaveCustomer()
+    {
+        var data = {
+            Customer_ID: $('#CustomerID').val().trim(),
+            Customer_Name: $('#CustomerName').val().trim(),
+            Customer_Phone: $('#Phone').val().trim(),
+            Customer_City: $('#City').val().trim(),
+            Customer_Address: $('#Address').val().trim(),
+        }
+        $.ajax({
+            url: '/Customer/EditCustomer',
+            type: "POST",
+            data: JSON.stringify(data),
+            dataType: "JSON",
+            contentType: "application/json",
+           
+        });
+
+
+    }
+    </script>

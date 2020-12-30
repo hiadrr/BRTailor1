@@ -12,13 +12,45 @@
     </div>
 </header>
 <input type="text" value="@TempData["CustomerID"]" name="id" id="id" hidden>
+<input type="text" value="@TempData["Mtype"]" name="Mtype" id="Mtype" hidden>
 <div class="content-body">
     <div class="row">
         <div class="col-md-12 col-sm-12 col-xs-12">
             <h4>Tabs</h4>
             @Html.DropDownList("Measurment_Type_ID", null, "-select- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
-            <div>
-                @Html.Partial("_CustomerByID")
+           <br>
+             <div class="box">
+               
+              
+                <ul class="list-group" style="columns: 2">
+                    <li class="list-group-item" id="Type"><span style="font-weight:700">ٹائپ /Type :</span>@Model.Measurment_Type </li>
+                    <li class="list-group-item" id="Length"><span style="font-weight:700">لمبائی/Length :</span>  @Model.Length </li>
+                    <li class="list-group-item" id="Chest"> <span style="font-weight:700">سینہ/Chest :</span> @Model.Chest</li>
+                    <li class="list-group-item" id="Shoulder"><span style="font-weight:700">کندھا /Shoulder : </span>@Model.Shoulder   </li>
+                    <li class="list-group-item" id="Waist"><span style="font-weight:700">    کمر/Waist :</span>@Model.Waist</li>
+                    <li class="list-group-item" id="Seelves"> <span style="font-weight:700">آستین/Seelves :</span>@Model.Sleeves</li>
+                    <li class="list-group-item" id="Arms"><span style="font-weight:700">بازو/Arms :</span>@Model.arms</li>
+                    <li class="list-group-item" id="Kaaf"><span style="font-weight:700">کف/Kaaf :</span>@Model.Kaaf </li>
+                    <li class="list-group-item" id="CollorS"><span style="font-weight:700">کالر سائز /Collor Size  :</span>@Model.CollarSize   </li>
+                    <li class="list-group-item" id="CollorD"><span style="font-weight:700"> کالر ڈیزائن/Collor Design:</span> @Model.Dcollor</li>
+                    <li class="list-group-item" id="SideP"> <span style="font-weight:700">سائیڈ جیب/Side Pockets :</span>@Model.SidePocket</li>
+                    <li class="list-group-item" id="FrontP"> <span style="font-weight:700">سامنے جیب/Front Pocket :</span>@Model.FrontPocket</li>
+                    <li class="list-group-item" id="Tera"><span style="font-weight:700">Tera :</span>@Model.Tera</li>
+                    <li class="list-group-item" id="GheraD"><span style="font-weight:700">Ghera design:</span> @Model.Ghera </li>
+                    <li class="list-group-item" id="SuitD"> <span style="font-weight:700">سوٹ ڈیزائن/Suit Design :</span> @Model.suitDesign </li>
+                    <li class="list-group-item" id="ButtonD"> <span style="font-weight:700">بٹن ڈیزائن/Button Design :</span> @Model.btnDesign</li>
+                    <li class="list-group-item" id="Stitch"> <span style="font-weight:700">سلائی/Stitch :</span> @Model.Stitch </li>
+                    <li class="list-group-item" id="Hip"> <span style="font-weight:700">Hip :</span> @Model.Hip </li>
+                    <li class="list-group-item" id="Gidrii"> <span style="font-weight:700">Gidrii :</span> @Model.Gidrii </li>
+                    <li class="list-group-item" id="Bottom"> <span style="font-weight:700">پیندا/Bottom :</span> @Model.Bottom </li>
+                    <li class="list-group-item" id="Ghera"> <span style="font-weight:700">گیرا/Ghera :</span> @Model.Ghera_num </li>
+                    <li class="list-group-item" id="coatButton"> <span style="font-weight:700">Coat Button :</span> @Model.CoatButton </li>
+                    <li class="list-group-item" id="coatFitting"> <span style="font-weight:700">Coat Fitting :</span> @Model.CoatFitting </li>
+                    <li class="list-group-item" id="Cross"> <span style="font-weight:700">Cross Back :</span> @Model.CrossBack </li>
+                    <li class="list-group-item" id="shalwarPocket"> <span style="font-weight:700">Shalwar Pocket :</span> @Model.shalwarPocket </li>
+                    <li class="list-group-item" id="Comments"> <span style="font-weight:700">Comments :</span> @Model.Comments </li>
+                </ul>
+           
             </div>
 
 
@@ -31,37 +63,46 @@
 <script>
 
     $(document).ready(function () {
-        $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist ").hide();
+        var measurment_type = parseInt($("#Mtype").val().trim());
+        if (isNaN(measurment_type) )
+        {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#shalwarPocket ").hide();
+        }
+        if (measurment_type == 10) {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#shalwarPocket ").hide();
 
+            $("#Type,#Length,#Waist,#Arms,#Tera,#CollorS,#Seelves,#Chest,#GheraD,#Ghera,#Kaaf,#Seelve,#Stitchdiv,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#Comments,#Shoulder ").show();
+
+        }
+        if (measurment_type == 11) {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#shalwarPocket ").hide();
+
+            $("#Type,#Length,#Ghera,#Bottom,#shalwarPocket,#Comments ").show();
+        }
+        if (measurment_type == 12) {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#Cross,#shalwarPocket ").hide();
+            $("#Type,#Length,#Bottom,#SideP,#Comments,#Waist,#Ghera").show();
+        }
+        //Pent
+        if (measurment_type == 13) {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#shalwarPocket ").hide();
+            $("#Type,#Length,#Bottom,#SideP,#Comments,#Waist,#Gidrii,#Hip ").show();
+        }
+        if (measurment_type == 14) {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#shalwarPocket ").hide();
+            $("#Type,#Length,#Bottom,#SideP,#Comments,#Waist,#Gidrii,#Hip ").show();
+        }
+        if (measurment_type == 15) {
+            $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelves,#Hip,#Gidrii,#Stitchdiv,#Bottom,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting,#Cross,#Comments,#Shoulder,#Waist,#shalwarPocket ").hide();
+            $("#Type,#Length,#Comments,#Tera,#Chest,#SuitD,#ButtonD,#Stitch,#coatButton,#coatFitting ,#CollorD,#Cross,#Hip,#Waist").show();
+        }
         $("#Measurment_Type_ID").change(function () {
 
-            var MeasurId = parseInt($(this).val());
+            var measurment_type = parseInt($(this).val());
             var user = document.getElementById("id").value;
-
-            $.ajax({
-                url: "/Customer/CustomerByID",
-                type: "GET",
-                datatype: "json",
-                data: { measurment_type: MeasurId, user: user },
-                success: function (data) {
-                    if (MeasurId == 10) {
-                        $("#Type,#Length,#Arms,#Tera,#CollorS,#Chest,#GheraD,#Ghera,#Kaaf,#Seelve,#Stitchdiv,#CollorD,#SideP,#FrontP,#SuitD,#ButtonD,#Stitch,#Comments,#Shoulder ").show();
-                    }
-                    if (MeasurId == 11) {
-                        $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show();
-                    }
-                    if (MeasurId == 12)
-                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show(); }
-                    if (MeasurId == 13)
-                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show(); }
-                    if (MeasurId == 14)
-                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show(); }
-                    if (MeasurId == 15)
-                    { $("#Type,#Length,#GheraD,#Ghera,#Bottom,#FrontP#Comments ").show();}
-
-                }
-            });
-
+            
+         
+            window.location.href = "/Customer/CustomerByID?measurment_type=" + measurment_type + "&user=" + user;
         });
     });
 </script>

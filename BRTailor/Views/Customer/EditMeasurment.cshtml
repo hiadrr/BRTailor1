@@ -1,0 +1,157 @@
+﻿@model BRTailor.Measurment
+
+@{
+    ViewBag.Title = "EditMeasurment";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="col-lg-12">
+    <header class="panel_header">
+        <h2 class="title pull-left">Customer Measurment</h2>
+        <div class="actions panel_actions pull-right">
+            <i class="box_toggle fa fa-chevron-down"></i>
+            <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+            <i class="box_close fa fa-times"></i>
+        </div>
+    </header>
+    <div class="content-body">
+        <form method="post" action="/Customer/EditMeasurment">
+        <div class="col-md-3" hidden>
+            <label>Lenght</label>
+            <input type="text" class="form-control is-valid" id="Measurment_ID" value="@Model.Measurment_ID" name="Measurment_ID">
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Lenght</label>
+                <input type="text" class="form-control is-valid" id="Length" value="@Model.Length" name="Length"  >
+            </div>
+            <div class="col-md-3">
+                <label>Kaaf</label>
+                <input type="text" class="form-control is-valid" value="@Model.Kaaf" id="Kaaf" name="Kaaf"  >
+            </div>
+            <div class="col-md-3">
+                <label>Hip</label>
+                <input type="text" class="form-control is-valid" value="@Model.Hip" id="Hip" name="Hip"  >
+
+            </div>
+            <div class="col-md-3">
+                <label>Gidrii</label>
+                <input type="text" class="form-control is-valid" value="@Model.Gidrii" id="Gidrii" name="Gidrii"  >
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Ghera_num</label>
+                <input type="text" class="form-control is-valid" value="@Model.Ghera_num" id="Ghera_num" name="Ghera_num" >
+            </div>
+            <div class="col-md-3">
+                <label>Ghera</label>
+                <input type="text" class="form-control is-valid" value="@Model.Ghera" id="Ghera" name="Ghera" >
+            </div>
+            <div class="col-md-3">
+                <label>Front Pocket</label>
+                <input type="text" class="form-control is-valid" value="@Model.FrontPocket" id="FrontPocket" name="FrontPocket" >
+            </div>
+            <div class="col-md-3">
+                <label>Side Pocket</label>
+                <input type="text" class="form-control is-valid" value="@Model.SidePocket" id="SidePocket" name="SidePocket"  >
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Shalwar Pocket</label>
+                <input type="text" class="form-control is-valid" value="@Model.shalwarPocket" id="shalwarPocket" name="shalwarPocket" />
+            </div>
+              <div class="col-md-3">
+                <label>Arms</label>
+                <input type="text" class="form-control is-valid" value="@Model.arms" id="arms" name="arms"  >
+            </div>
+            <div class="col-md-3">
+                <label>Bottom</label>
+                <input type="text" class="form-control is-valid" value="@Model.Bottom" id="Bottom" name="Bottom"  >
+            </div>
+            <div class="col-md-3">
+                <label>btnDesign</label>
+                <input type="text" class="form-control is-valid" value="@Model.btnDesign" id="btnDesign" name="btnDesign"  >
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Chest</label>
+                <input type="text" class="form-control is-valid" value="@Model.Chest" id="Chest" name="Chest" 
+                       >
+            </div>
+            <div class="col-md-3">
+                <label>CoatButton</label>
+                <input type="text" class="form-control is-valid" value="@Model.CoatButton" id="CoatButton" name="CoatButton" 
+                       >
+            </div>
+            <div class="col-md-3">
+                <label>CoatFitting</label>
+                <input type="text" class="form-control is-valid" value="@Model.CoatFitting" id="CoatFitting" name="CoatFitting" 
+                       >
+            </div>
+            <div class="col-md-3">
+                <label>CollarSize</label>
+                <input type="text" class="form-control is-valid" value="@Model.CollarSize" id="CollarSize" name="CollarSize" 
+                       >
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Comments</label>
+                <input type="text" class="form-control is-valid" value="@Model.Comments" id="Comments" name="Comments" >
+            </div>
+            <div class="col-md-3">
+                <label>CrossBack</label>
+                <input type="text" class="form-control is-valid" value="@Model.CrossBack" id="CrossBack" name="CrossBack" >
+            </div>
+            <div class="col-md-3">
+                <label>Dcollor</label>
+                <input type="text" class="form-control is-valid" value="@Model.Dcollor" id="Dcollor" name="Dcollor" >
+            </div>
+            <div class="col-md-3">
+                <label>Shoulder</label>
+                <input type="text" class="form-control is-valid" value="@Model.Shoulder" id="Shoulder" name="Shoulder" >
+            </div>
+            <div class="col-md-3" hidden>
+                <label>Customer_ID</label>
+                <input type="text" class="form-control is-valid" value="@Model.Customer_ID" id="Customer_ID" name="Customer_ID">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label>Sleeves</label>
+                <input type="text" class="form-control is-valid" value="@Model.Sleeves" id="Sleeves" name="Sleeves" >
+            </div>
+            <div class="col-md-3">
+                <label>Stitch</label>
+                <input type="text" class="form-control is-valid" value="@Model.Stitch" id="Stitch" name="Stitch" >
+            </div>
+            <div class="col-md-3">
+                <label>Suit Design</label>
+                <input type="text" class="form-control is-valid" value="@Model.suitDesign" id="suitDesign" name="suitDesign"  >
+            </div>
+            <div class="col-md-3">
+                <label>Tera</label>
+                <input type="text" class="form-control is-valid" value="@Model.Tera" id="Tera" name="Tera"  >
+            </div>
+            <div class="col-md-3">
+                <label>Waist</label>
+                <input type="text" class="form-control is-valid" value="@Model.Waist" id="Waist" name="Waist"  >
+            </div>
+          
+
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <label></label>
+                <button class="btn btn-primary"  type="submit" style="margin-top: 13%;">Submit form</button>
+            </div>
+        </div>
+            </form>
+    </div>
+</div>

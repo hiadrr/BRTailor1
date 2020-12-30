@@ -77,13 +77,13 @@
 
                             <td>
 
-                                @Html.ActionLink("Print", "Print",  new { id = item.Bookin_ID })
+                                @Html.ActionLink("Print", "Print",  new { id = item.Bookin_ID }, new { target = "_blank" })
                                 
 
                             </td>
                             <td>
 
-                                @Html.ActionLink("Default", "Invoice", new { id = item.Bookin_ID })
+                                @Html.ActionLink("Default", "Invoice", new { id = item.Bookin_ID }, new { target = "_blank" })
 
 
                             </td>

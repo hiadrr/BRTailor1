@@ -59,23 +59,23 @@
                     <input type="text" class="form-control is-valid" value="" id="Design_IDnew" name="Design_ID" readonly>
                 </div>
                 <div class="row">
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         <label>Select Item</label>
                         @Html.DropDownList("Measurment_Type_ID", (IEnumerable<SelectListItem>)ViewData["DBMyMeasurment"], "-Select Item- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
                     </div>
                    
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         <label> Item Price</label>
                          <input type="text" class="form-control is-valid" id="Price" name="Price" readonly>
 
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                         <label>Select Design</label>
                         @Html.DropDownList("Design_ID", (IEnumerable<SelectListItem>)ViewData["DBMySkills"], "-Select Design- ", htmlAttributes: new { @class = "form-control", name = "Design_ID", id = "Design_ID" })
                     </div>
                     </div>
                     <div class="row">
-                    <div class="col-xs-3" id="selectImage">
+                    <div class="col-xs-4" id="selectImage">
                         <ul>
                             <li>
 
@@ -84,7 +84,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-xs-3">
+                    <div class="col-xs-4">
                                 <label>Design Price</label>
                                 <input type="text" class="form-control is-valid" value="" id="D_Price" name="D_Price" readonly>
                             </div>
@@ -92,16 +92,35 @@
                                 <label>Design Code</label>
                                 <input type="text" class="form-control is-valid" value="" id="DesignCodeName" name="DesignCodeName" readonly>
                             </div>
-                            <div class="col-xs-3">
+                            <div class="col-xs-4">
                                 <label>Quantity</label>
-                                <input type="number" id="textQuantity" value="1" min="1" />
+                                <input type="number" class="form-control is-valid" id="textQuantity" value="1" min="1" />
                             </div>
 
-                            <div class="col-xs-2">
-                                <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin:25px 10px 10px 63px;">+</button>
-                            </div>
+                            
+                        </div>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <label>Select Service</label>
+                        @Html.DropDownList("S_ID", (IEnumerable<SelectListItem>)ViewData["servicesdd"], "-Select Service- ", htmlAttributes: new { @class = "form-control", name = "S_ID", id = "S_ID" })
+                    </div>
+                    <div class="col-xs-4">
+                        <label> Service Price</label>
+                        <input type="text" class="form-control is-valid" id="sPrice" name="sPrice" readonly>
+
+                    </div>
+                    <div class="col-xs-4">
+                        <label> Service Name</label>
+                        <input type="text" class="form-control is-valid" id="sName" name="sName" hidden>
+
+                    </div>
+                </div>
+                    <div class="row">
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin:25px 10px 10px 63px;">+</button>
                         </div>
                     </div>
+                </div>
                 </section>
     </div>
     @*Table*@
@@ -128,6 +147,8 @@
                                         <th align="left" class="productth">Item Price</th>
                                         <th align="left" class="productth">Design Code</th>
                                         <th align="left" class="productth">Design Price</th>
+                                        <th align="left" class="productth">Service Name</th>
+                                        <th align="left" class="productth">Service Price</th>
                                         <th align="left" class="productth">Quantity</th>
                                     </tr>
                                 </thead>
@@ -168,7 +189,7 @@
                     <div class="col-xs-4">
                         <br>
                         <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Save</button>
-                        <button class="btn btn-primary" id="submit" onclick="SavePrint()" type="submit">Save & Print</button>
+                        <button class="btn btn-primary" id="submit" onclick="SavePrint()" target="_blank"  type="submit">Save & Print</button>
 
 
                     </div>
@@ -227,6 +248,26 @@
                
                 });
           
+        });
+        $("#S_ID").change(function () {
+
+            var service = parseInt($(this).val());
+            $.ajax({
+                url: "/Booking/GetService",
+                type: "GET",
+                datatype: "json",
+                data: { S_ID: service },
+                contentType: 'application/json; charset=utf-8',
+                success: function (data) {
+                    $('#sPrice').val(data.Price);
+                    $('#sName').val(data.ServiceName);
+                },
+                error: function () {
+                    alert("Error occured!!")
+                }
+
+            });
+
         });
  });
 

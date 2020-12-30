@@ -48,7 +48,7 @@
                         <td>@item.Customer_Address </td>
                         
                        
-                        <td>@Html.ActionLink("Edit ", "Index", new { id = @item.Customer_ID })</td>
+                        <td>@Html.ActionLink("Edit ", "Edit", new { id = @item.Customer_ID })</td>
                         <td>
                             @Html.ActionLink(" Delete", "DeleteCustomer", new { id = @item.Customer_ID },
                     new { onclick = "return confirm('Are you sure you wish to delete this User?');" })

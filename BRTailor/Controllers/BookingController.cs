@@ -23,11 +23,13 @@ namespace BRTailor.Controllers
             model.Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
             model.design = db.Designs.ToList();
            var  Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
-            
+           
           
             var Item = new SelectList(Measurment, "Measurment_Type_ID", "Measurment_Type");
             var fromDatabaseEF = new SelectList(db.Designs.ToList(), "Design_ID", "Design_Code");
+            var servicesdd = new SelectList(db.Services.ToList(), "S_ID", "ServiceName");
             ViewData["DBMySkills"] = fromDatabaseEF;
+            ViewData["servicesdd"] = servicesdd;
             ViewData["DBMyMeasurment"] = Item;
 
             return View(model);
@@ -42,6 +44,13 @@ namespace BRTailor.Controllers
             }, JsonRequestBehavior.AllowGet);
            
          }
+        
+            public JsonResult GetService(int? S_ID)
+        {
+            var data = db.Services.FirstOrDefault(x => x.S_ID == S_ID);
+
+            return Json(data, JsonRequestBehavior.AllowGet);
+        }
         public JsonResult GetDesign(int? Design_ID)
         {
             var data = db.Designs.FirstOrDefault(x => x.Design_ID == Design_ID);
@@ -94,6 +103,8 @@ namespace BRTailor.Controllers
                     SubTotal = i.Price + i.D_Price,
                     D_Code = i.D_Code,
                     Quantity = i.Quantity,
+                    sName = i.sName,
+                    sPrice = i.sPrice
                 };
                 db.BookingItems.Add(m);
                 db.SaveChanges();
@@ -223,7 +234,7 @@ namespace BRTailor.Controllers
             }
            
           
-            ReportParameter[] parms = new ReportParameter[8];
+            ReportParameter[] parms = new ReportParameter[9];
             parms[0] = new ReportParameter("Bookin_ID", data.Bookin_ID.ToString());
             parms[1] = new ReportParameter("Customer_Name", data.Customer_Name);
             parms[2] = new ReportParameter("Customer_Phone", data.Customer_Phone);

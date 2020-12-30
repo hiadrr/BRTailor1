@@ -18,6 +18,8 @@ namespace BRTailor
         public Nullable<int> Booking_ID { get; set; }
         public Nullable<int> Price { get; set; }
         public Nullable<int> D_Price { get; set; }
+        public string sName { get; set; }
+        public Nullable<int> sPrice { get; set; }
         public Nullable<int> SubTotal { get; set; }
         public string Measurment_Type { get; set; }
         public string D_Code { get; set; }
