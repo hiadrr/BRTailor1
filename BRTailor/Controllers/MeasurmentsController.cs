@@ -10,6 +10,7 @@ using BRTailor;
 
 namespace BRTailor.Controllers
 {
+    [Authorize]
     public class MeasurmentsController : Controller
     {
         private BRTailorEntities db = new BRTailorEntities();

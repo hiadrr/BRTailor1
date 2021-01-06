@@ -11,28 +11,46 @@ using System.Web.Mvc;
 
 namespace BRTailor.Controllers
 {
+    [Authorize]
     public class BookingController : Controller
     {
         private BRTailorEntities db = new BRTailorEntities();
         // GET: Booking
         public ActionResult BookingProcess(int? id)
         {
-            dynamic model = new ExpandoObject();
+                  ViewBag.servicesdd = db.Services.ToList();
            
-            model.Customer = db.Customers.Find(id);
-            model.Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
-            model.design = db.Designs.ToList();
-           var  Measurment = db.Measurments.Where(x => x.Customer_ID == id).ToList();
-           
-          
-            var Item = new SelectList(Measurment, "Measurment_Type_ID", "Measurment_Type");
-            var fromDatabaseEF = new SelectList(db.Designs.ToList(), "Design_ID", "Design_Code");
-            var servicesdd = new SelectList(db.Services.ToList(), "S_ID", "ServiceName");
-            ViewData["DBMySkills"] = fromDatabaseEF;
-            ViewData["servicesdd"] = servicesdd;
-            ViewData["DBMyMeasurment"] = Item;
+            return View();
+        }
+        public ActionResult SearchBooking(string Search, string Searchid)
+        {
+            if (Search != null)
+            {
+                var data = db.Customers.FirstOrDefault(x => x.Customer_Phone == Search);
+                if (data != null)
+                {
+                    int sid = data.Customer_ID;
+                    var item = db.Measurments.Where(x => x.Customer_ID == sid).Select(s => s.Measurment_Type).ToList();
+                    ViewBag.item = item;
+                    TempData["SearchCheck"] = true;
+                    return PartialView(data);
+                }
+            }
+            else if (Searchid != null)
+            {
+                int id = Convert.ToInt32(Searchid);
+                var data = db.Customers.FirstOrDefault(x => x.Customer_ID == id);
+                if (data != null)
+                {
+                    int sid = data.Customer_ID;
+                    var item = db.Measurments.Where(x => x.Customer_ID == sid).Select(s => s.Measurment_Type).ToList();
+                    ViewBag.item = item;
+                    TempData["SearchCheck"] = true;
+                    return PartialView(data);
+                }
 
-            return View(model);
+            }
+            return View();
         }
         public JsonResult Getcode(int? Measurment_Type_ID)
         {
@@ -88,23 +106,17 @@ namespace BRTailor.Controllers
             int payable = Convert.ToInt32(booking.Payable);
             foreach (var i in data.bookingItem)
             {
-                if (i.D_Price == null)
-                {
-                    i.D_Price = 0;
-                }
-
-                var m = new BookingItem()
+               var m = new BookingItem()
                 {
                     date = DateTime.Now,
                     Booking_ID = b_id,
-                    D_Price = i.D_Price,
-                    Measurment_Type = i.Measurment_Type,
+                    
+                    ServiceName = i.ServiceName,
                     Price = i.Price,
-                    SubTotal = i.Price + i.D_Price,
-                    D_Code = i.D_Code,
+                    SubTotal = i.Price * Convert.ToInt32(i.Quantity) ,
+                    
                     Quantity = i.Quantity,
-                    sName = i.sName,
-                    sPrice = i.sPrice
+                    
                 };
                 db.BookingItems.Add(m);
                 db.SaveChanges();
@@ -152,19 +164,10 @@ namespace BRTailor.Controllers
             b.Customer_ID = booking.Customer_ID;
             b.Customer_Phone = booking.Customer_Phone;
             b.Customer_Name = booking.Customer_Name;
-            //b.Design_ID = booking.Design_ID;
-            //b.Design_Price = booking.Design_Price;
-            //b.Measurment_Type = booking.Measurment_Type;
-            //b.Measurment_Type_ID = booking.Measurment_Type_ID;
-            //b.Price = booking.Price;
-            //b.Design_Price = booking.Design_Price;
-            //b.Total = booking.Price + booking.Design_Price;
-            //var design = db.Designs.FirstOrDefault(x => x.Design_ID == booking.Design_ID);
-            //b.Design_Code = design.Design_Code;
+            
             db.Bookings.Add(b);
             db.SaveChanges();
-            //TempData["id"] = b.Bookin_ID;
-
+            
             //Queue
             int id = Convert.ToInt32(booking.Customer_ID);
             var order = db.Orders.FirstOrDefault(x => x.Customer_ID == id);

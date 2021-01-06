@@ -47,9 +47,10 @@
                             @Html.DisplayFor(modelItem => item.Design_Price)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Design_ID }) |
+                            @Html.ActionLink("Edit", "EditDesign", new { id = item.Design_ID }) |
 
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Design_ID })
+                            @Html.ActionLink(" Delete", "DeleteDesign", new { id = @item.Design_ID },
+                    new { onclick = "return confirm('Are you sure you wish to delete this Design?');" })
                         </td>
                     </tr>
                 }

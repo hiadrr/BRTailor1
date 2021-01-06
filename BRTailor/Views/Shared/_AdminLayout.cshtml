@@ -139,6 +139,23 @@
                     </li>
                     <li class="">
                         <a href="javascript:;">
+                            <i class="fa fa-users"></i>
+                            <span class="title">Booking's</span>
+
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a class="" href="@Url.Action("BookingProcess", "Booking")">Booking Process</a>
+                            </li>
+                            <li>
+                                <a class="" href="@Url.Action("invoicePrintList", "Booking")"> Invoice </a>
+                            </li>
+
+                        </ul>
+                    </li>
+
+                    <li class="">
+                        <a href="javascript:;">
                             <i class="fa fa-suitcase"></i>
                             <span class="title">Order's</span>
                             <span class="arrow "></span>
@@ -178,19 +195,7 @@
                         </ul>
                     </li>
                      }
-                    <li class="">
-                        <a href="javascript:;">
-                            <i class="fa fa-user"></i>
-                            <span class="title">Invoice</span>
-                            <span class="arrow "></span>
-                        </a>
-                        <ul class="sub-menu">
-                            <li>
-                                <a class="" href="@Url.Action("invoicePrintList", "Booking")">Invoice Print List</a>
-                            </li>
-
-                        </ul>
-                    </li>
+                    
                     @if (User.IsInRole("Super Admin"))
                     {
                         <li class="">
@@ -200,6 +205,9 @@
                                 <span class="arrow "></span>
                             </a>
                             <ul class="sub-menu">
+                                <li>
+                                    <a class="" href="@Url.Action("Index", "AspNetRoles")">Role Creation</a>
+                                </li>
                                 <li>
                                     <a class="" href="@Url.Action("Index", "Services")">Services</a>
                                 </li>

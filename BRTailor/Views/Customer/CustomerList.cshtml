@@ -34,7 +34,7 @@
                         <th class="th-sm">Edit</th>
                         <th class="th-sm">Delete</th>
                         <th class="th-sm">Measurment</th>
-                        <th class="th-sm">Place Order</th>
+                        
 
                     </tr>
                 </thead>
@@ -54,8 +54,7 @@
                     new { onclick = "return confirm('Are you sure you wish to delete this User?');" })
                         </td>
                         <td>@Html.ActionLink(" Customer Measurments", "CustomerByID", new { id = @item.Customer_ID })</td>
-                        <td><a href="@Url.Action("BookingProcess","Booking",new { id = @item.Customer_ID })">Proceed</a></td>
-
+                        
                     </tr>
                 }
             </table>

@@ -1,14 +1,13 @@
 ﻿using BRTailor.Models;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
 using System.Dynamic;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace BRTailor.Controllers
 {
+    [Authorize]
     public class OrderController : Controller
     {
         private BRTailorEntities db = new BRTailorEntities();
@@ -98,7 +97,7 @@ namespace BRTailor.Controllers
 
 
 
-            return RedirectToAction("OrderInProcess");
+            return RedirectToAction("Queue");
         }
         [HttpGet]
         public ActionResult OrderInProcess()
@@ -113,7 +112,7 @@ namespace BRTailor.Controllers
             data.Status = "Completed";
             db.Entry(data).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("OrderCompleted");
+            return RedirectToAction("OrderInProcess");
         }
         
         public ActionResult OrderCompleted()
@@ -129,7 +128,7 @@ namespace BRTailor.Controllers
             data.Status = "Received";
             db.Entry(data).State = EntityState.Modified;
             db.SaveChanges();
-            return RedirectToAction("OrderReceived");
+            return RedirectToAction("OrderCompleted");
         }
         public ActionResult OrderReceived()
         {

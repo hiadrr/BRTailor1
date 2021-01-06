@@ -1,16 +1,15 @@
-﻿using BRTailor.Models;
-using Microsoft.Reporting.WebForms;
+﻿using Microsoft.Reporting.WebForms;
 using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Dynamic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
 namespace BRTailor.Controllers
 {
+
     [Authorize(Roles = "Super Admin")]
     public class AdminController : Controller
     {
@@ -49,6 +48,43 @@ namespace BRTailor.Controllers
             db.SaveChanges();
             return View();
         }
+        // GET: Designs/Edit/5
+        public ActionResult EditDesign(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Design design = db.Designs.Find(id);
+            if (design == null)
+            {
+                return HttpNotFound();
+            }
+            return View(design);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditDesign([Bind(Include = "Design_ID,Design_Code,Design_Image,Design_Price")] Design design)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(design).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("DesignIndex");
+            }
+            return View(design);
+        }
+
+       
+        public ActionResult DeleteDesign(int id)
+        {
+            Design design = db.Designs.Find(id);
+            db.Designs.Remove(design);
+            db.SaveChanges();
+            return RedirectToAction("DesignIndex");
+        }
+
         public ActionResult CategoryIndex()
         {
             var data = db.MeasurmentTypes.ToList();
@@ -66,7 +102,42 @@ namespace BRTailor.Controllers
             db.SaveChanges();
             return View();
         }
-        
+        public ActionResult EditCategory(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            MeasurmentType design = db.MeasurmentTypes.Find(id);
+            if (design == null)
+            {
+                return HttpNotFound();
+            }
+            return View(design);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EditCategory( MeasurmentType design)
+        {
+            if (ModelState.IsValid)
+            {
+                db.Entry(design).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("CategoryIndex");
+            }
+            return View(design);
+        }
+
+      
+        public ActionResult DeleteCategory(int id)
+        {
+            MeasurmentType design = db.MeasurmentTypes.Find(id);
+            db.MeasurmentTypes.Remove(design);
+            db.SaveChanges();
+            return RedirectToAction("CategoryIndex");
+        }
+
         public ActionResult MonthlySales()
         {
             var Item = new SelectList(db.MeasurmentTypes.ToList(), "Measurment_Type_ID", "Measurment_Type");
@@ -105,7 +176,7 @@ namespace BRTailor.Controllers
             var viewer = new ReportViewer();
             viewer.LocalReport.ReportPath = path;
 
-            var data = db.BookingItems.Where(x => x.Measurment_Type == drpCategory && x.date >= FromDate && x.date <= ToDate  );
+            var data = db.BookingItems.Where(x => x.ServiceName == drpCategory && x.date >= FromDate && x.date <= ToDate  );
             viewer.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", data));
             bytes = viewer.LocalReport.Render("PDF", null, out mimeType, out encoding, out filenameExtension, out streamids, out warnings);
             return File(bytes, mimeType);

@@ -236,6 +236,7 @@
     </Compile>
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AspNetRolesController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -300,10 +301,16 @@
     <Compile Include="Service.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
+    <Compile Include="ServiceBooking.cs">
+      <DependentUpon>BRtailor.tt</DependentUpon>
+    </Compile>
     <Compile Include="Staff.cs">
       <DependentUpon>BRtailor.tt</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="sysdiagram.cs">
+      <DependentUpon>BRtailor.tt</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\brlogo.png" />
@@ -653,8 +660,16 @@
     </Content>
     <Content Include="Content\7877.jpg" />
     <Content Include="Content\Booking.js" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Button.css" />
+    <Content Include="Content\css\select2.css" />
+    <Content Include="Content\css\select2.min.css" />
     <Content Include="Content\DesignImages\haider.png" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\logo.png" />
     <Content Include="Content\MonthlyReport.js" />
     <Content Include="Content\own.js" />
@@ -704,14 +719,128 @@
     <Content Include="Report\StaffDataSet.xss">
       <DependentUpon>StaffDataSet.xsd</DependentUpon>
     </Content>
-    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
+    <None Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0-vsdoc.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\bootstrap.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\bootstrap.min.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\af.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ar.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\az.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\bg.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\bn.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\bs.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ca.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\cs.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\da.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\de.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\dsb.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\el.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\en.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\es.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\et.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\eu.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\fa.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\fi.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\fr.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\gl.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\he.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\hi.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\hr.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\hsb.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\hu.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\hy.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\id.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\is.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\it.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ja.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ka.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\km.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ko.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\lt.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\lv.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\mk.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ms.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\nb.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ne.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\nl.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\pl.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ps.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\pt-BR.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\pt.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ro.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\ru.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\sk.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\sl.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\sq.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\sr-Cyrl.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\sr.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\sv.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\th.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\tk.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\tr.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\uk.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\vi.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\zh-CN.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\i18n\zh-TW.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\Invoice.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0.min.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0.slim.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0.slim.min.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\NEW.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\select2.js" />
+    <Content Include="Models\SQL SCRIPT\Scripts\select2.min.js" />
+    <Content Include="Models\SQL SCRIPT\abc.sql" />
+    <Content Include="Scripts\i18n\az.js" />
+    <Content Include="Scripts\i18n\bg.js" />
+    <Content Include="Scripts\i18n\ca.js" />
+    <Content Include="Scripts\i18n\cs.js" />
+    <Content Include="Scripts\i18n\da.js" />
+    <Content Include="Scripts\i18n\de.js" />
+    <Content Include="Scripts\i18n\en.js" />
+    <Content Include="Scripts\i18n\es.js" />
+    <Content Include="Scripts\i18n\et.js" />
+    <Content Include="Scripts\i18n\eu.js" />
+    <Content Include="Scripts\i18n\fa.js" />
+    <Content Include="Scripts\i18n\fi.js" />
+    <Content Include="Scripts\i18n\fr.js" />
+    <Content Include="Scripts\i18n\gl.js" />
+    <Content Include="Scripts\i18n\he.js" />
+    <Content Include="Scripts\i18n\hi.js" />
+    <Content Include="Scripts\i18n\hr.js" />
+    <Content Include="Scripts\i18n\hu.js" />
+    <Content Include="Scripts\i18n\id.js" />
+    <Content Include="Scripts\i18n\is.js" />
+    <Content Include="Scripts\i18n\it.js" />
+    <Content Include="Scripts\i18n\ja.js" />
+    <Content Include="Scripts\i18n\ko.js" />
+    <Content Include="Scripts\i18n\lt.js" />
+    <Content Include="Scripts\i18n\lv.js" />
+    <Content Include="Scripts\i18n\mk.js" />
+    <Content Include="Scripts\i18n\nb.js" />
+    <Content Include="Scripts\i18n\nl.js" />
+    <Content Include="Scripts\i18n\pl.js" />
+    <Content Include="Scripts\i18n\pt-BR.js" />
+    <Content Include="Scripts\i18n\pt.js" />
+    <Content Include="Scripts\i18n\ro.js" />
+    <Content Include="Scripts\i18n\ru.js" />
+    <Content Include="Scripts\i18n\sk.js" />
+    <Content Include="Scripts\i18n\sr.js" />
+    <Content Include="Scripts\i18n\sv.js" />
+    <Content Include="Scripts\i18n\th.js" />
+    <Content Include="Scripts\i18n\tr.js" />
+    <Content Include="Scripts\i18n\uk.js" />
+    <Content Include="Scripts\i18n\vi.js" />
+    <Content Include="Scripts\i18n\zh-CN.js" />
+    <Content Include="Scripts\i18n\zh-TW.js" />
     <Content Include="Scripts\Invoice.js" />
+    <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
     <Content Include="Scripts\jquery-3.0.0.min.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.js" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\NEW.js" />
-    <Content Include="SQL SCRIPT\abc.sql" />
+    <Content Include="Scripts\select2.js" />
+    <Content Include="Scripts\select2.min.js" />
     <Content Include="tailor.ico" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -780,6 +909,15 @@
     <Content Include="Views\Services\Index.cshtml" />
     <Content Include="Views\Customer\Edit.cshtml" />
     <Content Include="Views\Customer\EditMeasurment.cshtml" />
+    <Content Include="Views\Admin\EditDesign.cshtml" />
+    <Content Include="Views\Admin\EditCategory.cshtml" />
+    <Content Include="Views\AspNetRoles\Create.cshtml" />
+    <Content Include="Views\AspNetRoles\Edit.cshtml" />
+    <Content Include="Views\AspNetRoles\Index.cshtml" />
+    <Content Include="Models\SQL SCRIPT\Scripts\select.min.js.map" />
+    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Views\Booking\SearchBooking.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -810,8 +948,8 @@
     <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Staff\AddStaff.cshtml" />
     <Content Include="Views\Staff\Index.cshtml" />
-    <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
-    <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0.slim.min.map" />
+    <Content Include="Models\SQL SCRIPT\Scripts\jquery-3.0.0.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />

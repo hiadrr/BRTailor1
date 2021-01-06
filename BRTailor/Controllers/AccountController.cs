@@ -142,7 +142,7 @@ namespace BRTailor.Controllers
         public ActionResult Register()
         {
 
-            ViewBag.Name = new SelectList(appdb.Roles.Where(u => !u.Name.Contains("Admin"))
+            ViewBag.Name = new SelectList(appdb.Roles.Where(u => !u.Name.Contains("Super Admin"))
                                  .ToList(), "Name", "Name");
             return View();
         }

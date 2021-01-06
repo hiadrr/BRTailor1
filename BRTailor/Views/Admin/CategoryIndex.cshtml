@@ -47,9 +47,10 @@
                             @Html.DisplayFor(modelItem => item.Price)
                         </td>
                         <td>
-                            @Html.ActionLink("Edit", "Edit", new { id = item.Measurment_Type_ID }) |
+                            @Html.ActionLink("Edit", "EditCategory", new { id = item.Measurment_Type_ID }) |
 
-                            @Html.ActionLink("Delete", "Delete", new { id = item.Measurment_Type_ID })
+                            @Html.ActionLink(" Delete", "DeleteCategory", new { id = @item.Measurment_Type_ID },
+                    new { onclick = "return confirm('Are you sure you wish to delete this Design?');" })
                         </td>
                     </tr>
                 }

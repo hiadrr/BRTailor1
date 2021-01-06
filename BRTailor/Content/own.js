@@ -205,9 +205,5 @@
                   $("#Phone").val($("#SPhone").val());
                   $("#City").val($("#SCity").val());
                   $("#Address").val($("#SAddress").val());
-
-
-
-
-                  $("#SearchPatient").modal('hide');
+                    $("#SearchPatient").modal('hide');
               }

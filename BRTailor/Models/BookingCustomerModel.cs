@@ -16,9 +16,9 @@ namespace BRTailor.Models
         public Nullable<int> Total { get; set; }
         public Nullable<int> Payable { get; set; }
         public Nullable<int> Discount { get; set; }
-      
 
-
+       
+        public List<Service> servicelist { get; set; }
 
         public List<BookingItem> bookingItem { get; set; }
       

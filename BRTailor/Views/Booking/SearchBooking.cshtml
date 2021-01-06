@@ -1,0 +1,98 @@
+﻿@model BRTailor.Customer
+@if (Model == null)
+{
+    <input type="hidden" id="checkModelNull" name="name" value="0" />
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-bubble font-green-sharp"></i>
+                <span class="caption-subject font-green-sharp bold uppercase">No Details Found!</span>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <input type="hidden" id="checkModelNull" name="name" value="1" />
+    <div class="row">
+        <div class="form-body">
+            <div class="form-group">
+
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <span class="caption-subject font-green-sharp bold uppercase">Customer ID</span>
+                        <div class="input-group margin-top-10 margin-bottom-10">
+                            <span class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                            <input type="text" id="SCustomer_ID" name="SCustomer_ID" readonly value="@Model.Customer_ID" class="form-control">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="caption-subject font-green-sharp bold uppercase">Name</span>
+                        <div class="input-group margin-top-10 margin-bottom-10">
+                            <span class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                            <input type="text" id="SCustomer" name="SCustomer" value="@Model.Customer_Name" readonly class="form-control" placeholder="Customer Name">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="caption-subject font-green-sharp bold uppercase">Phone</span>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                            <input type="text" id="SPhone" name="SPhone" readonly value="@Model.Customer_Phone" class="form-control" placeholder="Phone">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <span class="caption-subject font-green-sharp bold uppercase">City</span>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                            <input type="text" id="SCity" name="SCity" readonly value="@Model.Customer_City" class="form-control" placeholder="City">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <span class="caption-subject font-green-sharp bold uppercase">Address</span>
+                        <div class="input-group margin-top-10">
+                            <span class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                            <input type="text" id="SAddress" name="SAddress" readonly value="@Model.Customer_Address" class="form-control" placeholder="Address">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <span class="caption-subject font-green-sharp bold uppercase">Measurment Available</span>
+@foreach (var item in ViewBag.item)
+{
+                        <div class="input-group margin-top-10 margin-bottom-10">
+                            <span class="input-group-addon">
+                                <i class="fa fa-edit"></i>
+                            </span>
+                            <input type="text" id="@item" name="@item" readonly value="@item" class="form-control">
+                        </div>
+}
+                    </div>
+                    
+                       
+                  
+                    </div>
+
+                <hr>
+            </div>
+        </div>
+    </div>
+}

@@ -5,271 +5,258 @@
     Layout = "~/Views/Shared/_AdminLayout.cshtml";
 }
 
-    @*Customer Portion*@
+@*Customer Portion*@
+<script src="~/Scripts/jquery-3.0.0.min.js"></script>
 
-    <div class="col-lg-12">
-        <section class="box ">
-            <header class="panel_header">
-                <h2 class="title pull-left">Customer Detail</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle fa fa-chevron-down"></i>
-                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fa fa-times"></i>
+<div class="col-lg-12">
+    <section class="box ">
+        <header class="panel_header">
+            <h2 class="title pull-left">Search</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Search Customer</label>
+                    <input type="text" class="form-control is-valid" onblur="Customer()" id="searchc" name="searchc" placeholder="Enter Phone Number">
                 </div>
-            </header>
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-xs-3" hidden>
-                        <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_ID" id="Customer_ID" name="Customer_ID" readonly>
-                    </div>
-                    <div class="col-xs-3">
-                        <label>Customer Name</label>
-                        <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_Name" id="Customer_Name" name="Customer_Name" readonly>
-                    </div>
-                    <div class="col-xs-3">
-                        <label>Customer Phone</label>
-                        <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_Phone" id="Customer_Phone" name="Customer_Phone" readonly>
-                    </div>
-                    <div class="col-xs-3">
-                        <label>Customer Address</label>
-                        <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_Address" id="Customer_Address" name="Customer_Address" readonly>
-                    </div>
-                    <div class="col-xs-3">
-                        <label>Customer City</label>
-                        <input type="text" class="form-control is-valid" value="@Model.Customer.Customer_City" id="Customer_City" name="Customer_City" readonly>
-                    </div>
+                <div class="col-md-3">
+                    <label>ID</label>
+                    <input type="text" class="form-control is-valid" onblur="Customerid()" id="cid" name="cid" placeholder="Enter ID">
                 </div>
             </div>
-            @*Measurment Portion*@
-            <header class="panel_header">
-                <h2 class="title pull-left">Item Detail</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle fa fa-chevron-down"></i>
-                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fa fa-times"></i>
+        </div>
+        <header class="panel_header">
+            <h2 class="title pull-left">Customer Detail</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-3" hidden>
+                    <input type="text" class="form-control is-valid" value="" id="Customer_ID" name="Customer_ID" >
                 </div>
-            </header>
-            <div class="content-body">
-                <div class="col-xs-2" hidden>
-                    <label>name item</label>
-                    <input type="text" class="form-control is-valid" id="Measurment_Type" name="Measurment_Type" readonly>
+                <div class="col-xs-3">
+                    <label>Customer Name</label>
+                    <input type="text" class="form-control is-valid" value="" id="Customer_Name" name="Customer_Name" >
+                </div>
+                <div class="col-xs-3">
+                    <label>Customer Phone</label>
+                    <input type="text" class="form-control is-valid" value="" id="Customer_Phone" name="Customer_Phone" >
+                </div>
+                <div class="col-xs-3">
+                    <label>Customer Address</label>
+                    <input type="text" class="form-control is-valid" value="" id="Customer_Address" name="Customer_Address" >
+                </div>
+                <div class="col-xs-3">
+                    <label>Customer City</label>
+                    <input type="text" class="form-control is-valid" value="" id="Customer_City" name="Customer_City" >
+                </div>
+            </div>
+        </div>
+      <header class="panel_header">
+            <h2 class="title pull-left">Add Services</h2>
+            <div class="actions panel_actions pull-right">
+                <i class="box_toggle fa fa-chevron-down"></i>
+                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                <i class="box_close fa fa-times"></i>
+            </div>
+        </header>
+        <div class="content-body">
+            <div class="row">
+                <div class="col-xs-4" id="s2id_s2example-2">
+                    <label>Select Service</label>
+                    <select id="drpServies" class="form-control myselect">
+                        <option selected>Select Services</option>
+                        @foreach (var item in ViewBag.servicesdd as List<Service>)
+                        {
+                            Service obj = new Service();
+                            obj.S_ID = item.S_ID;
+                            obj.ServiceName = item.ServiceName;
+                            obj.Price = item.Price;
+                        <option value="@Json.Encode(obj)"> @item.ServiceName | Rs.@item.Price </option>
+                        }
+                    </select>
 
                 </div>
-                <div class="col-xs-2" hidden>
-                    <input type="text" class="form-control is-valid" value="" id="Design_IDnew" name="Design_ID" readonly>
+               
+                <div class="col-xs-4">
+                    <label>Quantity</label>
+                    <input type="number" class="form-control is-valid" id="textQuantity" value="1" min="1" />
                 </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <label>Select Item</label>
-                        @Html.DropDownList("Measurment_Type_ID", (IEnumerable<SelectListItem>)ViewData["DBMyMeasurment"], "-Select Item- ", htmlAttributes: new { @class = "form-control", name = "Measurment_Type_ID", id = "Measurment_Type_ID" })
-                    </div>
-                   
-                    <div class="col-xs-4">
-                        <label> Item Price</label>
-                         <input type="text" class="form-control is-valid" id="Price" name="Price" readonly>
+                <div class="col-xs-4" style="margin-top: 3%;">
+                    <button class="btn btn-primary" type="button" id="add" onclick="add()">+</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    </div>
 
-                    </div>
-                    <div class="col-xs-4">
-                        <label>Select Design</label>
-                        @Html.DropDownList("Design_ID", (IEnumerable<SelectListItem>)ViewData["DBMySkills"], "-Select Design- ", htmlAttributes: new { @class = "form-control", name = "Design_ID", id = "Design_ID" })
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-xs-4" id="selectImage">
-                        <ul>
-                            <li>
-
-                                <label for="myCheckbox1"><img src="" id="chng1" width="150" /></label>
-
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-xs-4">
-                                <label>Design Price</label>
-                                <input type="text" class="form-control is-valid" value="" id="D_Price" name="D_Price" readonly>
+            <div class="col-lg-12">
+                    <section class="box ">
+                        <header class="panel_header">
+                            <h2 class="title pull-left">Service List</h2>
+                            <div class="actions panel_actions pull-right">
+                                <i class="box_toggle fa fa-chevron-down"></i>
+                                <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                                <i class="box_close fa fa-times"></i>
                             </div>
-                            <div class="col-xs-2" hidden>
-                                <label>Design Code</label>
-                                <input type="text" class="form-control is-valid" value="" id="DesignCodeName" name="DesignCodeName" readonly>
+                        </header>
+                        <div class="col-md-12">
+
+                            <div class="content-body">
+
+                                <div class="row">
+                                    <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped table-bordered table-hover" id="table-EServices">
+                                                <thead>
+                                                    <tr>
+                                                        <th> Service Name </th>
+                                                        <th> Service Price </th>
+                                                        <th> Quantity </th>
+                                                        <th width=""> Actions </th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="TblServices"></tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                    </div>
+                            </div>
+
+                        </div>
+                    </section>
+                </div>
+            @*Design Portion*@
+            <div class="col-xs-12">
+                <section class="box">
+                    <header class="panel_header">
+                        <h2 class="title pull-left">Bill Payable</h2>
+                        <div class="actions panel_actions pull-right">
+                            <i class="box_toggle fa fa-chevron-down"></i>
+                            <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
+                            <i class="box_close fa fa-times"></i>
+                        </div>
+                    </header>
+                    <div class="content-body">
+
+                        <div class="row">
+
+                            <div class="col-xs-4">
+                                <label>Total</label>
+                                <input type="text" class="form-control is-valid" value="" id="Total" name="Total" readonly>
                             </div>
                             <div class="col-xs-4">
-                                <label>Quantity</label>
-                                <input type="number" class="form-control is-valid" id="textQuantity" value="1" min="1" />
+                                <label>Discount</label>
+                                <input type="text" class="form-control is-valid" onkeyup="CalculateDiscountPerce()" value="" id="Discount" name="Discount">
                             </div>
+                            <div class="col-xs-4">
+                                <label>Payable</label>
+                                <input type="text" class="form-control is-valid" value="" id="Payable" name="Payable" readonly>
+                            </div>
+                            <div class="col-xs-4">
+                                <br>
+                                <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Save</button>
+                                <button class="btn btn-primary" id="submit" onclick="SavePrint()" target="_blank" type="submit">Save & Print</button>
 
-                            
+
+                            </div>
                         </div>
-                <div class="row">
-                    <div class="col-xs-4">
-                        <label>Select Service</label>
-                        @Html.DropDownList("S_ID", (IEnumerable<SelectListItem>)ViewData["servicesdd"], "-Select Service- ", htmlAttributes: new { @class = "form-control", name = "S_ID", id = "S_ID" })
-                    </div>
-                    <div class="col-xs-4">
-                        <label> Service Price</label>
-                        <input type="text" class="form-control is-valid" id="sPrice" name="sPrice" readonly>
 
                     </div>
-                    <div class="col-xs-4">
-                        <label> Service Name</label>
-                        <input type="text" class="form-control is-valid" id="sName" name="sName" hidden>
 
-                    </div>
-                </div>
-                    <div class="row">
-                        <div class="col-xs-12">
-                            <button class="btn btn-primary" type="button" id="add" onclick="add()" style="margin:25px 10px 10px 63px;">+</button>
-                        </div>
-                    </div>
-                </div>
                 </section>
-    </div>
-    @*Table*@
-    <div class="col-lg-12">
-        <section class="box ">
-            <header class="panel_header">
-                <h2 class="title pull-left">Item List</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle fa fa-chevron-down"></i>
-                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fa fa-times"></i>
-                </div>
-            </header>
-            <div class="content-body">
-                <div class="row">
-                    <div class="col-md-12 col-sm-12 col-xs-12">
-                        <div class="table-responsive">
-
-                            <table id="tblMeasur" class="table table-bordered">
-                                <thead>
-                                    <tr class="d-table-row">
-
-                                        <th align="left" class="productth">Item Name</th>
-                                        <th align="left" class="productth">Item Price</th>
-                                        <th align="left" class="productth">Design Code</th>
-                                        <th align="left" class="productth">Design Price</th>
-                                        <th align="left" class="productth">Service Name</th>
-                                        <th align="left" class="productth">Service Price</th>
-                                        <th align="left" class="productth">Quantity</th>
-                                    </tr>
-                                </thead>
-                                <tbody></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
             </div>
-</section>
+
+<div class="modal fade" id="SearchPatient" tabindex="-1" role="dialog" aria-labelledby="SearchPatient-label">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="SearchPatient-label">Customer Details</h4>
+            </div>
+            <div id="modelBody" class="modal-body">
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" id="btnFIlldata" onclick="FillData()" class="btn btn-primary">FIll Data</button>
+            </div>
         </div>
-    @*Design Portion*@
-    <div class="col-xs-12">
-        <section class="box">
-            <header class="panel_header">
-                <h2 class="title pull-left">Bill Payable</h2>
-                <div class="actions panel_actions pull-right">
-                    <i class="box_toggle fa fa-chevron-down"></i>
-                    <i class="box_setting fa fa-cog" data-toggle="modal" href="#section-settings"></i>
-                    <i class="box_close fa fa-times"></i>
-                </div>
-            </header>
-            <div class="content-body">
+    </div>
+</div>
 
-                <div class="row">
-                    <div class="col-xs-4">
-                        <label>Total</label>
-                        <input type="text" class="form-control is-valid" value="" id="Total" name="Total" readonly>
-                    </div>
-                    <div class="col-xs-4">
-                        <label>Discount</label>
-                        <input type="text" class="form-control is-valid" onkeyup="CalculateDiscountPerce()" value="" id="Discount" name="Discount">
-                    </div>
-                    <div class="col-xs-4">
-                        <label>Payable</label>
-                        <input type="text" class="form-control is-valid" value="" id="Payable" name="Payable" readonly>
-                    </div>
-                    <div class="col-xs-4">
-                        <br>
-                        <button class="btn btn-primary" id="submit" onclick="Save()" type="submit">Save</button>
-                        <button class="btn btn-primary" id="submit" onclick="SavePrint()" target="_blank"  type="submit">Save & Print</button>
+            <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+            <script src="~/Content/Booking.js"></script>
+            <script>
+
+                function Customer() {
+                    var Search = document.getElementById("searchc").value;
+
+                    if (Search != "") {
+                        $.ajax({
+                            url: '/Booking/SearchBooking',
+                            type: "POST",
+                            data: { Search: Search },
+
+                        }).then(function (res) {
+                            $("#modelBody").html(res);
+                            if ($("#checkModelNull").val() == '0') {
+                                $("#btnFIlldata").hide();
+                            }
+                            else {
+                                $("#btnFIlldata").show();
+                            }
+                            $("#SearchPatient").modal();
+
+                        }).fail(function (res) {
+                            console.log(res);
+                        });
+                    }
+                     }
+                function Customerid() {
+                    var Search = document.getElementById("cid").value;
+
+                    if (Search != "") {
+                        $.ajax({
+                            url: '/Booking/SearchBooking',
+                            type: "POST",
+                            data: { Searchid: Search },
+
+                        }).then(function (res) {
+                            $("#modelBody").html(res);
+                            if ($("#checkModelNull").val() == '0') {
+                                $("#btnFIlldata").hide();
+                            }
+                            else {
+                                $("#btnFIlldata").show();
+                            }
+                            $("#SearchPatient").modal();
+
+                        }).fail(function (res) {
+                            console.log(res);
+                        });
 
 
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-            </div>
-          
+                    }
 
 
-<script src="~/Scripts/jquery-3.0.0.min.js"></script>
-<script src="~/Content/Booking.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#selectImage").hide();
-        $('#Measurment_Type_ID').change(function()
-        {
-            var itemId = parseInt($(this).val());
-            $.ajax({  
-                url: "/Booking/Getcode",
-                type: "GET",
-                datatype: "json",
-                data: { Measurment_Type_ID: itemId },
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    $('#Price').val(data.Price);
-                    $('#Measurment_Type').val(data.Measurment_Type);
-                   
-                },  
-                error: function() {  
-                    alert("Error occured!!")  
-                }  
-            });
-        });
-        $("#Design_ID").change(function () {
 
-            var DesignId = parseInt($(this).val());
-                $.ajax({  
-                    url: "/Booking/GetDesign",
-                    type: "GET",
-                    datatype: "json",
-                    data: { Design_ID: DesignId },
-                    contentType: 'application/json; charset=utf-8',
-                    success: function (data) {
-                        $('#DesignCodeName').val(data.Design_Code);
-                        $('#D_Price').val(data.Design_Price);
-                        $("#selectImage").show();
-                        $('#chng1').attr('src', data.Design_Image);
-                        $('#Design_IDnew').val(data.Design_ID);
-            },  
-            error: function() {  
-                alert("Error occured!!")  
-            }  
-               
-                });
-          
-        });
-        $("#S_ID").change(function () {
-
-            var service = parseInt($(this).val());
-            $.ajax({
-                url: "/Booking/GetService",
-                type: "GET",
-                datatype: "json",
-                data: { S_ID: service },
-                contentType: 'application/json; charset=utf-8',
-                success: function (data) {
-                    $('#sPrice').val(data.Price);
-                    $('#sName').val(data.ServiceName);
-                },
-                error: function () {
-                    alert("Error occured!!")
                 }
-
-            });
-
-        });
- });
-
-
-    </script>
+                function FillData() {
+                    $("#Customer_ID").val($("#SCustomer_ID").val());
+                    $("#Customer_Name").val($("#SCustomer").val());
+                    $("#Customer_Phone").val($("#SPhone").val());
+                    $("#Customer_City").val($("#SCity").val());
+                    $("#Customer_Address").val($("#SAddress").val());
+                    $("#SearchPatient").modal('hide');
+                }
+            </script>

@@ -14,8 +14,17 @@ namespace BRTailor
     
     public partial class Service
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Service()
+        {
+            this.ServiceBookings = new HashSet<ServiceBooking>();
+        }
+    
         public int S_ID { get; set; }
         public string ServiceName { get; set; }
         public Nullable<int> Price { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServiceBooking> ServiceBookings { get; set; }
     }
 }

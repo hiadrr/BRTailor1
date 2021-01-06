@@ -14,18 +14,22 @@ namespace BRTailor
     
     public partial class BookingItem
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public BookingItem()
+        {
+            this.ServiceBookings = new HashSet<ServiceBooking>();
+        }
+    
         public int BT_ID { get; set; }
         public Nullable<int> Booking_ID { get; set; }
+        public string ServiceName { get; set; }
         public Nullable<int> Price { get; set; }
-        public Nullable<int> D_Price { get; set; }
-        public string sName { get; set; }
-        public Nullable<int> sPrice { get; set; }
-        public Nullable<int> SubTotal { get; set; }
-        public string Measurment_Type { get; set; }
-        public string D_Code { get; set; }
-        public Nullable<System.DateTime> date { get; set; }
         public string Quantity { get; set; }
+        public Nullable<int> SubTotal { get; set; }
+        public Nullable<System.DateTime> date { get; set; }
     
         public virtual Booking Booking { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<ServiceBooking> ServiceBookings { get; set; }
     }
 }

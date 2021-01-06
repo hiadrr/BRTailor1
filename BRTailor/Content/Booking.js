@@ -1,74 +1,36 @@
-﻿var Measurlist = [];
+﻿
+var AllServiceObj = [];
 var TotalAmount = 0;
 var Payable = 0;
 
-function add() {
-    sPrice
-    var typeid = document.getElementById("Measurment_Type_ID").value;
-    var sprice = document.getElementById("sPrice").value;
-    var sName = document.getElementById("sName").value;
-    var price = document.getElementById("Price").value;
-    var quantity = document.getElementById("textQuantity").value;
-    var designid = document.getElementById("Design_ID").value;
-    var designnewid = document.getElementById("Design_IDnew").value;
-    var dprice = document.getElementById("D_Price").value;
-    var dcode = document.getElementById("DesignCodeName").value
+function addservices() {
     var itemname = document.getElementById("Measurment_Type").value;
-    
-
-
-    Measurlist.push({
-        Measurment_Type_ID: $('#Measurment_Type_ID').val().trim(),
-        Price: $('#Price').val().trim(),
-        sPrice: $('#sPrice').val().trim(),
-        sName: $('#sName').val().trim(),
-        Quantity: $('#textQuantity').val().trim(),
-        Design_ID: $('#Design_ID').val().trim(),
-        Design_IDnew: $('#Design_IDnew').val().trim(),
-        D_Price: $('#D_Price').val().trim(),
-        D_Code: $('#DesignCodeName').val().trim(),
-        DesignCodeName: $('#DesignCodeName').val().trim(),
-        Measurment_Type: $('#Measurment_Type').val().trim(),
-    });
-    var rows = "<tr>"
-    + "<td class='prtoducttd'>" + itemname + "</td>"
-    + "<td class='prtoducttd'>" + price + "</td>"
    
-    + "<td class='prtoducttd'>" + dcode + "</td>"
-     + "<td class='prtoducttd' >" + dprice + "</td>"
-     + "<td class='prtoducttd'>" + sName + "</td>"
-     + "<td class='prtoducttd'>" + sprice + "</td>"
-       + "<td class='prtoducttd'>" + quantity + "</td>"
-    + "</tr>";
-    $('#tblMeasur tbody').append(rows);
+}
+function add() {
+   
+    var quantity = document.getElementById("textQuantity").value;
+    var serviceObj = $("#drpServies").val();
+    serviceObj = JSON.parse(serviceObj);
+    serviceObj.ServiceName = serviceObj.ServiceName;
+    serviceObj.ServicePrice = serviceObj.Price * quantity;
+    serviceObj.Quantity = quantity;
+    serviceObj.S_ID = serviceObj.S_ID;
+    var html = "<tr id='Row_" + serviceObj.S_ID + "' ><td>" + serviceObj.ServiceName + "</td><td>" + serviceObj.Price + "</td><td>" + serviceObj.Quantity + " </td><td style=''><button data-id = " + serviceObj.S_ID + "  class='btn btn-sm green delegate btn-outline filter-submit' ><i class='fa fa-close'></i></button></td></tr>";
+    $("#TblServices").append(html);
+    AllServiceObj.push(serviceObj);
     
-    if (dprice === "")
-    {
-        dprice = "0";
-    }
-    if (sprice === "") {
-        sprice = "0";
-    }
-    if (price === "") {
-        price = "0";
-    }
-    var eachprice = (parseInt(price) + parseInt(dprice) +  parseInt(sprice)) * parseInt(quantity);
-    TotalAmount = TotalAmount + parseInt(eachprice);
-        $("#Total").val(TotalAmount);
-        $("#Payable").val(TotalAmount);
+    
+    TotalAmount = TotalAmount + parseInt(serviceObj.ServicePrice);
+    $("#Total").val(TotalAmount);
+    $("#Payable").val(TotalAmount);
     
 
-    //Clear fields
-    $('#Measurment_Type_ID').val('').focus();
-    $('#Price').val('');
-    $('#Design_ID').val('');
-    $('#Design_IDnew').val('');
-    $('#D_Price').val('');
-    $('#Measurment_Type').val('');
-    $('#DesignCodeName').val('');
+    
+    $('#textQuantity').val('');
+    $('#drpServies').val('');
 
 }
-
 function CalculateDiscountPerce() {
     var d = $("#Discount").val();
     if (d === "") {
@@ -82,15 +44,13 @@ function Save() {
         Customer_ID: $('#Customer_ID').val().trim(),
         Customer_Name: $('#Customer_Name').val().trim(),
         Customer_Phone: $('#Customer_Phone').val().trim(),
-       
-       
         Customer_City: $('#Customer_City').val().trim(),
         Customer_Address: $('#Customer_Address').val().trim(),
         Total: $('#Total').val().trim(),
         Discount: $('#Discount').val().trim(),
         Payable: $('#Payable').val().trim(),
-  
-        bookingItem: Measurlist
+        //servicelist: Service,
+        bookingItem: AllServiceObj
     }
     $.ajax({
         url: '/Booking/BookOrder        ',
@@ -119,8 +79,8 @@ function SavePrint() {
         Total: $('#Total').val().trim(),
         Discount: $('#Discount').val().trim(),
         Payable: $('#Payable').val().trim(),
-
-        bookingItem: Measurlist
+        //servicelist: Service,
+        bookingItem: AllServiceObj
     }
     $.ajax({
         url: '/Booking/BookOrder        ',
@@ -129,8 +89,8 @@ function SavePrint() {
         dataType: "JSON",
         contentType: "application/json",
         success: function (data) {
-            window.open(window.location.href = data, '_blank');
-            
+            window.open(data, '_blank');
+           
 
         },
         error: function (data) {
@@ -141,8 +101,27 @@ function SavePrint() {
 
 }
 function Print(url) {
+    
     var win = window.open(url, '_blank');
-    win.focus();
+    location.reload();
+    
+   
+}
 
+$("body").on("click", ".delegate", function (event) {
+    event.preventDefault();
+    var Id = $(this).attr('data-id')
+    RemoveServiceRow(Id);
+});
+function RemoveServiceRow(Id) {
+    $("#Row_" + Id).remove();
+    var ServiceIndex = AllServiceObj.map(function (item) { return item.S_ID; }).indexOf(parseInt(Id));
+    var ServicePrice = AllServiceObj[ServiceIndex].ServicePrice;
+    if (TotalAmount >= parseFloat(ServicePrice)) {
+        TotalAmount = TotalAmount - parseFloat(ServicePrice);
 
+        $("#Total").val(TotalAmount);
+        $("#Payable").val(TotalAmount);
+    }
+    AllServiceObj.splice(ServiceIndex, 1);
 }
